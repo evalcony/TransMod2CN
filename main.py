@@ -283,11 +283,11 @@ def main():
     for file in files:
         print(file)
         # 忽略setup.tra文件
-        if file != 'SETUP.TRA':
+        if file != 'SETUP.TRA' and (file.endswith('.TRA') or file.endswith('.tra')):
             res = convert('tra/' + file, solver)
             for r in res:
                 print(r)
-        utils.write_file('', file, res, 'gb18030')
+            utils.write_file('', file, res, 'gb18030')
 
 if __name__ == '__main__':
     main()

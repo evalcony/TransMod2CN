@@ -8,6 +8,7 @@ Moan#Moan
 Snort#Snort
 snork#snork
 Growly-growl#Growly-growl
+snufflesnort#snufflesnort
 Growl#Growl
 Roar#Roar
 snorty-snork#snorty-snork
