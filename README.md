@@ -37,3 +37,13 @@ appSecret=你的appsecret
 ```
 python3 main.py
 ```
+
+# 其他介绍
+
+### debug
+
+debug.py 文件中，设置 `mode='debug'` 模式下，不进行 API 调用，而且打印更为相信的信息。便于调试。
+
+### counter 计数器
+
+为了防止调用频繁触发风控策略，使用 counter 进行计数器，每调用一定次数后，进行适当长休。
