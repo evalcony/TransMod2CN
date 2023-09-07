@@ -38,8 +38,6 @@ class YouDaoFanyi:
         return requests.post(self.YOUDAO_URL, data=data, headers=headers)
 
     def translate(self, q):
-        if True:
-            return q
         data = {}
         data['from'] = self.langFrom
         data['to'] = self.langTo

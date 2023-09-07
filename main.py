@@ -59,42 +59,48 @@ class Solver:
         self.counter = Counter(mode)
 
     def _init_ignore_dict(self):
-        self.ignore_dict['lbs.'] = ''
-        self.ignore_dict['lb.'] = ''
-        self.ignore_dict['ft.'] = ''
+        self.ignore_dict['lbs'] = ''
+        self.ignore_dict['lb'] = ''
+        self.ignore_dict['ft'] = ''
     
     # todo
     # def _init_manul_translate_token_dict(self):
     #     self.manul_translate_token_dict[]
 
     def solve(self, line):
+
         # 替换占位符
         tup = self.token_replace(line)
         res = tup[0]
         flag = tup[1]
 
-        # 有道的翻译对中英文混杂的情况翻译不好，故只能放弃对中文名的提前替换
-        # 替换name
-        # res = self.replace_name(line)
-
         print('token替换='+res)
         if res.strip() == '':
             return res
+
+        # 有道的翻译对中英文混杂的情况翻译不好，故只能放弃对中文名的提前替换
+        # 替换name
+        # res = self.replace_name(line)
 
         # 一些容易引起翻译错误的，在这里手动翻译，不调用API接口
         # 是否手动翻译
         if flag:
             zh = res
         else:
-            # 翻译
-            zh = self.translator.translate(res)
+            if self.mode == 'debug':
+                # debug模式下不调用API
+                zh = res
+            else:
+                # 翻译
+                zh = self.translator.translate(res)
+                # 计数器
+                self.counter.incr()
             if self.mode == 'debug':
                 print('翻译结果='+zh)
         # 占位符还原成字典值
         rev_back = self.set_token_back(zh)
 
         # 等待，防止频繁调用报错
-        self.counter.incr()
         self.counter.wait()
 
         return rev_back
@@ -149,23 +155,45 @@ class Solver:
 
     def token_replace(self, line):
         manul_trans_flag = False
-        # 先检查符合单词 manual_trans_word_dict token 替换. 等翻译结束后，再替换回来
-        # 在这个字典中出现，则不走API
+        # 先检查不需要调用 API 的单词 manual_trans_word_dict
         for k,v in self.manual_trans_word_dict.items():
             if k in line:
-                # 将key替换为token占位符
-                line = line.replace(k, self.get_token_val(k))
+                # 将key替换为value
+                line = line.replace(k, v)
                 manul_trans_flag = True
 
-        # 先检查符合单词 comp_word_dict，做 token 替换. 等翻译结束后，再替换回来
+        # 如果不走API，那么在这里直接尽可能换完
+        if manul_trans_flag:
+            for k,v in self.comp_word_dict.items():
+                if k in line:
+                    line = line.replace(k, v)
+            words = line.split(' ')
+            for word in words:
+                # 忽略单词
+                if word in self.ignore_dict:
+                    line = line.replace(word, '')
+                    continue
+                
+                # 将word替换为token占位符
+                if word in self.word_dict:
+                    line = line.replace(word, self.word_dict[word])
+            return (line, True)
+
+        # 如果这一行仅仅只有专有名词，则同样不走token替换
+        if line in self.comp_word_dict:
+            line = line.replace(line, self.comp_word_dict[line])
+            return (line, True)
+
+        # 检查符合单词 comp_word_dict，做 token 替换. 等翻译结束后，再替换回来
         for k,v in self.comp_word_dict.items():
             if k in line:
                 # 将key替换为token占位符
                 line = line.replace(k, self.get_token_val(k))
 
-        # 再检查普通单词 word_dict，做占位符token替换. 等翻译结束后，再替换回来
+        # 检查普通单词 word_dict，做占位符token替换. 等翻译结束后，再替换回来
         words = line.split(' ')
         for word in words:
+            word = self.word_clear(word)
             # 忽略单词
             if word in self.ignore_dict:
                 line = line.replace(word, '')
@@ -176,6 +204,18 @@ class Solver:
                 line = line.replace(word, self.get_token_val(word))
 
         return (line, manul_trans_flag)
+
+    def word_clear(self, word):
+        if word.find('.') != -1:
+            ws = word.split('.')
+            return ws[0]
+        if word.find(',') != -1:
+            ws = word.split(',')
+            return ws[0]
+        if word.find('!') != -1:
+            ws = word.split('!')
+            return ws[0]
+        return word
 
     def get_token_val(self, k):
         return self.TOKEN_SIGNAL+str(self.token[k])+self.TOKEN_SIGNAL
@@ -246,6 +286,7 @@ def main():
     files = os.listdir('tra/')
     for file in files:
         print(file)
+        # 忽略setup.tra文件
         if file != 'SETUP.TRA':
             res = convert('tra/' + file, solver)
             for r in res:

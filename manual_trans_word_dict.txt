@@ -20,6 +20,9 @@ STATISTICS:#数据资料：
 Cursed#*诅咒物品*
 THAC0:#零级命中值：
 Type:#武器类型：
-Range:#作用范围：
+Range:#距离：
 Requires:#需求：
 Duration:#持续时间：
+attack per round#次攻击每轮
+HP#HP
+vs.#vs.

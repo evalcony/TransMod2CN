@@ -3,6 +3,7 @@ Snuff#Snuff
 Rrr#Rrr
 Grr#Grr
 rff#rff
+Moan#Moan
 Snort#Snort
 snork#snork
 Growl#Growl
@@ -20,3 +21,5 @@ round#轮
 Shadowstep#暗影步
 Dagger#匕首
 One-handed#单手武器
+Special#特殊
+Death#死亡

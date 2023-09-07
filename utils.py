@@ -1,7 +1,5 @@
 import configparser
 import os
-import codecs
-
 
 def read_config(name):
     # 创建 ConfigParser 对象
@@ -22,18 +20,6 @@ def file_path(name):
     file_path = os.path.join(root_dir, name)
     return file_path
 
-# def read_file(filename):
-#     lines = []
-#     root_dir = os.path.dirname(os.path.abspath(__file__))
-#     print('root_dir:' + root_dir)
-#     print('filename:' + filename)
-#     if not os.path.exists(root_dir+'/'+filename):
-#         print('file not exist')
-#         return []
-#     with open(root_dir+'/'+filename, 'r') as file:
-#         for line in file:
-#             lines.append(line.replace("\n",""))
-#     return lines
 
 def read_file(filename, encoding='utf-8'):
     lines = []
@@ -43,10 +29,6 @@ def read_file(filename, encoding='utf-8'):
     if not os.path.exists(root_dir+'/'+filename):
         print('file not exist')
         return []
-    # with codecs.open(root_dir+'/'+filename, 'r', encoding=encoding) as file:
-    #     for line in file:
-    #         lines.append(line.replace("\n",""))
-    # return lines
     with open(root_dir+'/'+filename, 'r', encoding=encoding) as file:
         for line in file:
             lines.append(line.replace("\n",""))
