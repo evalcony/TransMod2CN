@@ -82,3 +82,7 @@ python3 debug.py
 ### counter 计数器
 
 为了防止调用频繁触发风控策略，使用 counter 进行计数器，每调用一定次数后，进行适当长休。
+
+# todo
+
+- 失败重试
