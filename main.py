@@ -164,7 +164,7 @@ class Solver:
             line = line.replace(line, self.comp_word_dict[line])
             return (line, True)
 
-        # 检查符合单词 comp_word_dict，做 token 替换. 等翻译结束后，再替换回来
+        # 检查复合单词 comp_word_dict，做 token 替换. 等翻译结束后，再替换回来
         for k,v in self.comp_word_dict.items():
             if k in line:
                 # 将key替换为token占位符
