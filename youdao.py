@@ -8,7 +8,7 @@ import json
 import utils
 
 class YouDaoFanyi:
-    def __init__(self):
+    def __init__(self, from_lang, to_lang):
 
         appconf = utils.read_config('appconf.ini')
         appconf['youdao']['appKey']
@@ -18,8 +18,8 @@ class YouDaoFanyi:
         self.YOUDAO_URL = 'https://openapi.youdao.com/api/'
         self.APP_KEY = appKey  # 应用id
         self.APP_SECRET = appSecret  # 应用密钥
-        self.langFrom = 'en'  # 翻译前文字语言,auto为自动检查
-        self.langTo = 'zh-CHS'  # 翻译后文字语言,auto为自动检查
+        self.langFrom = self.from_lang  # 翻译前文字语言,auto为自动检查
+        self.langTo = self.to_lang  # 翻译后文字语言,auto为自动检查
         self.vocabId = "您的用户词表ID"
 
     def encrypt(self, signStr):

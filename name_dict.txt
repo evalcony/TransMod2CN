@@ -1,2 +1,4 @@
 Wilson#威尔逊
 Illasera#伊拉赛拉
+Sendai#仙黛
+<CHARNAME>#<CHARNAME>

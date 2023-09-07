@@ -3,7 +3,8 @@ import re
 import time
 
 import utils
-import youdao
+from youdao import YouDaoFanyi
+from google import GoogleTrans
 
 class Counter:
     def __init__(self, mode):
@@ -29,7 +30,8 @@ class Counter:
 class Solver:
     def __init__(self, mode):
         self.mode = mode
-        self.TOKEN_SIGNAL = '_'
+        self.TOKEN_SIGNAL_L = '['
+        self.TOKEN_SIGNAL_R = ']'
         # k, v
         self.word_dict = dict()
         # k, token_id
@@ -48,10 +50,8 @@ class Solver:
         
         # 初始化ignore_dict
         self._init_ignore_dict()
-        # 初始化word_dict，comp_word_dict, manul_trans_word_dict
+        # 初始化word_dict，comp_word_dict, manul_trans_word_dict, name_dict
         self._init_word_dict()
-        # 初始化name_dict
-        self._init_name_dict()
         # 翻译器
         self.translator = self.get_translator()
 
@@ -62,10 +62,6 @@ class Solver:
         self.ignore_dict['lbs'] = ''
         self.ignore_dict['lb'] = ''
         self.ignore_dict['ft'] = ''
-    
-    # todo
-    # def _init_manul_translate_token_dict(self):
-    #     self.manul_translate_token_dict[]
 
     def solve(self, line):
 
@@ -77,10 +73,6 @@ class Solver:
         print('token替换='+res)
         if res.strip() == '':
             return res
-
-        # 有道的翻译对中英文混杂的情况翻译不好，故只能放弃对中文名的提前替换
-        # 替换name
-        # res = self.replace_name(line)
 
         # 一些容易引起翻译错误的，在这里手动翻译，不调用API接口
         # 是否手动翻译
@@ -106,52 +98,35 @@ class Solver:
         return rev_back
 
     def get_translator(self):
-        return youdao.YouDaoFanyi()
+        use = utils.read_config('appconf.ini')['config']['use']
+        if use == 'youdao':
+            return YouDaoFanyi('en', 'zh-CHS')
+        elif use == 'google':
+            return GoogleTrans('auto', 'zh-CN')
+        else:
+            # 默认返回有道
+            return YouDaoFanyi('en', 'zh-CHS')
 
-    # default_word_dict, comp_word_dict, manual_trans_word_dict
+    # word_dict, comp_word_dict, manual_trans_word_dict, name_dict
     # 因为共用 token, token_r
     def _init_word_dict(self):
+        idx = 1
+        idx = self._init_token(utils.read_file('word_dict.txt'), self.word_dict, idx)
+        idx = self._init_token(utils.read_file('comp_word_dict.txt'), self.comp_word_dict, idx)
+        idx = self._init_token(utils.read_file('manual_trans_word_dict.txt'), self.manual_trans_word_dict, idx)
+        idx = self._init_token(utils.read_file('name_dict.txt'), self.name_dict, idx)
+        
+    def _init_token(self, lines, w_dict, idx):
         FIRST = 0
         SECOND = 1
-
-        i = 1
-        lines = utils.read_file('default_word_dict.txt')
+        i = idx
         for l in lines:
             arr = l.split('#')
-            self.word_dict[arr[FIRST]] = arr[SECOND]
+            w_dict[arr[FIRST]] = arr[SECOND]
             self.token[arr[FIRST]] = i
-            self.token_r[str(i)] = arr[SECOND]
+            self.token_r[str(i)] = arr[FIRST]
             i = i+1
-
-        lines = utils.read_file('comp_word_dict.txt')
-        for l in lines:
-            arr = l.split('#')
-            self.comp_word_dict[arr[FIRST]] = arr[SECOND]
-            self.token[arr[FIRST]] = i
-            self.token_r[str(i)] = arr[SECOND]
-            i = i+1
-        
-        lines = utils.read_file('manual_trans_word_dict.txt')
-        for l in lines:
-            arr = l.split('#')
-            self.manual_trans_word_dict[arr[FIRST]] = arr[SECOND]
-            self.token[arr[FIRST]] = i
-            self.token_r[str(i)] = arr[SECOND]
-            i = i+1
-
-
-    def _init_name_dict(self):
-        lines = utils.read_file('name_dict.txt')
-        i = 1
-        for l in lines:
-            arr = l.split('#')
-            self.name_dict[arr[0]] = arr[1]
-
-    def replace_name(self, line):
-        for k,v in self.name_dict.items():
-            if k in line:
-                line = line.replace(k, v)
-        return line
+        return i
 
     def token_replace(self, line):
         manul_trans_flag = False
@@ -174,9 +149,14 @@ class Solver:
                     line = line.replace(word, '')
                     continue
                 
-                # 将word替换为token占位符
+                # 将word替换为key
                 if word in self.word_dict:
                     line = line.replace(word, self.word_dict[word])
+            # 替换name
+            for w in words:
+                w = self.word_clear(w)
+                if w in self.name_dict:
+                    line = line.replace(w, self.name_dict[w])
             return (line, True)
 
         # 如果这一行仅仅只有专有名词，则同样不走token替换
@@ -203,8 +183,17 @@ class Solver:
             if word in self.word_dict:
                 line = line.replace(word, self.get_token_val(word))
 
-        return (line, manul_trans_flag)
 
+        # 将name替换为token占位符
+        words = line.split(' ')
+        for w in words:
+            w = self.word_clear(w)
+            if w in self.name_dict:
+                line = line.replace(w, self.get_token_val(w))
+
+        return (line, False)
+
+    # 去除词尾的一些符号
     def word_clear(self, word):
         if word.find('.') != -1:
             ws = word.split('.')
@@ -218,34 +207,41 @@ class Solver:
         return word
 
     def get_token_val(self, k):
-        return self.TOKEN_SIGNAL+str(self.token[k])+self.TOKEN_SIGNAL
+        return self._make_token_val(self.token[k])
+
+    def _make_token_val(self, int_v):
+        return self.TOKEN_SIGNAL_L+str(int_v)+self.TOKEN_SIGNAL_R
 
     def set_token_back(self, line):
         if line == '\n' or line == ' ':
             return line
         # 例子：_7_10 _3_10
-        pattern = r'_(\d+)_'
+        pattern = r'\[(\d+)\]'
         matches = re.findall(pattern, line)
-        for m in matches:
-            k = self.token_r[m]
+        for idx in matches:
+            # 根据idx反向找到key, 即token_r[idx]
+            k = self.token_r[idx]
             if k in self.word_dict:
                 v = self.word_dict[k]
             elif k in self.comp_word_dict:
                 v = self.comp_word_dict[k]
             elif k in self.manual_trans_word_dict:
                 v = self.manual_trans_word_dict[k]
+            elif k in self.name_dict:
+                v = self.name_dict[k]
             else:
                 v = ''
             if self.mode == 'debug':
-                print('[set_token_back]: m='+m + ' k=' + k + ' v=' + v)
-            line = line.replace(self.TOKEN_SIGNAL+m+self.TOKEN_SIGNAL, v)
+                print('[set_token_back]: m='+idx + ' k=' + k + ' v=' + v)
+            line = line.replace(self._make_token_val(idx), v)
             if self.mode == 'debug':
                 print('还原后：' + line)
         return line
 
 def convert(filename, solver):
     
-    lines = utils.read_file(filename, 'cp936')
+    # lines = utils.read_file(filename, 'cp936')
+    lines = utils.read_file(filename)
     res = []
     j = -1
     for i in range(len(lines)):

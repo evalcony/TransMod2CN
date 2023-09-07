@@ -11,13 +11,9 @@ Growly-growl#Growly-growl
 Growl#Growl
 Roar#Roar
 snorty-snork#snorty-snork
-<CHARNAME>#<CHARNAME>
 THAC0#零级命中值
 AC#护甲等级
 None#无
-ft.# 
-lbs.# 
-lb.# 
 turns#回合
 rounds#轮
 round#轮
@@ -26,3 +22,7 @@ Dagger#匕首
 One-handed#单手武器
 Special#特殊
 Death#死亡
+bearomancer#熊灵法师
+<PRO_RACE>#<PRO_RACE>
+enclave#领地
+bearomancy#熊灵术
