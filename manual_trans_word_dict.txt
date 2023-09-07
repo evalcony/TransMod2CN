@@ -1,0 +1,25 @@
+Casting Time:#施法时间：
+Area of Effect:#作用范围：
+Saving Throw:#豁免鉴定：
+Armor Class:#护甲等级：
+Speed Factor:#使用速度：
+Proficiency Type:#熟练项类型：
+Protection from backstab#免疫背刺
+lore bonus#乡野传奇
+Equipped abilities:#装备能力：
+Combat abilities:#充能能力：
+Special abilities:#特殊能力：
+Damage:#伤害：
+penalty#不利
+Strength#力量
+Weight:#重量：
+slashing#挥砍
+crushing#粉碎
+piercing#穿刺
+STATISTICS:#数据资料：
+Cursed#*诅咒物品*
+THAC0:#零级命中值：
+Type:#武器类型：
+Range:#作用范围：
+Requires:#需求：
+Duration:#持续时间：

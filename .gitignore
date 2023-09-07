@@ -1,4 +1,10 @@
 
 .DS_Store
 
+tra/
+
+output/
+
+__pycache__/
+
 appconf.ini
