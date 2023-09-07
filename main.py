@@ -4,7 +4,7 @@ import time
 
 import utils
 from youdao import YouDaoFanyi
-from google import GoogleTrans
+from google_trans import GoogleTrans
 
 class Counter:
     def __init__(self, mode):
