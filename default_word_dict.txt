@@ -3,11 +3,14 @@ Snuff#Snuff
 Rrr#Rrr
 Grr#Grr
 rff#rff
+rrr#rrr
 Moan#Moan
 Snort#Snort
 snork#snork
+Growly-growl#Growly-growl
 Growl#Growl
 Roar#Roar
+snorty-snork#snorty-snork
 <CHARNAME>#<CHARNAME>
 THAC0#零级命中值
 AC#护甲等级
