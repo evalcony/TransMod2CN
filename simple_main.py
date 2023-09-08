@@ -4,7 +4,7 @@ import utils
 
 # 翻译单文件
 if __name__ == '__main__':
-    file = 'SETUP.TRA'
+    file = 'QUEST.TRA'
     res = main.convert('tra/'+file, main.Solver())
     for r in res:
         print(r)
