@@ -73,31 +73,36 @@ class Solver:
         self.ignore_dict['ft'] = ''
 
     def solve(self, line):
+        print(line)
 
-        # 替换占位符
-        tup = self.token_replace(line)
+        if line.strip() == '':
+            return line
+
+        # 一些容易引起翻译错误的，在这里手动翻译，不调用API接口
+        tup = self.direct_translate(line)
         res = tup[0]
-        flag = tup[1]
+        if tup[1]:
+            print('直译='+res)
+            return res
 
-        print('token替换='+res)
         if res.strip() == '':
             return res
 
-        # 一些容易引起翻译错误的，在这里手动翻译，不调用API接口
-        # 是否手动翻译
-        if flag:
+        # token替换
+        res = self.token_replace(res)
+        print('token替换='+res)
+
+        if self.mode == 'debug':
+            # debug模式下不调用API
             zh = res
         else:
+            # 调用API进行翻译
+            zh = self.translator.translate(res)
             if self.mode == 'debug':
-                # debug模式下不调用API
-                zh = res
-            else:
-                # 翻译
-                zh = self.translator.translate(res)
-                # 计数器
-                self.counter.incr()
-            if self.mode == 'debug':
-                print('翻译结果='+zh)
+                print('API结果=' + zh)
+            # 计数器
+            self.counter.incr()
+
         # 占位符还原成字典值
         rev_back = self.set_token_back(zh)
 
@@ -116,7 +121,7 @@ class Solver:
             # 默认返回有道
             return YouDaoFanyi('en', 'zh-CHS')
 
-    # word_dict, comp_word_dict, manual_trans_word_dict, name_dict
+    # word_dict, comp_word_dict, manual_trans_word_dict, name_dict，这几个字典的key实际存的都是小写
     # 因为共用 token, token_r
     def _init_word_dict(self):
         idx = 1
@@ -125,94 +130,100 @@ class Solver:
         idx = self._init_token(utils.read_file('manual_trans_word_dict.txt'), self.manual_trans_word_dict, idx)
         idx = self._init_token(utils.read_file('name_dict.txt'), self.name_dict, idx)
         
+    # key 全部转为小写存储和比较
+    # 除了token_r 的value,作为翻译的value都不做任何改变
     def _init_token(self, lines, w_dict, idx):
         FIRST = 0
         SECOND = 1
         i = idx
         for l in lines:
             arr = l.split('#')
-            w_dict[arr[FIRST]] = arr[SECOND]
-            self.token[arr[FIRST]] = i
-            self.token_r[str(i)] = arr[FIRST]
+            key = arr[FIRST].lower()
+            w_dict[key] = arr[SECOND]
+            self.token[key] = i
+            self.token_r[str(i)] = key
             i = i+1
         return i
 
-    def token_replace(self, line):
-        manul_trans_flag = False
-        # 先检查不需要调用 API 的单词 manual_trans_word_dict
-        for k,v in self.manual_trans_word_dict.items():
-            if k in line:
-                # 将key替换为value
-                line = line.replace(k, v)
-                manul_trans_flag = True
 
-        # 如果不走API，那么在这里直接尽可能换完
-        if manul_trans_flag:
-            for k,v in self.comp_word_dict.items():
-                if k in line:
-                    line = line.replace(k, v)
-            words = line.split(' ')
-            for word in words:
-                # 忽略单词
-                if word in self.ignore_dict:
-                    line = line.replace(word, '')
-                    continue
-                
-                # 将word替换为key
-                if word in self.word_dict:
-                    line = line.replace(word, self.word_dict[word])
-            # 替换name
-            for w in words:
-                w = self.word_clear(w)
-                if w in self.name_dict:
-                    line = line.replace(w, self.name_dict[w])
-            return (line, True)
+    def direct_translate(self, line):
+        no_api_trans = False
 
-        # 如果这一行仅仅只有专有名词，则同样不走token替换
+        line = line.lower()
+
+        # 如果这一行仅仅只有专有名词，则不走token替换
         if line in self.comp_word_dict:
             line = line.replace(line, self.comp_word_dict[line])
             return (line, True)
 
-        # 检查复合单词 comp_word_dict，做 token 替换. 等翻译结束后，再替换回来
+        # 检查不需要调用 API 的单词 manual_trans_word_dict
+        for k,v in self.manual_trans_word_dict.items():
+            if k in line:
+                # 将key替换为value
+                line = line.replace(k, v)
+                no_api_trans = True
+
+        # 如果不走API，那么在这里直接尽可能换完
+        if no_api_trans:
+            for k,v in self.comp_word_dict.items():
+                if k in line:
+                    line = line.replace(k, v)
+
+            words = line.split(' ')
+            for w in words:
+                w = self.word_clear(w)
+                # 需要忽略的单词
+                if w in self.ignore_dict:
+                    line = line.replace(w, '')
+                    continue
+                # 将w替换为key
+                if w in self.word_dict:
+                    line = line.replace(w, self.word_dict[w])
+                # 替换name
+                if w in self.name_dict:
+                    line = line.replace(w, self.name_dict[w])
+
+            return (line, True)
+
+        return(line, False)
+
+    # 做 token 替换. 等翻译结束后，再替换回来
+    def token_replace(self, line):
+
+        # 检查复合单词 comp_word_dict 并替换token
         for k,v in self.comp_word_dict.items():
             if k in line:
-                # 将key替换为token占位符
                 line = line.replace(k, self.get_token_val(k))
 
-        # 检查普通单词 word_dict，做占位符token替换. 等翻译结束后，再替换回来
+        # 检查普通单词 word_dict 并替换token
         words = line.split(' ')
         for word in words:
-            word = self.word_clear(word)
+            w = self.word_clear(word)
             # 忽略单词
-            if word in self.ignore_dict:
-                line = line.replace(word, '')
+            if w in self.ignore_dict:
+                line = line.replace(w, '')
                 continue
             
-            # 将word替换为token占位符
-            if word in self.word_dict:
-                line = line.replace(word, self.get_token_val(word))
+            if w in self.word_dict:
+                line = line.replace(w, self.get_token_val(w))
 
 
         # 将name替换为token占位符
         words = line.split(' ')
-        for w in words:
-            w = self.word_clear(w)
+        for word in words:
+            w = self.word_clear(word)
             if w in self.name_dict:
                 line = line.replace(w, self.get_token_val(w))
 
-        return (line, False)
+        return line
 
     # 去除词尾的一些符号
     def word_clear(self, word):
-        if word.find('.') != -1:
-            ws = word.split('.')
-            return ws[0]
-        if word.find(',') != -1:
-            ws = word.split(',')
-            return ws[0]
-        if word.find('!') != -1:
-            ws = word.split('!')
-            return ws[0]
+        ele = ['.',',','!',':','?']
+        for e in ele:
+            if word.find(e) != -1:
+                ws = word.split(e)
+                return ws[0]
         return word
 
     def get_token_val(self, k):
@@ -271,8 +282,6 @@ def convert(filename, solver):
             r = line.find('~',l+1)
             if r != -1:
                 # 在同一行
-                if solver.mode == 'debug':
-                    print('翻译str='+line[l+1:r])
                 res.append(line[:l+1] + solver.solve(line[l+1:r]) + line[r:])
             else:
                 # 在不同行
@@ -282,8 +291,6 @@ def convert(filename, solver):
                     res.append(solver.solve(lines[j]))
                     j = j+1
                 r = lines[j].find('~')
-                if solver.mode == 'debug':
-                    print('j:' + str(j) + ' r:' + str(r))
                 res.append(solver.solve(lines[j][:r]) + lines[j][r:])
                 i = j
 

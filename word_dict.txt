@@ -3,10 +3,8 @@ Snuff#Snuff
 Rrr#Rrr
 Grr#Grr
 rff#rff
-rrr#rrr
 Moan#Moan
 Snort#Snort
-snort#snort
 snork#snork
 Growly-growl#Growly-growl
 snufflesnort#snufflesnort
@@ -28,3 +26,9 @@ bearomancer#熊灵法师
 <PRO_RACE>#<PRO_RACE>
 enclave#领地
 bearomancy#熊灵术
+Inquisitor#审理者
+Cavalier#骑士
+Blackguard#黑卫
+Mages#法师
+Mage#法师
+SORCERER#术士

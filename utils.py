@@ -34,7 +34,7 @@ def read_file(filename, encoding='utf-8'):
             lines.append(line.replace("\n",""))
     return lines
 
-def write_file(prefix, finename, lines, encoding):
+def write_file(prefix, finename, lines, encoding='utf-8'):
     print('写入文件:', finename)
     root_dir = os.path.dirname(os.path.abspath(__file__))
     path = root_dir+'/output/'
@@ -47,3 +47,7 @@ def write_file(prefix, finename, lines, encoding):
     with open(dir_file_path, 'w', encoding=encoding) as f:
         for m in lines:
             f.write(m+'\n')
+
+def to_upper(lines):
+    for line in lines:
+        print(line.upper())
