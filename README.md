@@ -77,19 +77,15 @@ AC#护甲值
 2.
 
 会自动忽略 SETUP.TRA 文件。因为自己测试时，翻译这个文件会导致 mod 安装界面乱码。
+所以，翻译完成后，需要手动复制 SETUP.TRA 文件到需要安装的 mod 的 schinese/ 目录下。
 
 # 其他介绍
 
 ### debug
 
-debug.py 文件中，设置 `mode='debug'` 模式，不进行 API 调用，而且打印更为详细的信息，便于调试。
+Solver 的入参设置 `mode='debug'` 模式，则不进行 API 调用，而且打印更为详细的信息，便于调试。
 
-设置 `mode=''` 就是正常模式，会调用 API。
-
-使用方法
-```
-python3 debug.py
-```
+缺省则是正常模式，会调用 API。
 
 ### counter 计数器
 

@@ -293,13 +293,16 @@ def convert(filename, solver):
 def main():
 
     # solver
-    solver = Solver(mode = '')
+    solver = Solver()
 
     files = os.listdir('tra/')
     for file in files:
         print(file)
         # 忽略setup.tra文件
-        if file != 'SETUP.TRA' and (file.endswith('.TRA') or file.endswith('.tra')):
+        if file.lower() == 'setup.tra':
+            continue
+
+        if file.lower().endswith('.tra'):
             res = convert('tra/' + file, solver)
             for r in res:
                 print(r)
