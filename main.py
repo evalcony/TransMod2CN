@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import random
 
 import utils
 from youdao import YouDaoFanyi
@@ -16,13 +17,21 @@ class Counter:
             return
 
         if self.cnt % 30 == 0:
-            time.sleep(10)
+            wait_time = self._1D10()+10
         elif self.cnt % 10 == 0:
-            time.sleep(5)
+            wait_time = self._1D6()+8
         elif self.cnt % 5 == 0:
-            time.sleep(2)
+            wait_time = self._1D6()
         else:
-            time.sleep(0.5)
+            wait_time = 1
+        
+        time.sleep(wait_time)
+    
+    def _1D10(self):
+        return random.randint(1, 10)
+
+    def _1D6(self):
+        return random.randint(1, 6)
 
     def incr(self):
         self.cnt += 1

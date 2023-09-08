@@ -16,6 +16,11 @@
 python3 main.py
 ```
 
+simple_main.py 可用于翻译单个文件，
+```
+python3 simple_main.py
+```
+
 # 翻译 API
 
 目前支持 `有道`、`google`的翻译。可在 `appconf.ini` 中配置选择哪个API。默认是有道翻译。
