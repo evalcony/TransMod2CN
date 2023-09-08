@@ -28,7 +28,7 @@ class Counter:
         self.cnt += 1
 
 class Solver:
-    def __init__(self, mode):
+    def __init__(self, mode=''):
         self.mode = mode
         self.TOKEN_SIGNAL_L = '['
         self.TOKEN_SIGNAL_R = ']'
