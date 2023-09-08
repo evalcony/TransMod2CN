@@ -16,9 +16,16 @@
 python3 main.py
 ```
 
-simple_main.py 可用于翻译单个文件，
+simple_main.py 可用于翻译 tra/ 目录下的单个文件，
 ```
 python3 simple_main.py
+```
+
+debug.py 则一般用来对一段文本进行翻译，例如
+```
+文本：hello world
+
+python3 debug.py
 ```
 
 # 翻译 API
