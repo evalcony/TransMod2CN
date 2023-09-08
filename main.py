@@ -224,6 +224,13 @@ class Solver:
     def set_token_back(self, line):
         if line == '\n' or line == ' ':
             return line
+
+        # 有时，有道翻译会把半角字符转成全角字符，造成匹配的问题。为了兼容这种情况，要把［］的全角字符转成半角[]
+        if line.find('［') != -1:
+            line = line.replace('［','[')
+        if line.find('］') != -1:
+            line = line.replace('］',']')
+
         # 例子：_7_10 _3_10
         pattern = r'\[(\d+)\]'
         matches = re.findall(pattern, line)
