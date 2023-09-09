@@ -3,6 +3,7 @@ import re
 import time
 import random
 
+import readlogs
 import utils
 from youdao import YouDaoFanyi
 from google_trans import GoogleTrans
@@ -356,24 +357,14 @@ def convert(filename, solver):
 
     return res
 
-
-def readlogs():
-    lines = utils.read_file('readlogs.txt')
-    if len(lines) > 0:
-        return lines[-1]
-    return ''
-def writelogs(file):
-    lines = []
-    lines.append(file)
-    utils.write_logs(lines)
-
 def main():
 
     # solver
     solver = Solver()
+    log = readlogs.ReadLogs()
 
     # 读取上次结束文件名
-    lastfile = readlogs()
+    lastfile = log.readlogs()
     flg = False
 
     files = os.listdir('tra/')
@@ -392,7 +383,7 @@ def main():
 
         if file.lower().endswith('.tra'):
             # 先写log记录
-            writelogs(file)
+            log.writelogs(file)
 
             res = convert('tra/' + file, solver)
             for r in res:
@@ -401,6 +392,8 @@ def main():
             print('')
             print('')
             print('-'*30)
+
+    log.done()
 
 
 if __name__ == '__main__':
