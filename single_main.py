@@ -22,8 +22,6 @@ def trans(filename):
 
 # 根据区间翻译
 def range_trans(file_list):
-    print('')
-
     # 读取上次结束文件名
     lastfile = readlogs()
     flg = False

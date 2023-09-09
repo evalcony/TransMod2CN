@@ -3,3 +3,5 @@ dia_220.tra
 dia_220.tra
 dia_222.tra
 dia_224.tra
+dia_226.tra
+dia_228.tra

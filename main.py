@@ -357,19 +357,43 @@ def convert(filename, solver):
     return res
 
 
+def readlogs():
+    lines = utils.read_file('readlogs.txt')
+    if len(lines) > 0:
+        return lines[-1]
+    return ''
+def writelogs(file):
+    lines = []
+    lines.append(file)
+    utils.write_logs(lines)
+
 def main():
 
     # solver
     solver = Solver()
 
+    # 读取上次结束文件名
+    lastfile = readlogs()
+    flg = False
+
     files = os.listdir('tra/')
     for file in files:
+
         print(file)
         # 忽略setup.tra文件
         if file.lower() == 'setup.tra':
             continue
 
+        if not flg and lastfile != '' and file != lastfile:
+            print('pass ' + file)
+            continue
+        else:
+            flg = True
+
         if file.lower().endswith('.tra'):
+            # 先写log记录
+            writelogs(file)
+
             res = convert('tra/' + file, solver)
             for r in res:
                 print(r)
@@ -377,7 +401,6 @@ def main():
             print('')
             print('')
             print('-'*30)
-            # 做一些单个文件翻译完成之后的工作 todo
 
 
 if __name__ == '__main__':
