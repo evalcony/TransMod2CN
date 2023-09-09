@@ -29,8 +29,18 @@ def word_clear(word):
             return ws[0]
     return word
 
+def de_blank(filename):
+    lines = utils.read_file(filename)
+    res = []
+    for line in lines:
+        if line != '':
+            res.append(line.replace(' ', '#'))
+    utils.write_file('', 'de_blank.txt', res)
+
 if __name__ == '__main__':
-    test_line(mode='')
+    # test_line(mode='')
     # test_file(mode='debug')
 
     # to_upper()
+
+    de_blank('temp_dir/temp.txt')

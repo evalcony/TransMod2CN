@@ -1,44 +1,824 @@
-Wilson#威尔逊
-Illasera#伊拉赛拉
-Sendai#仙黛
-Gorion#葛立安
-Imoen#爱蒙
-Rasaad yn Bashir#拉萨德·因·巴希尔
 Amn#安姆
-Neera#涅拉
+Aasim#艾辛
+Abbathor#阿巴索
+Abela#阿贝拉
+Addy#爱蒂
+Adirran#阿德里安
+Adoy#阿多伊
+Adras Ashatiel#安德拉丝·阿莎蒂尔
+Aisha#艾莎
+Ajantis#阿詹提斯
+Alatos “Ravenscar” Thuibuld#阿拉特斯·“乌鸦疤”·修爱巴德
+Alai#艾莱
+Alaundo#阿蓝多
+Albert#艾柏特
+Alachi#阿拉什
+Aldeth Sashenstar#艾德斯·沙散塔
+Algernon#艾吉侬
+Alkullok#阿尔库洛克
+Almur#阿穆
+Aloisa Halasan(Vigilant)#阿萝伊莎·哈拉桑（警觉者）
+Aloisa Halasan#阿萝伊莎·哈拉桑
+Alora#阿罗拉
+Alorgoth#阿罗戈斯
+Alvanhendar#艾文海德
+Alveus Malcanter#艾维斯·马尔坎特
+Alyth Elendara#艾丽丝·艾伦达拉
+Amaunator#阿曼纳塔
+Amanis Khal#阿玛尼斯·卡奥
+Ammon#娅门
+Arabelle#阿拉贝拉
+Ardenor Crush#阿登那·征服者
+Arwes#阿维斯
+Arktash#阿克塔许
+Andor#安多
+Andris#艾德里司
+Andrus#安德鲁斯
+Andrus Gath#安德鲁斯·盖特
+Angelo Dosan#安其罗·达森
+Anton#安东
+Arkion#阿肯恩/阿基恩
+Artipheon#阿蒂芬
+Arvoreen#阿尔孚琳
+Arzol#阿佐尔
+Asith#阿西斯
+Atlar#阿特拉
+Avrum#亚维鲁
+Azimer#阿兹美尔
+Azothet#阿佐瑟特
+Aznar Thrul#阿兹纳·述尔
+Azuth#阿祖斯(奥术之神)
+Arbinge#阿宾格
+Autinn#奥廷
+Aun Argent#奥恩·白银
+Auchlin Deepvein#奥克林·深脉
+Audamar Corwin#欧达玛·科温
+Baalzebul#巴尔泽布
+Baeloth Barrityl#贝洛斯·巴瑞提尔
 Baeloth#贝洛斯
-Dorn Il-Khan#多恩·伊尔罕
-Duke Eltan#艾尔坦公爵
+Badiat#巴迪埃特
+Bahamut#巴哈姆特
+Balduran#博德安
+Barghest#犬魔
+Bannor Kaxazel#班诺·卡萨泽尔
+Barad Ding#巴拉·丁
+Baravar Cloakshadow#巴瑞瓦·影斗篷
+Baresh#巴瑞许
+Barry#巴里
+Bartleby#巴特比
+Bassilus#巴西勒斯
+Battuks Softbelcher#巴图库斯·软巾
+Baxter Rendahl#巴克斯特·伦达尔
+Belben#贝尔本
+Belegarm#贝利加姆
+Belhifet#贝尔菲特
+Bellamy#贝拉迈
+Bellowgulp Bluefingers#贝罗古尔普·蓝手指
+Belt#贝尔特
+Bence Duncan#本斯·邓肯
+Bendalis#班达理斯
+Beno Famari#贝诺·法玛里
+Bentaxe Foekiller#本塔克斯·灭敌者
+Bentley Mirrorshade#班特力·镜影
+Berrun Ghastkill#白朗·盖斯特齐
+Berta#玻塔
+Beryl#贝瑞尔
+Betror#别卓
+Bhaal#巴尔
+Bigby#毕格比
+Bjarn Littleclub#毕亚恩·小棒
+Bjornin#布宁
+Blugglugl#布鲁格鲁格尔
+Blynnyk#布林尼克
+Bollard Firejaw#博拉德·火颚
+Boo#小布
+Borinole#波立诺
+Borland#波兰
+Brage#布雷吉
+Braitenbach#布莱腾巴奇
+Brandilar#布岚迪拉
+Branwen#布朗温
+Brathlen#布拉斯兰
+Brendak#布伦达克
+Bress#贝瑞斯
+Brevin#布莱文
+Brevlik#贝佛力克
+Brielbara#贝蕾芭拿
+Brightaxe#明斧
+Brilla#布里拉
+Brodle#布罗德
+Brother Ellraish#埃拉西兄弟
+Brun#布朗
+Brunos Costak#布鲁诺斯·库斯塔克
+Burich the Unyielding#不屈者伯里奇
+Byzon#拜松
+Cabrina#卡宾娜
+Cadderly#凯德立
+Caelar Argent The Shining Lady#光辉女士凯拉·白银
+Caelar Argent#凯拉·白银
+Caldo#卡多
+Calahan#卡拉汉
+Carbos#卡伯斯
+Carline#卡琳
+Casson#卡森
+Catanzaro#卡坦扎罗
+Cathiari#凯西瑞
+Cedric deLancie#塞德瑞克·德·兰斯
+Centeol#珊蒂儿
+Charleston#Nib#查尔斯顿·尼伯
+Chauntea#裳提阿
+Chelak#西拉克
+Cheski#切丝吉
+Chester Blackboot#撤司特·黑靴
+Chester Allendale#撤司特·阿蓝代
+Chloe#克萝
+Clangeddin#克朗盖丁
+Clovista#克洛维斯塔
+Colin Forthwith#科林·弗司维斯
+Collus Darathon#克琉斯·达拉松
+Concocter Bellowgulp Bluefingers#药剂师贝罗古尔普·蓝指
+Bellowgulp#贝罗古尔普
+Coran#科朗
+Coren#柯兰
+Corianna#可琳娜
+Cornugon#寇根
+Crommus#科洛姆斯
+Cuchol#邱可尔
+Cuddy Dugdeep#库迪·深掘
+Curell#库蕾尔
+Cuvieronius#居维纽斯
+Cyrdemac#赛狄麦克
+Cyric#希瑞克
+Cythandria#西桑卓亚
+Dabron Sashenstar#戴博朗·沙散塔
+Daeros Dragonspear#达洛斯·龙矛
+Dallillia#达理拉
+Dalton#道尔顿
+Dannik#丹尼克
+Daran Highhammer#达朗·高锤
+Dare#岱尔
+Darnas#达纳斯
+Dason Greycart#戴森·灰车
+Dauston#道斯顿
+Davaeorn#达瓦恩
+Daxus Taralom#达克萨斯·塔拉隆
+Daxxii#达克西
+Deheriana#黛芮安娜
+Degrodel#迪果德
+Delainy#迪蓝尼
+Delenda#德兰达
+Delgar Munsch#戴尔加·穆斯克
+Dellan#戴兰
+Delthyr#戴瑟尔
+De'Mallonblade 德'马伦布雷德
+Deneld#德菲尔德
+Dennaton#德纳顿
+Destus Gurn#戴斯塔司·格恩
+De'Tranion#迪传尼
+Diath Woodrow#迪亚斯·伍德罗
+Dillar#狄拉
+Dings#丁斯
+Diya al-Hafiz#迪亚·阿尔-哈非兹
+Diyab#迪雅
+Dormamus#多玛姆斯
+Dorn Il-Khan#多恩·伊尔-可汗
+Dorn Graybrook#多恩·格雷布鲁克
+Dosia#多西亚
+Dradeel#德拉迪尔
+Dragomir the Red#猩红之德拉戈米尔
+Dra'tan#杜拉坦
+Drelik#卓利克
+Dreon#德隆
+Dreppin#卓平
+Drienne#茱莉儿
+Drizzt Do'Urden#崔斯特·杜垩登
+Drizzt#崔斯特
+Duke Eltan#伊尔坦公爵
+Dulf “The Ancient Threat” Ebonbeard#杜尔夫·“远古威胁”·乌须
+Dulf#杜尔夫
+Dumathoin#杜马松
+Dun#当恩
+Durkon#德功
+Durlag Trollkiller#杜拉格·巨魔杀手
+Durlyle#杜莱尔
+Dushai#度珊
+Dynaheir#戴娜黑
+Edie#爱迪
+Edwin Odesseiron#艾德温·奥狄塞伦
+Edwin#艾德温
+Einer#艾纳
+Ekandor#艾坎多尔
+Elandro#埃兰德罗
+Eldorin#艾德林
+Eldoth Kron#亚多士·克龙
+Eldric#埃尔德里克
+Ellesime#艾丽星
+Ellis#埃利斯
+Elminster#伊尔明斯特
+Eltan#伊尔坦
+Ender#Sai#安得尔·赛
+Enegar#艾尼格
+Enneth#恩奈丝
+(Grand Duke) Entar Silvershield#安塔·银盾大公
+Entar Silvershield#安塔·银盾
+Entillis Fulsom#恩提理斯·福松
+Emerson#艾默森
+Esserin#埃塞林
+Estebarre#艾斯提巴
+Euric#尤瑞克
+Evalt#伊佛特
+Evelyn Avalona Helvig Marthain#伊芙琳·阿瓦罗娜·黑尔维希·马特海恩
+Fadell Ironeye#菲德尔·铁眼
+Faheed#法希德
+Fahrington#法灵顿
+Faldorn#法多
+Fanegonorom#费尼格诺罗姆（龙矛堡）
+Farluck#狗运强
+Farrl#法尔
+Farthing#法欣
+Feldrak “the Fiend”#“邪魔”菲德拉克
+Feldrak#菲德拉克
+Fenrus Boulon#芬洛斯·伯龙
+Fenten#费坦
+Fenuku#芬纳库
+Fenster#芬斯特
+Fernault#芬诺特
+Fiddich#菲迪克
+Filbert#菲尔伯特
+Fil#菲尔
+Fillis#菲利斯
+Firebead Elvenhair#法尔比·爱文海
+Firebead#法尔比
+Fist Goldbuckler#菲斯特·金圆盾
+Fouleye#脏眼
+Frair Tajik#弗雷尔·塔吉克
+Frixis#福瑞克赛斯
+Fuller#富勒
+Furnelaine#富纳莱恩
+Galahynne#加拉茵
+Galken#加肯
+Gallus#加鲁斯
+Gamaz#加麦兹
+Gandolar#甘德勒
+Gantolandan#甘德蓝登
+Garachen#加拉森
+Garagos#卡瑞苟斯
+Gardush#加达叙
+Garrick#加瑞克
+Gellana Mirrorshade#加拉娜·镜影
+Gerde#洁蒂
+Gerrold “The Herald” Darkfellow#加罗德·“预兆”·黑暗者
+Gerrold#加罗德
+Geshtemachin#加斯特马琴
+Gezzthemin “the Beloved”#“被热爱的”杰泽明
+Gezzthemin#杰泽明
+Ghell Rando#吉尔·兰多
+Ghufran#古弗兰
+Glint Gardnersonson “Three-Eyes”#格林特·加德纳森森·三只眼
+Glint Gardnersonson#格林特·加德纳森森
+Gnarg Big-Bug#格纳葛·巨虫
+Gnarl#格那尔
+Grael#葛雷尔
+Gramm#格拉姆
+Gramorn#葛拉摩
+Gregor#葛瑞格
+Greywolf#灰狼
+Gruusmh#格乌什
+Goldander#高丹德
+Gond#贡德
+Gorion#葛立安
+Gorpel Hind#高培·海德
+Gorpel#高培
+Grimgor#格里姆戈尔
+Guardian Telwyn#守护者泰尔文
+Telwy#守护者泰尔文
+Gul Dukeem#古尔·杜基姆
+Gul#古尔
+Gurke#葛克
+Gurgle and Floss#潺潺和牙线
+Gurn Coldhearth#古恩·冷炉
+Haela Brightaxe#海菈·亮斧
+Halabazzer/Halbazzer Drin#哈巴瑟·德林
+Halabazzer Drin#哈巴瑟·德林
+Halbazzer Drin#哈巴瑟·德林
+Halabazzer#哈巴瑟
+Halatathlaer#哈拉塔斯拉尔
+Haldorr#Deepstone#哈尔多·深石
+Halnur#Farcutter#哈尔努·远斩
+Hammerhelm#锤盔
+Hammerlust#贪锤
+Haralt Deepstone#哈拉尔特·深石
+Haskell#哈斯克尔
+Haximus#哈西姆斯
+Hayes#海斯
+Held Moran#海尔德·莫兰
+Helm, the Vigilant One and The Watcher#海姆（警觉者，观察者，守卫与保护之神）
+Helvdar#赫夫达尔
+Hephernaan#海夫南
+Herath#杜鹃
+Herdrin#何德林
+Herod#赫罗德
+Hester#赫斯特
+Hexxat#赫克塞特
+Hoach Randymonk#霍奇·兰迪莫克
+Hokkney#郝克尼
+Horvat#霍瓦特
+Hort “The Hurt” Il-D’rth#霍特·“伤害”·伊尔-德斯
+Hort#霍特
+Hormorn#霍尔摩恩
+Hue Greenleaf#休·绿叶
+Hull#霍尔
+Hurgan Stoneblade#霍根·石刃
+Husam#霍山
+Hyreth#海瑞思
+Ike Cascadion Vendar#伊克·卡司卡迪·凡达
+Illasera#伊拉赛拉
+Ilmater#伊尔玛特
+Ilvastarr#伊弗斯塔
+Imascus#伊马斯库斯
+Imoen#爱蒙
+Ingot#英苟特
+Irinia#伊妮娅
+Inquisitor Murundhi#审判者穆伦迪
+Iqbal al-Din#艾克巴·阿尔-丁
+Irlentree#艾兰崔
+Isabella and Ikros#伊莎贝拉和伊卡洛斯
+Isabella#伊莎贝拉
+Ikros#伊卡洛斯
+Islanne#伊丝蓝尼
+Ivanne#伊凡尼
+Izer#艾泽
+Jabira#贾比拉
+Jaheira#贾希拉
+Jalantha Mistmyr#贾蓝沙·密斯米
+Jamie#贾迈
+Jan Janson#姚恩·姚森
+Jan#姚恩
+Janson#姚森
+Jardak#贾达克
+Jassar#贾萨
+Jayvis#杰维斯
+Jeb#约伯
+Jebadoh#杰巴多
+Jegg Hillcarver#杰格·雕山者
+Jenks#詹克斯
+Jerome#杰罗姆
+Jessa Vai#杰沙·维
+Jessa#杰沙
+Jessup#杰苏普
+Jhasso#贾索
+Jinga#金卡
+Joia#乔亚
+Jolstead#朱尔斯蒂德
+Jon Irenicus#琼·艾瑞尼卡斯
+Joseph#乔瑟夫
+Jospil#乔斯比
+Julann#朱兰
+Junia#朱妮娅
+Kaelet#凯莱特
+Kagain#凯根
+Kag#卡戈
+Kaishas Gan#凯莎斯·伽恩
+Kaishas#凯莎斯
+Kalessia#卡雷西亚
+Karajah#卡拉加
+Karan#凯伦
+Karell#卡瑞尔
+Karoug#卡罗葛
+Kastulor#卡斯图罗
+Katheera#凯瑟拉
+Kava#卡瓦
+Kazgaroth#卡兹伽罗斯
+Kazzrem the Calishite#卡丽杉人卡兹雷姆
+Khalid#卡立德
+Kelddath Ormlyr#肯达斯·欧姆力
+Kelddath#肯达斯
+Keldorn Firecam#凯东·费尔康
+Keldorn#凯东
+Kelemvor#克兰沃
+Kelner#科纳尔
+Kendra#坎德菈
+Keno#科诺
+Keherrem#柯赫瑞姆
+Kharm#卡哈姆
+Kherriun#克露茵
+Khelben Blackstaff#凯尔本·黑杖
+Ki Chin Sang#钱文桑
+Kiel the Legion Killer#军团杀手凯尔
+Kiel#凯尔
+Killis Copperpot#奇力斯·铜壶
+Kirik Khal#科拉克·卡奥
+Kirik#科拉克
+Kivan#齐冯
+Kjarvan#卡加温
+Knocktor the Fizzled#失败的诺克托
+Knocktor#诺克托
+Kolvar#克帆
+Korkorran the lich#巫妖科克朗
+Korkorran#科克朗
+Korlasz#克拉兹
+Kossuth#卡署斯
+Koveras#克佛洛沙
+Krellus#克莱硫斯
+Kris K'taan#克里斯·卡坦
+Kris#克里斯
+Kruntur dak'Dekanter#克朗图·达克'德坎特
+Krystin#克莉丝汀
+Kryll#克瑞尔
+Kveroslava#卡弗丝拉瓦
+Ladle#雷德
+Laerta#蕾塔
+Lahl#拉尔
+Landrin#兰德陵
+Lanneth Far-seer#兰妮斯·远见
+Lanneth#兰妮斯
+Lara#拉瑞
+Laris#拉里斯
+Larloch#拉洛克
+Larze#拉兹
+Lathander#洛山达
+Laurel#萝瑞儿
+Leah Redsun#莉亚·红日
+Lea Gosh’Aar “The Coiled Cobra#利·盖许'阿尔“盘眼镜蛇”
+Lea Gosh’Aar#利·盖许'阿尔
+Lemp Coldhearth#列普·寒心
+Lemp#列普
+Lemzenn#列蒙真
+Lena#莉娜
+Leokas#里奥卡斯
+Lexa#莱珂莎
+Liam Ensler#利亚姆·恩斯勒
+Liia Jannath#莉拉·詹纳斯
+Litla Barkersdottir#利特拉·巴克斯多蒂
+Lon#隆
+Longfellow-Harle#朗费罗-哈勒
+Lothander#罗山达
+Louise#路易丝
+Lucilla#露西拉
+Ludrug#路卓格
+Lugg#鲁格
+Lushelyn#路雪琳
+Maisha#麦莎
+Mad Arcand#疯阿卡
+Maglubiyet#马格努比耶
+Malar#玛拉
+Malden Col#莫尔登·寇尔
+Maralee#玛拉立
+Marcus Rotarran#马库斯·罗塔朗
+Marduuk#马杜克
+Marek#马礼克
+Mari#玛丽
+Marl#马尔
+Marthammor Duin#马萨摩·杜因
+Kyrill Nederlok#基里尔·奈德洛克
+Mask#马斯克
+Maxwell#马克斯维尔
+Mazzy Fentan#玛兹·芬顿
+Mazzy#玛兹
+Mechezarin#麦可查林
+Meems Dugdeep#米姆斯·深掘
+Meiala#梅艾拉
+Meklin#梅克林
+Melf#马友夫
+Melicamp#梅立坎
+Mendas#曼达斯
+Mercy Whitedove#仁慈·白鸽
+Mereth#美拉斯
+Merome#梅洛穆
+Meryll#梅瑞尔
+Meym#梅恩
+Michael#麦可
+Minsc#明斯克
+Mirianne#蜜莉安
+Mironda#米伦达
+Mistress Mallory#玛洛里夫人
+Mizhena#米泽娜（龙矛堡）
+M'Khiin Grubdoubler#米金·殖虫者（龙矛堡）
+Molzahn of Tymora#太摩拉的莫占
+Montaron#蒙塔罗
+Moradin#摩拉丁
+Mordenkainen#魔邓肯
+Morlis#莫里斯
+Mr.Lyle Espejo#李尔·艾斯皮鸠先生
+Mulahey#木拉
+Murs#穆尔斯
+Murundhi#穆伦迪
+Myrkul#米尔寇
+Myrmith Splendon#迷米斯·光辉
+Mystra#密斯特拉
+Naaman#那曼
+Nadarin#纳达林
+Nadine#娜汀
+Naiman Alore#奈曼·阿罗尔
+Najim#纳金
+Nalin#那林
+Namara#纳玛拉
+Nan Kung Chi#南功极
+Nantrin Bellowglym#南屈·贝洛格伦
+Nareth Blindeye#纳瑞斯·盲眼
+Narlen#Darkwalk#那伦·暗步
+Nathan#南森
+Nazramu#纳兹拉姆
+Neb#奈柏
+Neera#涅拉
+Nelik#乃立克
+Nemphre#奈菲儿
+Nessa#妮沙
+Nester#涅斯特
+Netheril#耐瑟瑞尔
+Nexlit the Xvart#尼克森利特
+Niklos#尼可洛斯
+Nim Furlwing#尼姆·富尔温
+Nobanion#努比恩
+Noralee#诺拉李
+Nyxxla#尼克斯拉
+Oberan#奥伯诺
+Obe the illusionist#幻术师欧比
+Oghma#欧格玛
+Oloneiros#欧龙尼罗斯（龙矛堡）
+Olvenaun#奥尔温诺
+Ophyllis#欧菲利斯
+Ordulinian#奥都林南
+Orluss#奥鲁斯
+Osprey#鹗
+Lieutenant Otilda#奥蒂尔达中尉
+Otilda#奥蒂尔达
+Oublek#欧布雷克
+Pang Wallen#潘·瓦伦
+Parda#帕达
+Patrescus#帕崔裘斯
+Paultin#Seppa#保尔丁·色帕
+Pellan#佩蓝
+Perdue#帕度
+Permidion Stark#波米迪恩·史达尔
+Petrine#佩德林
+Pfaug Hammerlust#普伐革·贪锤
+Phandalyn#凡达林
+Phlydia#菲莉蒂雅
+Phossey Dugdeep#佛西·深掘
+Phossey佛西
+Phreya#佛里吉亚
+Piato#皮耶多
+Piergeiron Paladinstar#皮尔盖伦·帕拉汀斯塔
+Pique#派克
+Pixie#小不点
+Pheirkas#菲尔卡斯
+Poe#波伊
+Pol Pyrrus#波尔·皮鲁斯
+Polvi#波尔维
+Porios#波利欧斯
+Prat#普来特
+Prism#布理森
+Pritchard Gardnersonson#普里查德·加德纳森森
+Pritchard#普里查德
+Qais Ra'id#奎斯·拉伊德
+Qing#青
+Quayle#奎里
+Quenash#奎娜西
+Quila#奎拉
+Quinn#奎恩
+Quoningar#奎宁格
+Raffiyah#拉菲尔
+Ragefast#瑞其法斯特
+Raggemos#瑞吉莫斯
+Raiken#莱肯
+Ramazith#拉玛西斯
+Rasaad yn Bashir#拉萨德·殷·巴希尔
+Rasaad#拉萨德
+Rashad#罗夏德
+Rayler#雷勒
+Rayphus Goodtree#瑞弗斯·良木
+Rayphus#瑞弗斯
+Rededge#血牙
+Reevor#瑞佛
+Reginald#雷金纳德
+Regis Pyrrea#雷吉斯·派尔
+Reinss#瑞尼撒
+Rend#伦德
+Resar#瑞萨
+Rhayla#瑞哈拉
+Rhian#瑞安
+Rhonda Swiftfootsdottir#荣达·迅脚多特
+Rhynwis#林尼斯
+Rieltar Anchev#瑞塔·安基夫
+Rigah#里加
+Riggilo#瑞吉罗
+Riggs#里格斯
+Rillifane Rallathil瑞里芬·莱勒菲
+Rilsa#里尔萨
+Rinnie#瑞内
+Rishthishaa#瑞许希沙
+Roark#洛克
+Robel#罗贝尔
+Robillard#罗比拉德
+Roe#罗依
+Rogdok#罗格多克
+Rohma#罗玛
+Rufie#来福
+Ryrrl#瑞尔
+Safana#莎法娜
+Sallo#萨罗
+Sahana#萨哈娜
+Samuel#山谬
+Sarevok Anchev#沙洛佛克·安基夫
+Sarevok#沙洛佛克
+Sashenstar#沙散塔
+Scar#史卡
+Schaal#思卡尔
+Captain Schael Corwin#舍尔·科温上尉
+Scotty McAverstein#史考地·麦卡佛斯坦
+Selaad Gan#席拉·伽恩
+Selûne, the Moonmaiden#月之女士苏伦
+Selûne#苏伦
+Semahl#塞马尔
+Semia#山米亚
+Sendai#仙黛
+Senderin#森德林
+Seniyad#撒尼亚
+Senna#塞纳
+Sephos#瑟弗斯
+Sethyl#塞西尔
+Shaella#雪拉
+Shalak#沙拉克
+Shandalar#珊达拉
+Shani#莎妮
+Shank#沙克
+Shapur#沙普尔
+Shar, Mistress of the Night, Lady of Loss#莎尔，夜之女士，失落女士
+Shar#莎尔
+Shara#沙拉
+Sharess#夏芮丝(猫与舞蹈女神)
+Shar-Teel#Dosan#莎尔蒂尔·达森
+Schlumpsha#施兰沙
+Shar-Teel#莎儿－蒂尔
+Shilo#Chen#陈希洛
+Shistal#西斯塔
+Shoal#秀儿
+Short-Order#快餐（外号）
+Silence#赛伦斯
+Silke Rosena#喜儿可·罗莎娜
+Silke#喜儿可
+Sixscar#六道
+Simmeon#西莫昂
+Simonetta Twoedged#西蒙内塔·双刃
+Simonetta#西蒙内塔
 Skie Silvershield#史姬·银盾
 Skie#史姬
-Garrick#佳瑞克
-Rasaad#拉萨德
-Safana#莎法娜
-Coran#科郎
-Dynaheir#戴娜黑
-Minsc#明斯克
-Boo#布布
-Tiax#蒂亚克斯
-Khalid#卡利德
-Jaheira#贾希拉
-Viconia DeVir#维康妮娅·德维尔
-Viconia#维康妮娅
-Tymora#太摩拉
-Cornugon#寇根
-Netheril#耐瑟瑞尔
-Ulcaster#乌尔卡斯特
-Balduran#博德安
-Lathander#洛山达
-DRIZZT DO'URDEN#崔斯特·杜垩登
-Drizzt#崔斯特
-Faldorn#法多
-Branwen#布朗温
-Alora#阿罗拉
-Edwin#艾德温
-Montaron#蒙塔罗
-Quayle#奎里
-Mulahey#穆拉希
-Tamoko#塔马克
+Slug#蛞蝓
+Slythe#史立斯
+Solgen#索金
+Sonner#桑那
+Sorrem#索雷姆
+Stirv#斯特夫
+Stannel Eibor#斯丹纳·艾伯
+General (Haither) Stonehand#（海瑟·）石手将军
+General Stonehand#石手将军
+Haither#海瑟
+Strunk#斯特伦克
+Strix#斯崔克斯
+Sugar#蜜糖
+Summerheigh#萨默黑
+Sune#淑娜
+Svlast#斯夫拉特
+Symm Haximus#西姆·哈希姆斯
+Symm#西姆
+Haximus#哈希姆斯
+Szass Tam#萨扎斯·坦
+Szass#萨扎斯
+Taddaus#塔道斯
+Taerom Thunderhammer#泰龙·雷锤
+Taerom#泰龙
+Thunderhammer#雷锤
+Takos#塔科斯
+Talana#塔拉娜
+Tallus#塔卢斯
+Talos#塔洛斯
+Tamah#塔玛
+Tamoko#妲摩可
+Tannath#坦纳斯
+Tanorm坦诺姆
+Taris#塔里斯
+Tart#塔特
+Tartle#塔特尔
+Taugosz#陶葛司
 Tazok#塔佐克
-Elminster#伊尔明斯特
-Sarevok#沙洛佛克
+Teera#蒂拉
+Telana#特拉娜
+Telbar#泰尔巴
+Teleria#特里瑞亚
+Tellan Altru'ar#泰兰·阿突尔
+Tellan#泰兰
+Telman#泰尔曼
+Telwyn#泰尔文
+Tennek#特奈克
+Tenya#坦雅
+Tempus#坦帕斯
+Terpfen#特普芬
+Tersus#托萨斯
+Tethtoril#泰斯托利尔
+Teven#泰文
+Thaldorn Tenhevich#萨东·坦尼维
+Thalantyr#泰蓝提尔
+Thallis#索利斯
+Thassk Kun#塞斯克·昆
+Thassk#塞斯克
+Tharantis#塔兰迪斯
+Theodon#席尔当
+Theodosia Immartyred#西奥多西亚·未殉者
+Theodosia#西奥多西亚
+Therella#瑟瑞拉
+Therton#塞顿
+the poxbringer Illaruel#痘疹散播者伊拉鲁尔
+Illaruel#伊拉鲁尔
+The Triad#守序联盟
+Thirrim#特里姆
+Thrix (the Profane)#（亵渎者）斯瑞克斯
+Thrix#斯瑞克斯
+Tiax#提亚斯
+Timmoth “The Champion” Goodtree#提莫斯·“冠军”·利林
+Timmoth#提莫斯
+Torcadahl#托卡达赫
+Torm#托姆
+Torsin de Lancie#德·兰斯统领
+Lancie#兰斯
+Tranzig#传兹克
+Treadsoft#轻步
+Tremain Belde'ar#崔门·贝达
+Treya#崔雅
+Tristian#特里斯迪安
+Tsolak#索拉克
+Turin Brassbreaker#图林·破铜者
+Turlang the#treant#树人图蓝
+Turpin#特平
+Tymora#太摩拉
+Tyr#提尔
+Ubtao#乌塔欧
+Ulcaster#乌尔卡斯特
+Ulraunt#乌朗
+Umar#乌马尔
+Umberlee#安博里
+Unshey#昂谢
+Ur-Gothoz#乌尔-戈索兹
+Utor#犹他
+Vai#维
+Vail the elf#精灵凡尔
+Vail#凡尔
+Valygar Corthala#瓦里格·寇萨拉
+Valygar#瓦里格
+Corthala#寇萨拉
+Vaprak#瓦普拉克
+Varci#法希
+Vella#维拉
+Velsharoon#维沙伦
+Velvet#维特
+Vernus#维那斯
+Viconia DeVir#维康妮亚·迪佛
+Viconia#维康妮亚
+Vichand#威查德
+Vicross#维克洛斯
+Vida#薇达
+Vissilithysmee#凡希利撒斯米
+Voghiln The Vast#巨汉沃格林
+Voghiln#沃格林
+Volo#瓦罗
+Waffles#华夫斯
+Warwick#沃里克
+#Wilch#威尔奇
+Wilson#威尔逊
+Winski Perorate#温斯基·派罗雷
+Winthrop#温斯罗普
+Winterbrook#冬溪
+Winged#飞翼
+Wistak#维斯塔科
+Waizahb#瓦扎布
+Wilhelmina#威廉敏娜
+Wren Loxley#雷恩·洛士利
+Wren#雷恩
+Loxley#洛士利
+Wynan Hess#威南·赫斯
+Wynan#威南
+Xachrimos#萨克理摩斯
+Xan#撒恩
+Xzar#萨尔
+Yago#雅哥
+Yarok#亚洛克
+Yarrow#亚萝
+Yashna#雅沙纳
+Yeslick Orothiar#亚斯力克·欧罗塞尔
+Yeslick#亚斯力克
+Ymori#耶莫里
+Yllaxxia#伊拉克斯西亚
+Ysseth Dareeli#伊赛思·戴瑞林
+Yxtrazzal#伊西特拉扎尔
+Zal#谢尔
+Zarno#扎诺
+Zaviak#扎维克
+Zelma#泽尔玛
+Zelnick#泽尼克
+Zeris#泽里斯
+Zhalimar Cloudwulfe#札立玛·克劳德渥夫
+Zhurlong#朱尔隆
+Zorl Miyar#佐尔·麦亚
+Zorl#佐尔
+Zulann Fass#祖蓝·法斯
+Zulann#祖蓝

@@ -33,6 +33,6 @@ if __name__ == '__main__':
     # trans(file)
 
     file_list = []
-    for i in range(50, 60):
+    for i in range(64, 80):
         file_list.append('dia_'+str(i)+'.tra')
     range_trans(file_list)
