@@ -57,9 +57,7 @@ class Solver:
         # 不走API的单词字典, manul_trans_word_dict
         self.manual_trans_word_dict = dict()
         
-        # 初始化ignore_dict
-        self._init_ignore_dict()
-        # 初始化word_dict，comp_word_dict, manul_trans_word_dict, name_dict
+        # 初始化word_dict，comp_word_dict, manul_trans_word_dict, name_dict, ignore_dict
         self._init_word_dict()
         # 翻译器
         self.translator = self.get_translator()
@@ -67,15 +65,11 @@ class Solver:
         # 等待计数器
         self.counter = Counter(mode)
 
-    def _init_ignore_dict(self):
-        self.ignore_dict['lbs'] = ''
-        self.ignore_dict['lb'] = ''
-        self.ignore_dict['ft'] = ''
-
     def solve(self, line):
-        print(line)
+        print('原文='+line)
 
         if line.strip() == '':
+            print('')
             return line
 
         # 一些容易引起翻译错误的，在这里手动翻译，不调用API接口
@@ -83,9 +77,11 @@ class Solver:
         res = tup[0]
         if tup[1]:
             print('直译='+res)
+            print('')
             return res
 
         if res.strip() == '':
+            print('')
             return res
 
         # token替换
@@ -106,6 +102,8 @@ class Solver:
         # 占位符还原成字典值
         rev_back = self.set_token_back(zh)
 
+        print('')
+
         # 等待，防止频繁调用报错
         self.counter.wait()
 
@@ -125,10 +123,15 @@ class Solver:
     # 因为共用 token, token_r
     def _init_word_dict(self):
         idx = 1
-        idx = self._init_token(utils.read_file('word_dict.txt'), self.word_dict, idx)
-        idx = self._init_token(utils.read_file('comp_word_dict.txt'), self.comp_word_dict, idx)
-        idx = self._init_token(utils.read_file('manual_trans_word_dict.txt'), self.manual_trans_word_dict, idx)
-        idx = self._init_token(utils.read_file('name_dict.txt'), self.name_dict, idx)
+        idx = self._init_token(utils.read_file('dict/word_dict.txt'), self.word_dict, idx)
+        idx = self._init_token(utils.read_file('dict/comp_word_dict.txt'), self.comp_word_dict, idx)
+        idx = self._init_token(utils.read_file('dict/manual_trans_word_dict.txt'), self.manual_trans_word_dict, idx)
+        idx = self._init_token(utils.read_file('dict/name_dict.txt'), self.name_dict, idx)
+
+        # 初始化ignore_dict
+        self.ignore_dict['lbs'] = ''
+        self.ignore_dict['lb'] = ''
+        self.ignore_dict['ft'] = ''
         
     # key 全部转为小写存储和比较
     # 除了token_r 的value,作为翻译的value都不做任何改变
@@ -314,6 +317,10 @@ def main():
             for r in res:
                 print(r)
             utils.write_file('', file, res, 'gb18030')
+            print('')
+            print('')
+            print('-'*30)
+            # 做一些单个文件翻译完成之后的工作 todo
 
 if __name__ == '__main__':
     main()

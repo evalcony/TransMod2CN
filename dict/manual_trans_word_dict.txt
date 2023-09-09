@@ -26,3 +26,4 @@ Duration:#持续时间：
 attack per round#次攻击每轮
 HP#HP
 vs.#vs.
+lost class#堕落职业

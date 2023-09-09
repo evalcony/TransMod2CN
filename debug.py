@@ -11,7 +11,7 @@ def test_line():
     print(res)
 
 def to_upper():
-    lines = utils.read_file('word_dict.txt')
+    lines = utils.read_file('dict/word_dict.txt')
     utils.to_upper(lines)
 
 def word_clear(word):
