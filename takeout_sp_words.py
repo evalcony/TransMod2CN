@@ -30,7 +30,6 @@ def takeout_text(filename):
 
     return res
 
-# 翻译单文件
 if __name__ == '__main__':
     file = 't1.tra'
     res = takeout_text('tra/'+file)

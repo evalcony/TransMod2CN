@@ -33,3 +33,5 @@ mages#法师
 mage#法师
 sorcerers#术士
 sorcerer#术士
+Worrisome#不妙
+Greetings#向你问好

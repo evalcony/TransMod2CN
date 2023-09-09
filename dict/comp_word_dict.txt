@@ -28,7 +28,6 @@ Red Wizards#红袍法师
 wild mage#狂法师
 Candlekeep#烛堡
 Baldur's Gate: Enhanced Edition#《博德之门：增强版》
-Baldur's Gate#博德之门
 Tales of the Sword Coast#剑湾传奇
 Sword Coast#剑湾
 The Black Pits#黑坑
@@ -37,9 +36,10 @@ Cloud Peaks#云顶峰
 Durlag's Tower#杜拉格之塔
 Brothers Lost#失散的兄弟
 <CHARNAME>#<CHARNAME>
-<PERCENT_COMPLETE>%
-<TIME_REMAINING>
-<RESOURCE>
+<PERCENT_COMPLETE>%#<PERCENT_COMPLETE>%
+<TIME_REMAINING>#<TIME_REMAINING>
+<RESOURCE>#<RESOURCE>
+Flaming Fist#焰拳
 Duke <dukai@EUnet.yu>#Duke <dukai@EUnet.yu>
 SAM <gutasi@mailbox.hu>#SAM <gutasi@mailbox.hu>
 KiPéTa <kipeta@netposta.net>#KiPéTa <kipeta@netposta.net>
@@ -64,9 +64,9 @@ Nemes <nemes.level@gmail.com>#Nemes <nemes.level@gmail.com>
 <PRO_LADYLORD>#<PRO_LADYLORD>
 <PRO_MANWOMAN>#<PRO_MANWOMAN>
 <number>#<number>
-<CHARNAME>#<CHARNAME>
 <PRO_SIRMAAM>#<PRO_SIRMAAM>
-<DAYNIGHTALL>#<DAYNIGHTALL>
+Good <DAYNIGHTALL> to you#祝你<DAYNIGHTALL>
+Good <DAYNIGHTALL>#Good <DAYNIGHTALL>
 <PRO_SONDAUGHTER>#<PRO_SONDAUGHTER>
 <PRO_HIMHER>#<PRO_HIMHER>
 <PRO_GIRLBOY>#<PRO_GIRLBOY>
@@ -81,3 +81,6 @@ Nemes <nemes.level@gmail.com>#Nemes <nemes.level@gmail.com>
 <CHARNAMME>#<CHARNAMME>
 <SIRMAAM>#<SIRMAAM>
 <GIRLBOY>#<GIRLBOY>
+Iron Throne#铁王座
+Three Old Kegs inn#三老桶酒馆
+Elfsong Tavern#精灵之歌酒馆

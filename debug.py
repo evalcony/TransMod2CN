@@ -4,7 +4,7 @@ import utils
 
 def test_line():
     # line = "Wilson, I want to know why we're here. I never let anyone use some... bearomancy on me, taking the group away from Sendai and her enclave!"
-    line = 'SORCERER: Like Mages, Sorcerers use their arcane might to cast offensive and defensive spells. Unlike Mages, Sorcerers learn their spells automatically and do not need to memorize specific spells each day.'
+    line = "Actually, I was hoping to talk to—what's his name again?—Coran"
 
     # 如果设置mode='debug'，则不会调用API，而且也会打印更详细的信息，而且不会有time.wait()
     res = main.Solver(mode='debug').solve(line)
