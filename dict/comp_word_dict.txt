@@ -18,4 +18,66 @@ Rare Fish#罕见的鱼
 Arctic Trout#极寒鳟鱼
 Slayer of Corrupted Ducklings#堕落小鸭屠杀者
 Bearomancy#熊灵术
+Destructoid#Destructoid
+Inside Gaming Daily#Inside Gaming Daily
 Undead Hunter#不死生物猎人
+the Sun Soul monk#日魂武僧
+Sun Soul monk#日魂武僧
+Thay's dreaded Red Wizards#塞尔的红袍法师
+Red Wizards#红袍法师
+wild mage#狂法师
+Candlekeep#烛堡
+Baldur's Gate: Enhanced Edition#《博德之门：增强版》
+Baldur's Gate#博德之门
+Tales of the Sword Coast#剑湾传奇
+Sword Coast#剑湾
+The Black Pits#黑坑
+Black Pits#黑坑
+Cloud Peaks#云顶峰
+Durlag's Tower#杜拉格之塔
+Brothers Lost#失散的兄弟
+<CHARNAME>#<CHARNAME>
+<PERCENT_COMPLETE>%
+<TIME_REMAINING>
+<RESOURCE>
+Duke <dukai@EUnet.yu>#Duke <dukai@EUnet.yu>
+SAM <gutasi@mailbox.hu>#SAM <gutasi@mailbox.hu>
+KiPéTa <kipeta@netposta.net>#KiPéTa <kipeta@netposta.net>
+Bandar <berenjia@EUnet.yu>#Bandar <berenjia@EUnet.yu>
+Jocika <jocika@intermail.hu>#Jocika <jocika@intermail.hu>
+Szoke <szoke@inf.bme.hu>#Szoke <szoke@inf.bme.hu>
+Maminti <lovelylilac@hotmail.com>#Maminti <lovelylilac@hotmail.com>
+Mr. Grent <Mr.Grent@buli.net>#Mr. Grent <Mr.Grent@buli.net>
+Myotan <acanadi@ptt.yu>#Myotan <acanadi@ptt.yu>
+Sforzan <vlaci@interware.hu>#Sforzan <vlaci@interware.hu>
+Kubul <kubul@freemail.hu>#Kubul <kubul@freemail.hu>
+Frankeinstein <frankeinsteins@freemail.hu>#Frankeinstein <frankeinsteins@freemail.hu>
+Ner'zhul <mszaszko@rmg.c3.hu>#Ner'zhul <mszaszko@rmg.c3.hu>
+jnc <jnc@magyaritasok.hu>#jnc <jnc@magyaritasok.hu>
+Rico <gabor.koroknai@hu.flextronics.com>#v
+Panyi <panyi@magyaritasok.hu>#Panyi <panyi@magyaritasok.hu>
+JoKeR <jokayel@axelero.hu>#JoKeR <jokayel@axelero.hu>
+Roberto és felesége#Roberto és felesége
+Nemes <nemes.level@gmail.com>#Nemes <nemes.level@gmail.com>
+<PRO_HISHER>#<PRO_HISHER>
+<PRO_HESHE>#<PRO_HESHE>
+<PRO_LADYLORD>#<PRO_LADYLORD>
+<PRO_MANWOMAN>#<PRO_MANWOMAN>
+<number>#<number>
+<CHARNAME>#<CHARNAME>
+<PRO_SIRMAAM>#<PRO_SIRMAAM>
+<DAYNIGHTALL>#<DAYNIGHTALL>
+<PRO_SONDAUGHTER>#<PRO_SONDAUGHTER>
+<PRO_HIMHER>#<PRO_HIMHER>
+<PRO_GIRLBOY>#<PRO_GIRLBOY>
+<PRO_HIMHER.>#<PRO_HIMHER.>
+<PRO_MASTERMISTRESS>#<PRO_MASTERMISTRESS>
+<PRO_BROTHERSISTER>#<PRO_BROTHERSISTER>
+<PRO_RACE>#<PRO_RACE>
+<HESHE>#<HESHE>
+<PRO_CLASS>#<PRO_CLASS>
+< PRO_MANWOMAN>#< PRO_MANWOMAN>
+<AMOUNT>#<AMOUNT>
+<CHARNAMME>#<CHARNAMME>
+<SIRMAAM>#<SIRMAAM>
+<GIRLBOY>#<GIRLBOY>

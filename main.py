@@ -66,7 +66,7 @@ class Solver:
         self.counter = Counter(mode)
 
     def solve(self, line):
-        print('原文='+line)
+        print('[原文] '+line)
 
         if line.strip() == '':
             print('')
@@ -76,7 +76,7 @@ class Solver:
         tup = self.direct_translate(line)
         res = tup[0]
         if tup[1]:
-            print('直译='+res)
+            print('[直译] '+res)
             print('')
             return res
 
@@ -84,9 +84,9 @@ class Solver:
             print('')
             return res
 
-        # token替换
+        # 替换token
         res = self.token_replace(res)
-        print('token替换='+res)
+        print('[替换token] '+res)
 
         if self.mode == 'debug':
             # debug模式下不调用API
@@ -95,7 +95,7 @@ class Solver:
             # 调用API进行翻译
             zh = self.translator.translate(res)
             if self.mode == 'debug':
-                print('API结果=' + zh)
+                print('[API结果] ' + zh)
             # 计数器
             self.counter.incr()
 
@@ -159,6 +159,12 @@ class Solver:
             line = line.replace(line, self.comp_word_dict[line])
             return (line, True)
 
+        # 替换name
+        for w in self.name_dict:
+            # 替换name
+            if w in line:
+                line = line.replace(w, self.name_dict[w])
+
         # 检查不需要调用 API 的单词 manual_trans_word_dict
         for k,v in self.manual_trans_word_dict.items():
             if k in line:
@@ -182,9 +188,6 @@ class Solver:
                 # 将w替换为key
                 if w in self.word_dict:
                     line = line.replace(w, self.word_dict[w])
-                # 替换name
-                if w in self.name_dict:
-                    line = line.replace(w, self.name_dict[w])
 
             return (line, True)
 
@@ -196,6 +199,10 @@ class Solver:
         # 检查复合单词 comp_word_dict 并替换token
         for k,v in self.comp_word_dict.items():
             if k in line:
+                line = line.replace(k, self.get_token_val(k))
+
+        for k in self.name_dict:
+            if k in self.name_dict:
                 line = line.replace(k, self.get_token_val(k))
 
         words = line.split(' ')
@@ -217,9 +224,7 @@ class Solver:
         for k in self.word_dict:
             if k in words:
                 line = line.replace(k, self.get_token_val(k))
-        for k in self.name_dict:
-            if k in self.name_dict:
-                line = line.replace(k, self.get_token_val(k))
+
 
         return line
 
@@ -265,16 +270,15 @@ class Solver:
             else:
                 v = ''
             if self.mode == 'debug':
-                print('[set_token_back]: m='+idx + ' k=' + k + ' v=' + v)
+                print('[set_token_back] m='+idx + ' k=' + k + ' v=' + v)
             line = line.replace(self._make_token_val(idx), v)
 
         if self.mode == 'debug':
-            print('还原后：' + line)
+            print('[还原后] ' + line)
         return line
 
 def convert(filename, solver):
     
-    # lines = utils.read_file(filename, 'cp936')
     lines = utils.read_file(filename)
     res = []
     j = -1
@@ -285,7 +289,6 @@ def convert(filename, solver):
 
         l = line.find('~')
         if l != -1:
-            flag = 1
             r = line.find('~',l+1)
             if r != -1:
                 # 在同一行
