@@ -1,4 +1,5 @@
 One creature#一个生物
+1 creature#一个生物
 Peculiar pheasant#奇怪的雉鸡
 Cruel Bishop of Corrupted Ducklings#堕落小鸭的残忍主教
 Corrupted Duckling#堕落小鸭
@@ -110,3 +111,4 @@ multi class#兼职
 multi-class#兼职
 studded leather#镶钉皮甲
 hide armor#全身甲
+long sword#长剑

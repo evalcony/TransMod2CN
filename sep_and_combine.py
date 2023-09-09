@@ -37,7 +37,7 @@ def seperate_to_files(lines):
         res.append(l)
         cnt += 1
         # 这个数值的设定不能太小，因为考虑到其中的单对话多段落的情况
-        if cnt > 200 and l.find('~') != -1:
+        if cnt > 50 and l.find('~') != -1:
             # 保存文件
             utils.write_file('', 'dia_'+str(idx)+'.tra', res)
             idx += 1
@@ -46,7 +46,7 @@ def seperate_to_files(lines):
     utils.write_file('', 'dia_' + str(idx) + '.tra', lines)
 
 if __name__ == '__main__':
-    file = 't1.tra'
+    file = 'total_t1.tra'
     res = takeout_text('tra/' + file)
 
     seperate_to_files(res)

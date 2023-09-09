@@ -7,6 +7,7 @@ round#轮
 Death#死亡
 penalty#不利
 instant#立即
+permanent#永久
 HP#HP
 vs.#vs.
 pick pockets#偷窃
@@ -39,3 +40,13 @@ strikes as +5 weapon#攻击视为+5武器
 strikes as +6 weapon#攻击视为+6武器
 cold iron#寒冷武器
 Strength#力量
+touch#触碰
+summoning#召唤
+visual range of the caster#施法者视野内
+Protection#防护
+Abjuration#防护
+the caster#施法者
+1 person#一个人
+axe#斧
+fire damage#火焰伤害
+seconds#秒
