@@ -207,6 +207,7 @@ Dynaheir#戴娜黑
 Edie#爱迪
 Edwin Odesseiron#艾德温·奥狄塞伦
 Edwin#艾德温
+Odesseiron#奥狄塞伦
 Einer#艾纳
 Ekandor#艾坎多尔
 Elandro#埃兰德罗
@@ -554,6 +555,7 @@ Perdue#帕度
 Permidion Stark#波米迪恩·史达尔
 Petrine#佩德林
 Pfaug Hammerlust#普伐革·贪锤
+Pfaug#普伐革
 Phandalyn#凡达林
 Phlydia#菲莉蒂雅
 Phossey Dugdeep#佛西·深掘
@@ -627,6 +629,8 @@ Sashenstar#沙散塔
 Scar#史卡
 Schaal#思卡尔
 Captain Schael Corwin#舍尔·科温上尉
+Schael#舍尔
+Corwin#科温
 Scotty McAverstein#史考地·麦卡佛斯坦
 Selaad Gan#席拉·伽恩
 Selûne, the Moonmaiden#月之女士苏伦

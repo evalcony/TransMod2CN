@@ -46,3 +46,5 @@ mace#锤
 placeholder#placeholder
 beholder#眼魔
 company#团队
+Thayan#塞尔人
+Council#议会

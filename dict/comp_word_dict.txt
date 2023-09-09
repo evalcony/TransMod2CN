@@ -121,3 +121,5 @@ Fire Spirit#火元素
 Air Spirit#风元素
 Earth Spirit#土元素
 placeholder#placeholder
+child of Bhaal#巴尔之子
+Council of Four#四人议会
