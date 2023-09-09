@@ -15,7 +15,7 @@ def trans(filename):
 
 # 翻译单文件
 if __name__ == '__main__':
-    file = 'dia_9.tra'
+    file = 'dia_10.tra'
 
     start_time = time.time()
 

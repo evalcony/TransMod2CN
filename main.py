@@ -75,6 +75,10 @@ class Solver:
             print('')
             return line
 
+        # 存档标志
+        if line.find('000000') != -1:
+            return line
+
         # 去除text开头关于声音的标识
         line = self.off_voice(line)
 
@@ -291,6 +295,10 @@ class Solver:
             line = line.replace('［','[')
         if line.find('］') != -1:
             line = line.replace('］',']')
+        if line.find('【') != -1:
+            line = line.replace('【', '[')
+        if line.find('】') != -1:
+            line = line.replace('】', ']')
 
         # 例子：_7_10 _3_10
         pattern = r'\[(\d+)\]'

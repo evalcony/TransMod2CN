@@ -23,3 +23,4 @@ attack per round#次攻击每轮
 attack damage:#攻击伤害：
 base THAC0:#基础护甲等级：
 CLASS FEATURES:#职业特色：
+missile#远程
