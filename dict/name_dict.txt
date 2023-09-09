@@ -170,7 +170,7 @@ Delenda#德兰达
 Delgar Munsch#戴尔加·穆斯克
 Dellan#戴兰
 Delthyr#戴瑟尔
-De'Mallonblade 德'马伦布雷德
+De'Mallonblade#德'马伦布雷德
 Deneld#德菲尔德
 Dennaton#德纳顿
 Destus Gurn#戴斯塔司·格恩
@@ -556,7 +556,7 @@ Pfaug Hammerlust#普伐革·贪锤
 Phandalyn#凡达林
 Phlydia#菲莉蒂雅
 Phossey Dugdeep#佛西·深掘
-Phossey佛西
+Phossey#佛西
 Phreya#佛里吉亚
 Piato#皮耶多
 Piergeiron Paladinstar#皮尔盖伦·帕拉汀斯塔
@@ -604,7 +604,7 @@ Rieltar Anchev#瑞塔·安基夫
 Rigah#里加
 Riggilo#瑞吉罗
 Riggs#里格斯
-Rillifane Rallathil瑞里芬·莱勒菲
+Rillifane Rallathil#瑞里芬·莱勒菲
 Rilsa#里尔萨
 Rinnie#瑞内
 Rishthishaa#瑞许希沙
@@ -696,7 +696,7 @@ Talos#塔洛斯
 Tamah#塔玛
 Tamoko#妲摩可
 Tannath#坦纳斯
-Tanorm坦诺姆
+Tanorm#坦诺姆
 Taris#塔里斯
 Tart#塔特
 Tartle#塔特尔

@@ -38,9 +38,9 @@ def de_blank(filename):
     utils.write_file('', 'de_blank.txt', res)
 
 if __name__ == '__main__':
-    # test_line(mode='')
+    test_line(mode='')
     # test_file(mode='debug')
 
     # to_upper()
 
-    de_blank('temp_dir/temp.txt')
+    # de_blank('temp_dir/temp.txt')
