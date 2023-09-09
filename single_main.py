@@ -24,8 +24,12 @@ def trans(filename):
 def range_trans(file_list):
     print('')
 
+    start_time = time.time()
     for file in file_list:
         trans(file)
+
+    end_time = time.time()
+    print("[总执行时间]", end_time - start_time, "seconds")
 
 
 if __name__ == '__main__':
@@ -33,6 +37,6 @@ if __name__ == '__main__':
     # trans(file)
 
     file_list = []
-    for i in range(80, 90):
+    for i in range(130, 140):
         file_list.append('dia_'+str(i)+'.tra')
     range_trans(file_list)
