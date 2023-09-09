@@ -38,3 +38,6 @@ slashing#挥砍
 crushing#粉碎
 piercing#穿刺
 placeholder#placeholder
+heya#heya
+Alignment#阵营
+leather#皮甲

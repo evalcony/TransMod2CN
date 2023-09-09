@@ -13,6 +13,7 @@ pick pockets#偷窃
 open locks#开锁
 find traps#侦测陷阱
 move silently#无声移动
+Regenerates#再生
 regenerate#再生
 constitution#体质
 may only be removed with a remove curse spell#只能被*移除诅咒*移除
@@ -20,4 +21,21 @@ missile#远程
 hit points#点
 every#每
 wearer cannot be#穿戴者无法处于
-and#和
+Grease#油腻术
+Web#蛛网术
+Entangle#纠缠术
+immunity to#免疫
+blindness#目盲术
+Vocalize#发声术
+Luck#幸运
+slashing#挥砍
+crushing#粉碎
+piercing#穿刺
+strikes as +1 weapon#攻击视为+1武器
+strikes as +2 weapon#攻击视为+2武器
+strikes as +3 weapon#攻击视为+3武器
+strikes as +4 weapon#攻击视为+4武器
+strikes as +5 weapon#攻击视为+5武器
+strikes as +6 weapon#攻击视为+6武器
+cold iron#寒冷武器
+Strength#力量

@@ -11,7 +11,6 @@ Combat abilities:#充能能力：
 Special abilities:#特殊能力：
 Sphere:#领域：
 Damage:#伤害：
-Strength#力量
 Weight:#重量：
 STATISTICS:#数据资料：
 Cursed#*诅咒物品*
@@ -21,3 +20,6 @@ Range:#距离：
 Requires:#需求：
 Duration:#持续时间：
 attack per round#次攻击每轮
+attack damage:#攻击伤害：
+base THAC0:#基础护甲等级：
+CLASS FEATURES:#职业特色：

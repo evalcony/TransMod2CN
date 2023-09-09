@@ -4,7 +4,7 @@ import utils
 
 # 翻译单文件
 if __name__ == '__main__':
-    file = 'total_t1.tra'
+    file = 'dia_1.tra'
     res = main.convert('tra/'+file, main.Solver(''))
     for r in res:
         print(r)

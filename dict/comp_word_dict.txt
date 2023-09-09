@@ -27,6 +27,7 @@ Thay's dreaded Red Wizards#塞尔的红袍法师
 Red Wizards#红袍法师
 wild mage#狂法师
 Candlekeep#烛堡
+Waterdeep#深水城
 Baldur's Gate: Enhanced Edition#《博德之门：增强版》
 Tales of the Sword Coast#剑湾传奇
 Sword Coast#剑湾
@@ -54,7 +55,7 @@ Kubul <kubul@freemail.hu>#Kubul <kubul@freemail.hu>
 Frankeinstein <frankeinsteins@freemail.hu>#Frankeinstein <frankeinsteins@freemail.hu>
 Ner'zhul <mszaszko@rmg.c3.hu>#Ner'zhul <mszaszko@rmg.c3.hu>
 jnc <jnc@magyaritasok.hu>#jnc <jnc@magyaritasok.hu>
-Rico <gabor.koroknai@hu.flextronics.com>#v
+Rico <gabor.koroknai@hu.flextronics.com>#Rico <gabor.koroknai@hu.flextronics.com>
 Panyi <panyi@magyaritasok.hu>#Panyi <panyi@magyaritasok.hu>
 JoKeR <jokayel@axelero.hu>#JoKeR <jokayel@axelero.hu>
 Roberto és felesége#Roberto és felesége
@@ -84,9 +85,28 @@ Good <DAYNIGHTALL>#Good <DAYNIGHTALL>
 Iron Throne#铁王座
 Three Old Kegs inn#三老桶酒馆
 Elfsong Tavern#精灵之歌酒馆
+Elfsong#精灵之歌
 Spiritual Lock#精神枷锁
 lost class#堕落职业
 doom spell#灾难术
 Cornugon's revenge#寇根的复仇
-'s#的
+It's me#是我
 protected from evil#防护邪恶
+Robe of Netheril#耐瑟瑞尔长袍
+Soft Feet#自由之靴
+unarmed attacks#无装备武器攻击
+Shield of Balduran#博德安护盾
+Entar, please#请进
+Dragonspear Castle#龙矛堡
+SHAMANIC DANCE#萨满之舞
+Shadows of Amn#安姆阴影
+level drain#等级吸取
+true neutral#绝对中立
+neutral good#中立善良
+neutral evil#中立邪恶
+dual-class#转职
+dual class#转职
+multi class#兼职
+multi-class#兼职
+studded leather#镶钉皮甲
+hide armor#全身甲

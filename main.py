@@ -75,12 +75,17 @@ class Solver:
             print('')
             return line
 
+        # 去除text开头关于声音的标识
+        line = self.off_voice(line)
+
         # 一些容易引起翻译错误的，在这里手动翻译，不调用API接口
         tup = self.direct_translate(line)
         res = tup[0]
         if tup[1]:
             print('[直译] '+res)
             print('')
+            # 回复声音的标识位
+            self.on_voice(res)
             return res
 
         if res.strip() == '':
@@ -105,12 +110,28 @@ class Solver:
         # 占位符还原成字典值
         rev_back = self.set_token_back(zh)
 
+        # 声音标识位还原
+        rev_back = self.on_voice(zh)
+
         print('')
 
         # 等待，防止频繁调用报错
         self.counter.wait()
 
         return rev_back
+
+    def on_voice(self, line):
+        cache = self.voice_cache
+        line = cache+line
+        return line
+
+    def off_voice(self, line):
+        if line[0] == '[' and line.find(']') != -1:
+            rp = line.find(']')
+            v = line[0:rp+1]
+            self.voice_cache = v
+            line = line[rp+1:]
+        return line
 
     def get_translator(self):
         use = utils.read_config('appconf.ini')['config']['use']
@@ -136,7 +157,7 @@ class Solver:
         self.ignore_dict['lbs.'] = ''
         self.ignore_dict['lb.'] = ''
         self.ignore_dict['ft.'] = ''
-        
+
     # key 全部转为小写存储和比较
     # 除了token_r 的value,作为翻译的value都不做任何改变
     def _init_token(self, lines, w_dict, idx):
@@ -176,9 +197,9 @@ class Solver:
                         line = line.replace(sp, self.sp_word_dict[sp])
 
         # 坑爹的符号，这2个不是同一个符号
-        if line[0] == '-' or line[0] == '–':
-            print('line[0]测试' + line[0])
-            no_api_req = True
+        if (line[0] == '-' or line[0] == '–'):
+            if len(line) < 10:
+                no_api_req = True
             # 在这个上下文，找相关的sp_word
             for sp in self.sp_word_dict:
                 if sp in line:
