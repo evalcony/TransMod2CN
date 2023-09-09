@@ -37,3 +37,4 @@ Shaman#萨满
 slashing#挥砍
 crushing#粉碎
 piercing#穿刺
+placeholder#placeholder

@@ -154,24 +154,19 @@ class Solver:
 
 
     def direct_translate(self, line):
-        no_api_trans = False
-
         line = line.lower()
+
+        no_api_req = False
 
         # 如果这一行仅仅只有专有名词，则不走token替换
         if line in self.comp_word_dict:
             line = line.replace(line, self.comp_word_dict[line])
             return (line, True)
 
-        # 替换name
-        for w in self.name_dict:
-            # 替换name
-            if w in line:
-                line = line.replace(w, self.name_dict[w])
-
         # 检查不需要调用 API 的单词 manual_trans_word_dict
         for k,v in self.manual_trans_word_dict.items():
             if k in line:
+                no_api_req = True
                 # 将key替换为value
                 line = line.replace(k, v)
 
@@ -180,10 +175,17 @@ class Solver:
                     if sp in line:
                         line = line.replace(sp, self.sp_word_dict[sp])
 
-                no_api_trans = True
+        # 坑爹的符号，这2个不是同一个符号
+        if line[0] == '-' or line[0] == '–':
+            print('line[0]测试' + line[0])
+            no_api_req = True
+            # 在这个上下文，找相关的sp_word
+            for sp in self.sp_word_dict:
+                if sp in line:
+                    line = line.replace(sp, self.sp_word_dict[sp])
 
-        # 如果不走API，那么在这里直接尽可能换完
-        if no_api_trans:
+        if no_api_req:
+            # 如果不走API，那么在这里直接尽可能换完
             for k,v in self.comp_word_dict.items():
                 if k in line:
                     line = line.replace(k, v)
@@ -199,9 +201,13 @@ class Solver:
                 if w in self.word_dict:
                     line = line.replace(w, self.word_dict[w])
 
-            return (line, True)
+            # 替换name
+            for w in self.name_dict:
+                # 替换name
+                if w in line:
+                    line = line.replace(w, self.name_dict[w])
 
-        return(line, False)
+        return(line, no_api_req)
 
     # 做 token 替换. 等翻译结束后，再替换回来
     def token_replace(self, line):
@@ -240,7 +246,7 @@ class Solver:
 
     # 去除词尾的一些符号
     def word_clear(self, word):
-        ele = ['.',',','!',':','?']
+        ele = ['.',',','!',':','?','\'s']
         for e in ele:
             if word.find(e) != -1:
                 ws = word.split(e)

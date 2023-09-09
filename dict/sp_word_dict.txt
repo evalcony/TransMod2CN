@@ -9,3 +9,15 @@ penalty#不利
 instant#立即
 HP#HP
 vs.#vs.
+pick pockets#偷窃
+open locks#开锁
+find traps#侦测陷阱
+move silently#无声移动
+regenerate#再生
+constitution#体质
+may only be removed with a remove curse spell#只能被*移除诅咒*移除
+missile#远程
+hit points#点
+every#每
+wearer cannot be#穿戴者无法处于
+and#和
