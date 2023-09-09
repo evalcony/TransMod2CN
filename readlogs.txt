@@ -7,3 +7,5 @@ dia_226.tra
 dia_228.tra
 done
 dia_230.tra
+dia_232.tra
+dia_234.tra

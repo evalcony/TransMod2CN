@@ -66,6 +66,7 @@ google 在国内的话需要设置代理。
 `appconf_demo.ini` 是 `appconf.ini` 的模板。
 
 - readlogs.txt 记录上次执行结束点功能。每次任务时，会先读 readlogs.txt，找到上一次的记录点，然后从该位置开始执行。在开始执行前，会先写 readlogs.txt。
+每次任务执行成功后，调用 log.done(), 在文件末尾写入 'done' 记录，表示本次任务全部执行完。下次再执行时，则会忽略 readlogs.txt 中全部内容。
 
 项目中给出了一个以上若干文件写法的例子，是翻译一个 `威尔逊编年史`mod 的实现。
 
