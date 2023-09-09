@@ -1,0 +1,11 @@
+radius#半径
+turns#回合
+turn#回合
+rounds#轮
+round#轮
+/level#/等级
+Death#死亡
+penalty#不利
+instant#立即
+HP#HP
+vs.#vs.

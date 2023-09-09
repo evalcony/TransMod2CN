@@ -18,7 +18,6 @@ Shadowstep#暗影步
 Dagger#匕首
 One-handed#单手武器
 Special#特殊
-Death#死亡
 bearomancer#熊灵法师
 <PRO_RACE>#<PRO_RACE>
 enclave#领地
@@ -33,3 +32,8 @@ sorcerer#术士
 Worrisome#不妙
 Greetings#向你问好
 Wards#守卫
+Conjuration#咒法
+Shaman#萨满
+slashing#挥砍
+crushing#粉碎
+piercing#穿刺

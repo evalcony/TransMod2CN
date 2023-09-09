@@ -51,6 +51,9 @@ class Solver:
         self.name_dict = dict()
         # ignore字典 - 忽略指定单词
         self.ignore_dict = dict()
+        # sp_word 在 manul_trans_word 词附近的词典，用作特定单词翻译。
+        # 这部分词在日常用语和游戏环境用语中，有不同的翻译
+        self.sp_word_dict = dict()
 
         # 复杂字典 k,v
         self.comp_word_dict = dict()
@@ -127,6 +130,7 @@ class Solver:
         idx = self._init_token(utils.read_file('dict/comp_word_dict.txt'), self.comp_word_dict, idx)
         idx = self._init_token(utils.read_file('dict/manual_trans_word_dict.txt'), self.manual_trans_word_dict, idx)
         idx = self._init_token(utils.read_file('dict/name_dict.txt'), self.name_dict, idx)
+        idx = self._init_token(utils.read_file('dict/sp_word_dict.txt'), self.sp_word_dict, idx)
 
         # 初始化ignore_dict
         self.ignore_dict['lbs.'] = ''
@@ -170,6 +174,12 @@ class Solver:
             if k in line:
                 # 将key替换为value
                 line = line.replace(k, v)
+
+                # 在这个上下文，找相关的sp_word
+                for sp in self.sp_word_dict:
+                    if sp in line:
+                        line = line.replace(sp, self.sp_word_dict[sp])
+
                 no_api_trans = True
 
         # 如果不走API，那么在这里直接尽可能换完

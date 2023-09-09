@@ -11,12 +11,8 @@ Combat abilities:#充能能力：
 Special abilities:#特殊能力：
 Sphere:#领域：
 Damage:#伤害：
-penalty#不利
 Strength#力量
 Weight:#重量：
-slashing#挥砍
-crushing#粉碎
-piercing#穿刺
 STATISTICS:#数据资料：
 Cursed#*诅咒物品*
 THAC0:#零级命中值：
@@ -25,6 +21,3 @@ Range:#距离：
 Requires:#需求：
 Duration:#持续时间：
 attack per round#次攻击每轮
-HP#HP
-vs.#vs.
-lost class#堕落职业

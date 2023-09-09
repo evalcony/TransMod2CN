@@ -46,6 +46,8 @@ google 在国内的话需要设置代理。
 - manual_trans_word_dict.txt 复合单词组成的专有名词，允许包含空格。代码中的识别方式是字符串和替换。以 `#` 分割。
 如果命中这个文件里的单词，则不进行翻译的API调用。
 
+- sp_word_dict.txt 当检测到 manual_trans_word_dict 中词时，要在 sp_word_dict.txt 这个文件中检测。因为有些常用词在日常的翻译和游戏环境上下文的翻译，是不一样的。必须要把这两种情况区分开。
+
 - name_dict.txt 存放姓名的翻译。以 `#` 分割。
 
 - tra/ 存放需要翻译的原始的.tra文件。需要自己建目录。
