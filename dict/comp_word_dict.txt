@@ -84,3 +84,4 @@ Good <DAYNIGHTALL>#Good <DAYNIGHTALL>
 Iron Throne#铁王座
 Three Old Kegs inn#三老桶酒馆
 Elfsong Tavern#精灵之歌酒馆
+Spiritual Lock#精神枷锁

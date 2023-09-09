@@ -14,9 +14,6 @@ snorty-snork#snorty-snork
 THAC0#零级命中值
 AC#护甲等级
 None#无
-turns#回合
-rounds#轮
-round#轮
 Shadowstep#暗影步
 Dagger#匕首
 One-handed#单手武器
@@ -35,3 +32,4 @@ sorcerers#术士
 sorcerer#术士
 Worrisome#不妙
 Greetings#向你问好
+Wards#守卫

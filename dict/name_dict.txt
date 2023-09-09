@@ -24,3 +24,8 @@ Jaheira#贾希拉
 Viconia DeVir#维康妮娅·德维尔
 Viconia#维康妮娅
 Tymora#太摩拉
+turns#回合
+turn#回合
+rounds#轮
+round#轮
+/level#/等级
