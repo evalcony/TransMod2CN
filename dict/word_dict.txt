@@ -42,3 +42,6 @@ heya#heya
 Alignment#阵营
 leather#皮甲
 mace#锤
+(placeholder)#(placeholder)
+placeholder#placeholder
+beholder#眼魔

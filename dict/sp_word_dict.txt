@@ -1,3 +1,4 @@
+visual radius of the user#使用者的视觉范围
 radius#半径
 turns#回合
 turn#回合
@@ -19,6 +20,7 @@ regenerate#再生
 constitution#体质
 may only be removed with a remove curse spell#只能被*移除诅咒*移除
 missile#远程
+hit points:#生命值
 hit points#点
 every#每
 wearer cannot be#穿戴者无法处于
@@ -50,3 +52,14 @@ the caster#施法者
 axe#斧
 fire damage#火焰伤害
 seconds#秒
+beholder rays#眼魔射线
+constructs#构装生物
+evil creatures#邪恶生物
+whichever is better#取更好的
+electrical#电力
+halberd#戟
+two-handed#双手武器
+war hammer#战锤
+Cursed#*诅咒物品*
+katana#武士刀
+deals an extra#额外造成

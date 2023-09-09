@@ -17,7 +17,7 @@ class Counter:
             return
 
         if self.cnt % 30 == 0:
-            wait_time = self._1D10()+10
+            wait_time = self._1D10()+3
         elif self.cnt % 10 == 0:
             wait_time = self._1D6()+8
         elif self.cnt % 5 == 0:
@@ -77,6 +77,9 @@ class Solver:
 
         # 存档标志
         if line.find('000000') != -1:
+            return line
+        # 占位符标志
+        if line == 'placeholder':
             return line
 
         # 去除text开头关于声音的标识
@@ -205,6 +208,7 @@ class Solver:
         # 坑爹的符号，这2个不是同一个符号
         if (line[0] == '-' or line[0] == '–'):
             if len(line) < 10:
+                print('[no_api_req]' + str(no_api_req))
                 no_api_req = True
             # 在这个上下文，找相关的sp_word
             for sp in self.sp_word_dict:
@@ -231,7 +235,7 @@ class Solver:
             # 替换name
             for w in self.name_dict:
                 # 替换name
-                if w in line:
+                if w in words:
                     line = line.replace(w, self.name_dict[w])
 
         return(line, no_api_req)
@@ -242,10 +246,6 @@ class Solver:
         # 检查复合单词 comp_word_dict 并替换token
         for k,v in self.comp_word_dict.items():
             if k in line:
-                line = line.replace(k, self.get_token_val(k))
-
-        for k in self.name_dict:
-            if k in self.name_dict:
                 line = line.replace(k, self.get_token_val(k))
 
         words = line.split(' ')
@@ -268,6 +268,9 @@ class Solver:
             if k in words:
                 line = line.replace(k, self.get_token_val(k))
 
+        for k in self.name_dict:
+            if k in words:
+                line = line.replace(k, self.get_token_val(k))
 
         return line
 
@@ -375,6 +378,7 @@ def main():
             print('')
             print('-'*30)
             # 做一些单个文件翻译完成之后的工作 todo
+
 
 if __name__ == '__main__':
     main()

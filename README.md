@@ -10,24 +10,28 @@
 
 # 使用方法
 
-将需要翻译的 .TRA 文件放入 tra/ 目录下，然后执行：
+- 翻译 tra/ 目录下的文件。将需要翻译的 .TRA 文件放入 tra/ 目录下，然后执行：
 
 ```
 python3 main.py
 ```
 
-simple_main.py 可用于翻译 tra/ 目录下的单个文件，
+- single_main.py 可翻译单个文件、或者一个 file_list。
 ```
-python3 simple_main.py
+python3 single_main.py
 ```
 
-debug.py 则一般用来对一段文本进行翻译，例如
+- debug.py 用来做一些简单的功能和测试。
 ```
 文本：hello world
 
 python3 debug.py
 ```
 
+- sep_and_combine.py 对大文件进行切分和聚合，减少每次执行的时间成本
+```
+python3 sep_and_combine.py
+```
 # 翻译 API
 
 目前支持 `有道`、`google`的翻译。可在 `appconf.ini` 中配置选择哪个API。默认是有道翻译。
