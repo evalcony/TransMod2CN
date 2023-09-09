@@ -10,6 +10,10 @@
 
 # 使用方法
 
+1. 初次执行前，需要执行项目初始化脚本 init_shell.sh，自动创建程序执行需要的目录和文件。
+2. 修改配置文件 appconf.ini
+3. 执行需要的程序（如 main.py, single_main.py, debug.py 等）
+
 - 翻译 tra/ 目录下的文件。将需要翻译的 .TRA 文件放入 tra/ 目录下，然后执行：
 
 ```

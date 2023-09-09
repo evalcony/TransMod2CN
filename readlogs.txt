@@ -9,3 +9,6 @@ done
 dia_230.tra
 dia_232.tra
 dia_234.tra
+dia_236.tra
+dia_238.tra
+done
