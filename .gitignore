@@ -10,3 +10,5 @@ output/
 __pycache__/
 
 appconf.ini
+
+readlogs.txt
