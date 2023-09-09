@@ -129,9 +129,9 @@ class Solver:
         idx = self._init_token(utils.read_file('dict/name_dict.txt'), self.name_dict, idx)
 
         # 初始化ignore_dict
-        self.ignore_dict['lbs'] = ''
-        self.ignore_dict['lb'] = ''
-        self.ignore_dict['ft'] = ''
+        self.ignore_dict['lbs.'] = ''
+        self.ignore_dict['lb.'] = ''
+        self.ignore_dict['ft.'] = ''
         
     # key 全部转为小写存储和比较
     # 除了token_r 的value,作为翻译的value都不做任何改变
@@ -198,25 +198,28 @@ class Solver:
             if k in line:
                 line = line.replace(k, self.get_token_val(k))
 
-        # 检查普通单词 word_dict 并替换token
         words = line.split(' ')
-        for word in words:
-            w = self.word_clear(word)
-            # 忽略单词
-            if w in self.ignore_dict:
-                line = line.replace(w, '')
+
+        # 这个要放在前面，因为数据清洗会洗掉单词末尾的.等字符，这里就会导致匹配失败
+        # 下面这几个部分的顺序不能变，不然会导致一些翻译上的问题
+        for k in self.ignore_dict:
+            if k in words:
+                line = line.replace(k, '')
                 continue
-            
-            if w in self.word_dict:
-                line = line.replace(w, self.get_token_val(w))
 
+        # 再对 words 做数据清洗，准备下面的正常匹配
+        for i in range(len(words)):
+            _w = self.word_clear(words[i])
+            words[i] = _w
 
-        # 将name替换为token占位符
-        words = line.split(' ')
-        for word in words:
-            w = self.word_clear(word)
-            if w in self.name_dict:
-                line = line.replace(w, self.get_token_val(w))
+        # 匹配并替换为token
+        # 之所以要用 dict 中的k去对line中的单词做匹配，因为dict中的单词匹配顺序是可以控制的，而line中无法控制，这就可能导致一些替换上的问题
+        for k in self.word_dict:
+            if k in words:
+                line = line.replace(k, self.get_token_val(k))
+        for k in self.name_dict:
+            if k in self.name_dict:
+                line = line.replace(k, self.get_token_val(k))
 
         return line
 
@@ -264,8 +267,9 @@ class Solver:
             if self.mode == 'debug':
                 print('[set_token_back]: m='+idx + ' k=' + k + ' v=' + v)
             line = line.replace(self._make_token_val(idx), v)
-            if self.mode == 'debug':
-                print('还原后：' + line)
+
+        if self.mode == 'debug':
+            print('还原后：' + line)
         return line
 
 def convert(filename, solver):

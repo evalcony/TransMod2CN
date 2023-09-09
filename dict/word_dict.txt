@@ -29,6 +29,7 @@ bearomancy#熊灵术
 Inquisitor#审理者
 Cavalier#骑士
 Blackguard#黑卫
-Mages#法师
-Mage#法师
-SORCERER#术士
+mages#法师
+mage#法师
+sorcerers#术士
+sorcerer#术士
