@@ -783,7 +783,7 @@ Voghiln#沃格林
 Volo#瓦罗
 Waffles#华夫斯
 Warwick#沃里克
-#Wilch#威尔奇
+Wilch#威尔奇
 Wilson#威尔逊
 Winski Perorate#温斯基·派罗雷
 Winthrop#温斯罗普
