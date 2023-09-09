@@ -85,11 +85,12 @@ class Solver:
             print('[直译] '+res)
             print('')
             # 回复声音的标识位
-            self.on_voice(res)
+            res = self.on_voice(res)
             return res
 
         if res.strip() == '':
             print('')
+            res = self.on_voice(res)
             return res
 
         # 替换token
@@ -111,7 +112,7 @@ class Solver:
         rev_back = self.set_token_back(zh)
 
         # 声音标识位还原
-        rev_back = self.on_voice(zh)
+        rev_back = self.on_voice(rev_back)
 
         print('')
 
@@ -126,6 +127,7 @@ class Solver:
         return line
 
     def off_voice(self, line):
+        self.voice_cache = ''
         if line[0] == '[' and line.find(']') != -1:
             rp = line.find(']')
             v = line[0:rp+1]

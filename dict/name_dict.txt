@@ -29,3 +29,5 @@ Netheril#耐瑟瑞尔
 Ulcaster#乌尔卡斯特
 Balduran#博德安
 Lathander#洛山达
+DRIZZT DO'URDEN#崔斯特·杜垩登
+Drizzt#崔斯特
