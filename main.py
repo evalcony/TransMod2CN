@@ -86,6 +86,11 @@ class Solver:
         # 去除text开头关于声音的标识
         line = self.off_voice(line)
 
+        if line.strip() == '':
+            print('')
+            line = self.on_voice(line)
+            return line
+
         # 一些容易引起翻译错误的，在这里手动翻译，不调用API接口
         tup = self.direct_translate(line)
         res = tup[0]
@@ -132,6 +137,7 @@ class Solver:
     def on_voice(self, line):
         cache = self.voice_cache
         line = cache+line
+        self.voice_cache = ''
         return line
 
     def off_voice(self, line):
@@ -192,7 +198,8 @@ class Solver:
         # 如果这一行仅仅只有专有名词，则不走token替换
         if line in self.comp_word_dict:
             line = line.replace(line, self.comp_word_dict[line])
-            return (line, True)
+            no_api_req = True
+            return (line, no_api_req)
 
         # 检查不需要调用 API 的单词 manual_trans_word_dict
         for k,v in self.manual_trans_word_dict.items():
@@ -205,6 +212,9 @@ class Solver:
                 for sp in self.sp_word_dict:
                     if sp in line:
                         line = line.replace(sp, self.sp_word_dict[sp])
+
+        if len(line) == 0:
+            return (line, no_api_req)
 
         # 坑爹的符号，这2个不是同一个符号
         if (line[0] == '-' or line[0] == '–'):

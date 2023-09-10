@@ -3,7 +3,7 @@ import utils
 
 
 def test_line(mode):
-    line = "That one's no better than Sarevok! "
+    line = "[MALE SAILOR 5] "
     print('len='+str(len(line)))
     # 如果设置mode='debug'，则不会调用API，而且也会打印更详细的信息，而且不会有time.wait()
     solver = main.Solver(mode)

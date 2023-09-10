@@ -16,3 +16,15 @@ dia_240.tra
 dia_242.tra
 dia_244.tra
 dia_246.tra
+dia_248.tra
+done
+dia_250.tra
+dia_252.tra
+dia_254.tra
+dia_256.tra
+dia_258.tra
+dia_260.tra
+dia_262.tra
+dia_264.tra
+dia_264.tra
+dia_264.tra
