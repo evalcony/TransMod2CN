@@ -61,15 +61,15 @@ def write_line_in_append(prefix, filename, line, encoding='utf-8'):
     with open(dir_file_path, 'a', encoding=encoding) as f:
         f.write(line+'\n')
 
-# 将文件记录写入 readlogs.txt 中
+# 将文件记录写入 readlog.txt 中
 def write_logs(lines, encoding='utf-8'):
-    print('写入文件:readlogs.txt')
+    print('写入文件:readlog.txt')
     root_dir = os.path.dirname(os.path.abspath(__file__))
     path = root_dir
     # 防止路径不存在
     if not os.path.exists(path):
         os.makedirs(path)
-    dir_file_path = path + '/readlogs.txt'
+    dir_file_path = path + '/readlog.txt'
     if not os.path.exists(dir_file_path):
         open(dir_file_path, 'a').close()
     with open(dir_file_path, 'a', encoding=encoding) as f:

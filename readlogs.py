@@ -1,7 +1,7 @@
 import utils
 class ReadLogs:
     def readlogs(self):
-        lines = utils.read_file('readlogs.txt')
+        lines = utils.read_file('readlog.txt')
         if len(lines) > 0:
             # 如果以 done 结尾，表示上一次成功执行完成，下次执行时，相当于从新开始执行
             # filename|line_number
