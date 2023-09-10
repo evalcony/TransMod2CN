@@ -64,6 +64,7 @@ def write_line_in_append(prefix, filename, line, encoding='utf-8'):
 # 将文件记录写入 readlog.txt 中
 def write_logs(lines, encoding='utf-8'):
     print('写入文件:readlog.txt')
+    print('')
     root_dir = os.path.dirname(os.path.abspath(__file__))
     path = root_dir
     # 防止路径不存在
