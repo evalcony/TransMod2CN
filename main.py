@@ -366,8 +366,6 @@ def convert(filename, solver):
                     j = j+1
                 r = lines[j].find('~')
                 res.append(solver.solve(lines[j][:r]) + lines[j][r:])
-                i = j
-
     return res
 
 # 翻译后立刻追加
@@ -394,24 +392,23 @@ def convert_and_write(input_file, solver, line_num, output_encoding='utf-8'):
         if r != -1:
             # 在同一行
             result = line[:l + 1] + solver.solve(line[l + 1:r]) + line[r:]
-            utils.write_line_in_append('', filename, result, output_encoding)
-            log.writelogs(filename, i+1)
+            do_write_append(log, '', filename, result, output_encoding, i + 1)
         else:
             # 在不同行
             result = line[:l + 1] + solver.solve(line[l + 1:])
-            utils.write_line_in_append('', filename, result, output_encoding)
-            log.writelogs(filename, i+1)
+            do_write_append(log, '', filename, result, output_encoding, i + 1)
             j = i + 1
             while (lines[j].find('~') == -1):
-                utils.write_line_in_append('', filename, solver.solve(lines[j]), output_encoding)
-                log.writelogs(filename, j+1)
+                do_write_append(log, '', filename, solver.solve(lines[j]), output_encoding, j + 1)
                 j = j + 1
             r = lines[j].find('~')
             result = solver.solve(lines[j][:r]) + lines[j][r:]
-            utils.write_line_in_append('', filename, result, output_encoding)
-            log.writelogs(filename, j+1)
-            i = j
+            do_write_append(log, '', filename, result, output_encoding, j+1)
 
+def do_write_append(log, prefix, filename, line, encoding, next_line_num):
+    print('[翻译]'+line)
+    utils.write_line_in_append(prefix, filename, line, encoding)
+    log.writelogs(filename, next_line_num)
 
 def main():
 
