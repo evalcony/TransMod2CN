@@ -26,6 +26,7 @@ the Sun Soul monk#日魂武僧
 Sun Soul monk#日魂武僧
 Thay's dreaded Red Wizards#塞尔的红袍法师
 Red Wizards#红袍法师
+Red Wizard#红袍法师
 wild mage#狂法师
 Candlekeep#烛堡
 Waterdeep#深水城
