@@ -29,7 +29,8 @@
 python3 main.py
 ```
 
-- simple_main.py 可翻译单个文件、或者一个 file_list。
+- simple_main.py 可翻译单个文件、或者一个 file_list。并且，还支持断点重续功能，从失败位置继续翻译，而不是从头开始。
+建议使用此方法，比 main.py 更灵魂，功能更丰富。
 ```
 python3 simple_main.py
 ```

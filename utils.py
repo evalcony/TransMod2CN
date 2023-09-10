@@ -48,7 +48,7 @@ def write_file(prefix, filename, lines, encoding='utf-8'):
         for m in lines:
             f.write(m+'\n')
 
-def write_line_in_append(prefix, filename, line, encoding='utf-8'):
+def write_line_in_append(prefix, filename, lines, encoding='utf-8'):
     print('写入文件:', filename)
     root_dir = os.path.dirname(os.path.abspath(__file__))
     path = root_dir+'/output/'
@@ -59,7 +59,8 @@ def write_line_in_append(prefix, filename, line, encoding='utf-8'):
     if not os.path.exists(dir_file_path):
         open(dir_file_path, 'a').close()
     with open(dir_file_path, 'a', encoding=encoding) as f:
-        f.write(line+'\n')
+        for m in lines:
+            f.write(m + '\n')
 
 # 将文件记录写入 readlog.txt 中
 def write_logs(lines, encoding='utf-8'):

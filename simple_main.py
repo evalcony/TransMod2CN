@@ -53,7 +53,10 @@ def range_trans(file_list):
             flg = True
         # 翻译
         # single_trans(file, log)
-        trans_and_write_append(file, int(line_num))
+        if file == lastfile:
+            trans_and_write_append(file, int(line_num))
+        else:
+            trans_and_write_append(file)
     log.done()
     end_time = time.time()
     print("[总执行时间]", end_time - start_time, "seconds")
@@ -65,6 +68,6 @@ if __name__ == '__main__':
     # trans(file)
     #
     file_list = []
-    for i in range(490, 492):
+    for i in range(491, 500):
         file_list.append('dia_'+str(i)+'.tra')
     range_trans(file_list)
