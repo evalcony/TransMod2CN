@@ -38,9 +38,9 @@ def seperate_to_files(lines):
         cnt += 1
         # 这个数值的设定不能太小，因为考虑到其中的单对话多段落的情况
         if cnt > 50 and l.find('~') != -1:
-            # 要有2个~，作为一个完整的对话才行，不然会引起 solver 的解析错误
+            # 要么以~作为收尾，要么有2个~。不然会引起 sovler 解析错误
             pos = l.find('~')
-            if l[pos+1:].find('~') != -1:
+            if pos+1 <= len(l) or l[pos+1:].find('~') != -1:
                 # 保存文件
                 utils.write_file('', 'dia_'+str(idx)+'.tra', res)
                 idx += 1

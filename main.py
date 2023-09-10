@@ -297,6 +297,9 @@ class Solver:
     def get_token_val(self, k):
         return self._make_token_val(self.token[k])
 
+    def get_token(self):
+        return (self.token, self.token_r)
+
     def _make_token_val(self, int_v):
         return self.TOKEN_SIGNAL_L+str(int_v)+self.TOKEN_SIGNAL_R
 

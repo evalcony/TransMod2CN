@@ -3,12 +3,17 @@ import utils
 
 
 def test_line(mode):
-    line = "[MALE SAILOR 5] "
+    line = "I heard about your talk with Voghiln, <CHARNAME>. Getting him to think about something other than wine and ale is a good idea. I've lost too many people to drink in my time. Anyway, I thought he might like to have these. What do you think?"
     print('len='+str(len(line)))
     # 如果设置mode='debug'，则不会调用API，而且也会打印更详细的信息，而且不会有time.wait()
     solver = main.Solver(mode)
     res = solver.solve(line)
     print(res)
+
+def print_token():
+    solver = main.Solver()
+    tup = solver.get_token()
+
 
 def test_file(mode):
     file = 't1.tra'
@@ -37,9 +42,11 @@ def de_blank(filename):
     utils.write_file('', 'de_blank.txt', res)
 
 if __name__ == '__main__':
-    test_line(mode='')
+    # test_line(mode='')
     # test_file(mode='debug')
 
     # to_upper()
 
     # de_blank('temp_dir/temp.txt')
+
+    print_token()
