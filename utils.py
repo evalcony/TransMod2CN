@@ -34,19 +34,32 @@ def read_file(filename, encoding='utf-8'):
             lines.append(line.replace("\n",""))
     return lines
 
-def write_file(prefix, finename, lines, encoding='utf-8'):
-    print('写入文件:', finename)
+def write_file(prefix, filename, lines, encoding='utf-8'):
+    print('写入文件:', filename)
     root_dir = os.path.dirname(os.path.abspath(__file__))
     path = root_dir+'/output/'
     # 防止路径不存在
     if not os.path.exists(path):
         os.makedirs(path)
-    dir_file_path = path + '/' + prefix+finename
+    dir_file_path = path + '/' + prefix+filename
     if not os.path.exists(dir_file_path):
         open(dir_file_path, 'w').close()
     with open(dir_file_path, 'w', encoding=encoding) as f:
         for m in lines:
             f.write(m+'\n')
+
+def write_line_in_append(prefix, filename, line, encoding='utf-8'):
+    print('写入文件:', filename)
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    path = root_dir+'/output/'
+    # 防止路径不存在
+    if not os.path.exists(path):
+        os.makedirs(path)
+    dir_file_path = path + '/' + prefix+filename
+    if not os.path.exists(dir_file_path):
+        open(dir_file_path, 'a').close()
+    with open(dir_file_path, 'a', encoding=encoding) as f:
+        f.write(line+'\n')
 
 # 将文件记录写入 readlogs.txt 中
 def write_logs(lines, encoding='utf-8'):

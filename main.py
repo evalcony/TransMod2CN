@@ -370,6 +370,49 @@ def convert(filename, solver):
 
     return res
 
+# 翻译后立刻追加
+def convert_and_write(input_file, solver, line_num=0, output_encoding='utf-8'):
+    lines = utils.read_file(input_file)
+    file_args = input_file.split('/')
+    filename = file_args[-1]
+    log = readlogs.ReadLogs()
+    # output_encoding = 'gb18030'
+
+    j = -1
+    for i in range(len(lines)):
+        if i < line_num:
+            continue
+        if i <= j:
+            continue
+        line = lines[i]
+
+        l = line.find('~')
+        if l == -1:
+            continue
+
+        r = line.find('~', l + 1)
+        if r != -1:
+            # 在同一行
+            result = line[:l + 1] + solver.solve(line[l + 1:r]) + line[r:]
+            utils.write_line_in_append('', filename, result, output_encoding)
+            log.writelogs(filename, i)
+        else:
+            # 在不同行
+            result = line[:l + 1] + solver.solve(line[l + 1:])
+            utils.write_line_in_append('', filename, result, output_encoding)
+            log.writelogs(filename, i)
+            j = i + 1
+            while (lines[j].find('~') == -1):
+                utils.write_line_in_append('', filename, solver.solve(lines[j]), output_encoding)
+                log.writelogs(filename, j)
+                j = j + 1
+            r = lines[j].find('~')
+            result = solver.solve(lines[j][:r]) + lines[j][r:]
+            utils.write_line_in_append('', filename, result, output_encoding)
+            log.writelogs(filename, j)
+            i = j
+
+
 def main():
 
     # solver
@@ -377,7 +420,11 @@ def main():
     log = readlogs.ReadLogs()
 
     # 读取上次结束文件名
-    lastfile = log.readlogs()
+    tup = log.readlogs()
+    lastfile = tup[0]
+    line_num = tup[1]
+
+
     flg = False
 
     files = os.listdir('tra/')
@@ -402,7 +449,6 @@ def main():
             for r in res:
                 print(r)
             utils.write_file('', file, res, 'gb18030')
-            print('')
             print('')
             print('-'*30)
 

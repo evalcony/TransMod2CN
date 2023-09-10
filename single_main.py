@@ -3,12 +3,25 @@ import utils
 import time
 import readlogs
 
-#翻译单文件
-def trans(filename):
+
+# 翻译单文件，但是是立即写入模式，翻译一行写入一行
+# 避免因为API调用失败导致整个文件翻译无效的问题
+def trans_and_write_append(filename, line_num=0):
     print('*' * 20)
     start_time = time.time()
+    main.convert_and_write('tra/' + filename, main.Solver(''), line_num)
+    end_time = time.time()
+    print("[执行时间]", end_time - start_time, "seconds")
+
+#翻译单文件
+def trans(filename, log):
+    print('*' * 20)
+    start_time = time.time()
+    # 先写log记录
+    log.writelogs(filename)
 
     res = main.convert('tra/' + filename, main.Solver(''))
+
     for r in res:
         print(r)
     # 翻译mod的 .tra 文件要采用这一种
@@ -26,7 +39,9 @@ def range_trans(file_list):
 
     log = readlogs.ReadLogs()
     # 读取上次结束文件名
-    lastfile = log.readlogs()
+    tup = log.readlogs()
+    lastfile = tup[0]
+    line_num = tup[1]
     flg = False
 
     start_time = time.time()
@@ -36,10 +51,9 @@ def range_trans(file_list):
             continue
         else:
             flg = True
-        # 先写log记录
-        log.writelogs(file)
         # 翻译
-        trans(file)
+        # trans(file, log)
+        trans_and_write_append(file, int(line_num))
     log.done()
     end_time = time.time()
     print("[总执行时间]", end_time - start_time, "seconds")
@@ -51,6 +65,6 @@ if __name__ == '__main__':
     # trans(file)
     #
     file_list = []
-    for i in range(450, 500):
+    for i in range(482, 490):
         file_list.append('dia_'+str(i)+'.tra')
     range_trans(file_list)
