@@ -12,3 +12,7 @@ dia_234.tra
 dia_236.tra
 dia_238.tra
 done
+dia_240.tra
+dia_242.tra
+dia_244.tra
+dia_246.tra
