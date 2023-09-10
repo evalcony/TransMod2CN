@@ -21,7 +21,7 @@
 
 1. 初次执行前，需要执行项目初始化脚本 init_shell.sh，自动创建程序执行需要的目录和文件。
 2. 修改配置文件 appconf.ini
-3. 执行需要的程序（如 main.py, single_main.py, debug.py 等）
+3. 执行需要的程序（如 main.py, simple_main.py, debug.py 等）
 
 - 翻译 tra/ 目录下的文件。将需要翻译的 .TRA 文件放入 tra/ 目录下，然后执行：
 
@@ -29,9 +29,9 @@
 python3 main.py
 ```
 
-- single_main.py 可翻译单个文件、或者一个 file_list。
+- simple_main.py 可翻译单个文件、或者一个 file_list。
 ```
-python3 single_main.py
+python3 simple_main.py
 ```
 
 - debug.py 用来做一些简单的功能和测试。
@@ -78,9 +78,18 @@ google 在国内的话需要设置代理。
 
 `appconf_demo.ini` 是 `appconf.ini` 的模板。
 
-- readlogs.txt 记录上次执行结束点功能。每次任务时，会先读 readlogs.txt，找到上一次的记录点，然后从该位置开始执行。在开始执行前，会先写 readlogs.txt。
-每次任务执行成功后，调用 log.done(), 在文件末尾写入 'done' 记录，表示本次任务全部执行完。下次再执行时，则会忽略 readlogs.txt 中全部内容。
+- readlog.txt 记录上次执行结束点功能。每次任务时，会先读 readlog.txt，找到上一次的记录点，然后从该位置开始执行。在开始执行前，会先写 readlog.txt。
+每次任务执行成功后，调用 log.done(), 在文件末尾写入 'done' 记录，表示本次任务全部执行完。下次再执行时，则会忽略 readlog.txt 中全部内容。
+readlog.txt 的格式为 `filename|line_num`
+filename 表示读的文件
+line_num 表示下一次执行的行号(在代码中，就是存入`当前行+1`) 
+例如，假如上一次在成功写入第10行后，接口报错退出，那么readlog.txt 中最后一条记录是 `file|11`
 
+- 在 simple_main.py 中，增加了 `trans_and_write_append` 方法，作用是每翻译一行，立即写文件。 
+这在API容易出错的情况下，这个方案可以解决出错导致整个文件没保存的部分白白浪费的情况。 
+由于每次调用都有一定时延，所以不会特别频繁写文件。
+
+- 
 项目中给出了一个以上若干文件写法的例子，是翻译一个 `威尔逊编年史`mod 的实现。
 
 ### 注意

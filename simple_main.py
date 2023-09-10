@@ -14,7 +14,7 @@ def trans_and_write_append(filename, line_num=0):
     print("[执行时间]", end_time - start_time, "seconds")
 
 #翻译单文件
-def trans(filename, log):
+def single_trans(filename, log):
     print('*' * 20)
     start_time = time.time()
     # 先写log记录
@@ -52,7 +52,7 @@ def range_trans(file_list):
         else:
             flg = True
         # 翻译
-        # trans(file, log)
+        # single_trans(file, log)
         trans_and_write_append(file, int(line_num))
     log.done()
     end_time = time.time()
