@@ -18,9 +18,9 @@ class Counter:
             return
 
         if self.cnt % 30 == 0:
-            wait_time = self._1D10()+3
+            wait_time = self._1D10()+5
         elif self.cnt % 10 == 0:
-            wait_time = self._1D6()+8
+            wait_time = self._1D6()+3
         elif self.cnt % 5 == 0:
             wait_time = self._1D6()
         else:

@@ -47,6 +47,6 @@ if __name__ == '__main__':
 
     # to_upper()
 
-    # de_blank('temp_dir/temp.txt')
+    de_blank('temp_dir/temp.txt')
 
-    print_token()
+    # print_token()

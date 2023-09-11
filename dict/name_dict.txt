@@ -1,4 +1,3 @@
-Amn#安姆
 Aasim#艾辛
 Abbathor#阿巴索
 Abela#阿贝拉
@@ -169,6 +168,8 @@ Degrodel#迪果德
 Delainy#迪蓝尼
 Delenda#德兰达
 Delgar Munsch#戴尔加·穆斯克
+Delgar#戴尔加
+Munsch#穆斯克
 Dellan#戴兰
 Delthyr#戴瑟尔
 De'Mallonblade#德'马伦布雷德
@@ -300,13 +301,14 @@ Gurke#葛克
 Gurgle and Floss#潺潺和牙线
 Gurn Coldhearth#古恩·冷炉
 Haela Brightaxe#海菈·亮斧
-Halabazzer/Halbazzer Drin#哈巴瑟·德林
+Halbazzer Drin#哈巴瑟·德林
+Halabazzer#哈巴瑟
 Halabazzer Drin#哈巴瑟·德林
 Halbazzer Drin#哈巴瑟·德林
 Halabazzer#哈巴瑟
 Halatathlaer#哈拉塔斯拉尔
-Haldorr#Deepstone#哈尔多·深石
-Halnur#Farcutter#哈尔努·远斩
+Haldorr Deepstone#哈尔多·深石
+Halnur Farcutter#哈尔努·远斩
 Hammerhelm#锤盔
 Hammerlust#贪锤
 Haralt Deepstone#哈拉尔特·深石
@@ -527,7 +529,6 @@ Nelik#乃立克
 Nemphre#奈菲儿
 Nessa#妮沙
 Nester#涅斯特
-Netheril#耐瑟瑞尔
 Nexlit the Xvart#尼克森利特
 Niklos#尼可洛斯
 Nim Furlwing#尼姆·富尔温
