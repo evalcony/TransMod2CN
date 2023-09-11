@@ -36,16 +36,12 @@ python3 simple_main.py
 ```
 
 - debug.py 用来做一些简单的功能和测试。
-```
-文本：hello world
 
-python3 debug.py
-```
+- sep_and_combine.py 对大文件进行切分和聚合，减少每次执行的时间成本。
 
-- sep_and_combine.py 对大文件进行切分和聚合，减少每次执行的时间成本
-```
-python3 sep_and_combine.py
-```
+- merge_file.py 对将多个文件合并入 master 文件，并输出为新文件。
+
+
 # 翻译 API
 
 目前支持 `有道`、`google`的翻译。可在 `appconf.ini` 中配置选择哪个API。默认是有道翻译。
