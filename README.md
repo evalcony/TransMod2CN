@@ -76,17 +76,14 @@ google 在国内的话需要设置代理。
 - output/ 存放翻译后的.tra文件。需要自己建目录。
 
 - appconf.ini 配置文件，放翻译API的相关配置信息。
-目前默认是调用有道词典的API
 
-自己创建 `appconf.ini` 文件后，在其中加入如下信息，并自行申请相关API。
+通过执行初始化shell脚本 `init_shell.sh` 后，在 `appconf.ini` 文件中加入相关信息。
 
-`appconf_demo.ini` 是 `appconf.ini` 的模板。
-
-- readlog.txt 记录上次执行结束点功能。每次任务时，会先读 readlog.txt，找到上一次的记录点，然后从该位置开始执行。在开始执行前，会先写 readlog.txt。
+- readlog.txt 记录上次执行结束点功能。每次任务时，会先读 readlog.txt，找到上一次的记录点，然后从该位置开始执行。
 每次任务执行成功后，调用 log.done(), 在文件末尾写入 'done' 记录，表示本次任务全部执行完。下次再执行时，则会忽略 readlog.txt 中全部内容。
 readlog.txt 的格式为 `filename|line_num`
 filename 表示读的文件
-line_num 表示下一次执行的行号(在代码中，就是存入`当前行+1`) 
+line_num 表示下一次执行的行号(在代码中，即`当前行+1`) 
 例如，假如上一次在成功写入第10行后，接口报错退出，那么readlog.txt 中最后一条记录是 `file|11`
 
 - 在 simple_main.py 中，增加了 `trans_and_write_append` 方法，作用是每翻译一行，立即写文件。 
