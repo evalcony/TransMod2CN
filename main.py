@@ -24,7 +24,7 @@ class Counter:
         elif self.cnt % 5 == 0:
             wait_time = self._1D6()
         else:
-            wait_time = 1
+            wait_time = 0.8
         
         time.sleep(wait_time)
     

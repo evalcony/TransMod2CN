@@ -85,7 +85,7 @@ class GoogleTrans:
 
             proxy_handler = urllib2.ProxyHandler({'http': self.PROXY_URL, 'https': self.PROXY_URL})
             opener = urllib2.build_opener(proxy_handler)
-            request = urllib2.Request(link, headers=agent)
+            req = urllib2.Request(link, headers=agent)
             raw_data = opener.open(req).read()
         else:
             to_translate = urllib.parse.quote(to_translate)
