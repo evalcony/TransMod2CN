@@ -38,6 +38,7 @@ def write_result(file, result):
 if __name__ == '__main__':
     file_list = []
     for i in range(700):
-        file_list.append('output/dia_'+str(i)+'.tra')
-    result = searcher(file_list, '拳头')
+        file_list.append('output/done/dia_'+str(i)+'.tra')
+    result = searcher(file_list, '维康妮娅·德维尔')
     write_result('_search.txt', result)
+    print('任务完成')

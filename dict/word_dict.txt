@@ -13,7 +13,6 @@ Roar#Roar
 snorty-snork#snorty-snork
 THAC0#零级命中值
 AC#护甲等级
-None#无
 Shadowstep#暗影步
 Dagger#匕首
 One-handed#单手武器

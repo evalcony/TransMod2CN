@@ -24,10 +24,10 @@ def file_path(name):
 def read_file(filename, encoding='utf-8'):
     lines = []
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    print('root_dir:' + root_dir)
-    print('filename:' + filename)
+    # print('root_dir:' + root_dir)
+    # print('filename:' + filename)
     if not os.path.exists(root_dir+'/'+filename):
-        print('file not exist')
+        print(filename+' file not exist')
         return []
     with open(root_dir+'/'+filename, 'r', encoding=encoding) as file:
         for line in file:

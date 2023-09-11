@@ -40,9 +40,9 @@ python3 simple_main.py
 - correctness_check.py 文件正确性校验。由于句子内会有' @xxx = ~ 111 222~ 333~ ' 这种形式的句子，所以存在误报情况。
 - merge_file.py 对将多个文件合并入 master 文件，并输出为新文件。
 - ctnt_search.py 提供对目标内容的搜索功能，并将搜索结果导出文件。格式为:
-- ```commandline
-`filename|pattern|line_num|content`
-`文件名|匹配字符串|行号|该行内容`
+```commandline
+filename | pattern | line_num | content
+文件名 | 匹配字符串 | 行号 | 该行内容
 ```
 
 
@@ -54,6 +54,8 @@ python3 simple_main.py
 有道需要自己申请appkey。
 
 google 在国内的话需要设置代理。
+
+在 appconf.ini 中，`use=youdao` `use=google` 表示使用有道或google翻译。
 
 # 执行所依赖的文件介绍
 

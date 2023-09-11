@@ -63,3 +63,4 @@ war hammer#战锤
 Cursed#*诅咒物品*
 katana#武士刀
 deals an extra#额外造成
+none#无
