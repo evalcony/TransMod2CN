@@ -36,12 +36,15 @@ python3 simple_main.py
 ```
 
 - debug.py 用来做一些简单的功能和测试。
-
 - sep_and_combine.py 对大文件进行切分和聚合，减少每次执行的时间成本。
-
-- correctness_check.py 文件正确性校验
-
+- correctness_check.py 文件正确性校验。由于句子内会有' @xxx = ~ 111 222~ 333~ ' 这种形式的句子，所以存在误报情况。
 - merge_file.py 对将多个文件合并入 master 文件，并输出为新文件。
+- ctnt_search.py 提供对目标内容的搜索功能，并将搜索结果导出文件。格式为:
+- ```commandline
+`filename|pattern|line_num|content`
+`文件名|匹配字符串|行号|该行内容`
+```
+
 
 
 # 翻译 API

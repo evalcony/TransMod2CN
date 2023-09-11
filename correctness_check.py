@@ -25,7 +25,9 @@ def correctness_check(file_list):
 def single_correctness_check(lines):
     r = 0
     for l in lines:
-        r += l.count('~')
+        c = l.count('~')
+        if c <= 2:
+            r += c
     return r % 2 == 0
 
 def single_file_correctness_check(file):
