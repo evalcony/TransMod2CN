@@ -39,6 +39,8 @@ python3 simple_main.py
 
 - sep_and_combine.py 对大文件进行切分和聚合，减少每次执行的时间成本。
 
+- correctness_check.py 文件正确性校验
+
 - merge_file.py 对将多个文件合并入 master 文件，并输出为新文件。
 
 

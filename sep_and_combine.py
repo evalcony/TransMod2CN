@@ -48,41 +48,9 @@ def seperate_to_files(lines):
                 cnt = 1
     utils.write_file('', 'dia_' + str(idx) + '.tra', lines)
 
-# 检验切分文件的正确性
-def correctness_check(file_list):
-    result_file = []
-    result = []
-    for file in file_list:
-        lines = utils.read_file(file)
-        if len(lines) == 0:
-            continue
-
-        res = single_correctness_check(lines)
-
-        result_file.append(file)
-        result.append(res)
-
-    for i in range(len(result_file)):
-        if not result[i]:
-            print(result_file[i] + ": " + str(result[i]))
-    print('finish')
-
-def single_correctness_check(lines):
-    r = 0
-    for l in lines:
-        r += l.count('~')
-    return r % 2 == 0
-
 if __name__ == '__main__':
     # 文件切分
-    # file = 'total_t1.tra'
-    # res = takeout_text('tra/' + file)
-    #
-    # seperate_to_files(res)
+    file = 'total_t1.tra'
+    res = takeout_text('tra/' + file)
 
-    # 文件正确性校验
-    file_list = []
-    for i in range(937):
-        file_list.append('tra/'+'dia_'+str(i)+'.tra')
-    correctness_check(file_list)
-
+    seperate_to_files(res)
