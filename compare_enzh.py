@@ -30,6 +30,7 @@ def compare(en_file, zh_file, en_target, result):
     if len(res) > 0:
         zlines = utils.read_file(zh_file)
         for i in res:
+            result.append(en_file)
             result.append(elines[i])
             if len(zlines) > 0:
                 result.append(zlines[i])

@@ -51,3 +51,4 @@ planetar#星界使者
 Argent#白银
 bhaalspawn#巴尔后裔
 Changeling#变形怪
+sling#投石索

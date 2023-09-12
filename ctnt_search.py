@@ -67,7 +67,7 @@ def rep_lines(source_lines, args, target_str):
     line_num = int(args[2])
     # 完成替换
     print(source_lines[line_num])
-    source_lines[line_num] = source_lines[line_num].lower().replace(args[1], target_str)
+    source_lines[line_num] = source_lines[line_num].lower().replace(args[1].lower(), target_str)
     print(source_lines[line_num])
 
 # def rep_by_line(file, line_num, target_str):
@@ -78,15 +78,19 @@ def rep_lines(source_lines, args, target_str):
 
 def manage(args):
     if args.s != '':
+        param = args.s.lower()
+        print('[搜索目标字符]' + param)
         file_list = []
-        for i in range(900):
+        for i in range(937):
             file_list.append('output/done/dia_' + str(i) + '.tra')
         # 不区分大小写
-        result = searcher(file_list, args.s.lower())
+        result = searcher(file_list, param)
         write_result('search.txt', result)
         print('任务完成')
     elif args.r != '':
-        replace_by_search_result('output/search.txt', args.r)
+        param = args.r
+        print('[替换目标字符]' + param)
+        replace_by_search_result('output/search.txt', param)
         print('替换完成')
     elif args.d:
         replace_by_search_result('output/search.txt', '')

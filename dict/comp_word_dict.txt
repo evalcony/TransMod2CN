@@ -153,7 +153,7 @@ Cloakwood#斗篷森林
 Cloven Mountains#裂开山脉
 Constellations#英灵之聚
 Cormyr#科米尔
-Coast#Way#Crossing#剑湾大桥
+Coast Way Crossing#剑湾大桥
 Daggerfordian#匕首滩人
 Daggerford#匕首滩
 Darkhold#黑暗堡
