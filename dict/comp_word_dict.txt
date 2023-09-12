@@ -135,7 +135,7 @@ Berenford#贝伦福德
 Borrokin Amphitheatre#波洛金露天剧场
 Burning Wizard#燃烧的法师旅店
 Bridgefort#桥头堡
-Boareskyr#Bridge#巴里斯凯尔桥
+Boareskyr Bridge#巴里斯凯尔桥
 Boareskyr#巴里斯凯尔
 Calimport#卡林港
 Calishite#卡丽杉人

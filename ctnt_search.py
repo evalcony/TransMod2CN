@@ -19,15 +19,15 @@ class CtntInfo:
 
     def info(self):
         return self.file + '|' + self.pattern + '|' + str(self.line_num) + '|' + self.line
-def searcher(file_list, cnt):
+def searcher(file_list, ctnt):
     result = []
     for file in file_list:
         flines = utils.read_file(file)
 
         for i in range(len(flines)):
-            pos = flines[i].find(cnt)
+            pos = flines[i].lower().find(ctnt)
             if pos != -1:
-                result.append(CtntInfo(file, cnt, i, flines[i]))
+                result.append(CtntInfo(file, ctnt, i, flines[i]))
 
     return result
 
@@ -53,6 +53,7 @@ def replace_by_search_result(file, target_str):
             # 写入文件
             f = cur_file.replace('output/','')
             utils.write_file('', f, source_lines)
+            print('-' * 10)
 
             cur_file = args[0]
             source_lines = utils.read_file(cur_file)
@@ -66,9 +67,8 @@ def rep_lines(source_lines, args, target_str):
     line_num = int(args[2])
     # 完成替换
     print(source_lines[line_num])
-    source_lines[line_num] = source_lines[line_num].replace(args[1], target_str)
+    source_lines[line_num] = source_lines[line_num].lower().replace(args[1], target_str)
     print(source_lines[line_num])
-    print('-' * 10)
 
 # def rep_by_line(file, line_num, target_str):
 #     lines = utils.read_file(file)
@@ -77,22 +77,29 @@ def rep_lines(source_lines, args, target_str):
 #     utils.write_file('', file, lines)
 
 def manage(args):
-    if args.p != '':
+    if args.s != '':
         file_list = []
-        for i in range(850):
+        for i in range(900):
             file_list.append('output/done/dia_' + str(i) + '.tra')
-        result = searcher(file_list, args.p)
-        write_result('_search.txt', result)
+        # 不区分大小写
+        result = searcher(file_list, args.s.lower())
+        write_result('search.txt', result)
         print('任务完成')
-    elif args.repl != '':
-        replace_by_search_result('output/_search.txt', args.repl)
+    elif args.r != '':
+        replace_by_search_result('output/search.txt', args.r)
+        print('替换完成')
+    elif args.d:
+        replace_by_search_result('output/search.txt', '')
         print('替换完成')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', type=str, default='', help='匹配字串')
-    parser.add_argument('-repl', type=str, default='', help='替换结果')
+    parser.add_argument('-s', type=str, default='', help='匹配字串')
+    parser.add_argument('-r', type=str, default='', help='替换结果')
+    parser.add_argument('-d', action='store_true', help='删除字符串')
+    args = parser.parse_args()
+
     args = parser.parse_args()
 
     manage(args)

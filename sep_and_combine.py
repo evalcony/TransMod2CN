@@ -1,3 +1,5 @@
+import argparse
+
 import utils
 
 # 分离文件，和聚合文件
@@ -48,9 +50,35 @@ def seperate_to_files(lines):
                 cnt = 1
     utils.write_file('', 'dia_' + str(idx) + '.tra', lines)
 
-if __name__ == '__main__':
-    # 文件切分
-    file = 'total_t1.tra'
-    res = takeout_text('tra/' + file)
+def combine_to_file(file_list, output):
+    res = []
+    for file in file_list:
+        lines = utils.read_file(file)
+        for l in lines:
+            res.append(l)
 
-    seperate_to_files(res)
+    utils.write_file('', output, res)
+
+def manage(args):
+    if args.s:
+        # 文件切分
+        file = 'total.tra'
+        res = takeout_text('tra/' + file)
+        seperate_to_files(res)
+    elif args.c:
+        # 文件整合
+        file_list = []
+        file_list.append('output/0.tra')
+        for i in range(1, 937):
+            file_list.append('output/done/dia_' + str(i) + '.tra')
+        combine_to_file(file_list, 'dialog.tra')
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-s', action='store_true', help='文件切分')
+    parser.add_argument('-c', action='store_true', help='文件整合')
+    args = parser.parse_args()
+
+    manage(args)
+
+

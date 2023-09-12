@@ -74,7 +74,6 @@ def binsearch(master_lines, order_num):
             r = mid - 1
     return -1
 
-
 if __name__ == '__main__':
     files_list = []
     files_list.append('output/dia_87.tra')

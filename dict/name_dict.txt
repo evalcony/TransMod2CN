@@ -236,7 +236,7 @@ Fadell Ironeye#菲德尔·铁眼
 Faheed#法希德
 Fahrington#法灵顿
 Faldorn#法多
-Fanegonorom#费尼格诺罗姆（龙矛堡）
+Fanegonorom#费尼格诺罗姆
 Farluck#狗运强
 Farrl#法尔
 Farthing#法欣
@@ -306,6 +306,7 @@ Halbazzer Drin#哈巴瑟·德林
 Halabazzer#哈巴瑟
 Halabazzer Drin#哈巴瑟·德林
 Halbazzer Drin#哈巴瑟·德林
+Halbazzer#哈巴瑟
 Halabazzer#哈巴瑟
 Halatathlaer#哈拉塔斯拉尔
 Haldorr Deepstone#哈尔多·深石
@@ -497,8 +498,8 @@ Minsc#明斯克
 Mirianne#蜜莉安
 Mironda#米伦达
 Mistress Mallory#玛洛里夫人
-Mizhena#米泽娜（龙矛堡）
-M'Khiin Grubdoubler#米金·殖虫者（龙矛堡）
+Mizhena#米泽娜
+M'Khiin Grubdoubler#米金·殖虫者
 Molzahn of Tymora#太摩拉的莫占
 Montaron#蒙塔罗
 Moradin#摩拉丁
@@ -539,7 +540,7 @@ Nyxxla#尼克斯拉
 Oberan#奥伯诺
 Obe the illusionist#幻术师欧比
 Oghma#欧格玛
-Oloneiros#欧龙尼罗斯（龙矛堡）
+Oloneiros#欧龙尼罗斯
 Olvenaun#奥尔温诺
 Ophyllis#欧菲利斯
 Ordulinian#奥都林南
@@ -747,6 +748,7 @@ Timmoth#提莫斯
 Torcadahl#托卡达赫
 Torm#托姆
 Torsin de Lancie#德·兰斯统领
+de Lancie#德·兰斯
 Lancie#兰斯
 Tranzig#传兹克
 Treadsoft#轻步

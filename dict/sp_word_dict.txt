@@ -64,3 +64,7 @@ Cursed#*诅咒物品*
 katana#武士刀
 deals an extra#额外造成
 none#无
+acid#酸
+code#寒冷
+fire#火焰
+damage resistance#抗性
