@@ -162,7 +162,7 @@ Deepstone#深石
 Delosar's inn#迪洛萨酒店
 Delthuntle#戴斯航特
 Durlag's Tower#杜拉格之塔
-Ducal#Palace#公爵府
+Ducal Palace#公爵府
 River Delimbyr##德林毕尔河
 Delimbiyr#德林毕尔河
 Earthfast mountains#固土山脉

@@ -70,3 +70,4 @@ fire#火焰
 damage resistance#抗性
 stun#震慑
 sling#投石索
+magic#魔法

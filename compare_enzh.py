@@ -8,7 +8,7 @@ def list_comp(en_target):
     en_file_list = []
     zh_file_list = []
     result = []
-    for i in range(3, 936):
+    for i in range(1, 937):
         name = 'dia_'+str(i)+'.tra'
         en_file_list.append('tra/'+name)
         zh_file_list.append('output/done/'+name)

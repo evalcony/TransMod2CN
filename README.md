@@ -44,7 +44,15 @@ python3 simple_main.py
 filename | pattern | line_num | content
 文件名 | 匹配字符串 | 行号 | 该行内容
 ```
-
+ctnt_search 支持批量替换功能。在搜索结果的 search.txt 文件中，删除不想替换的行，保留想替换的行，执行命令 `python3 ctnt_search.py -r "要替换的内容""` 即可完成对这部分结果的替换。
+如果要替换为 `''`，则需要命令 `python3 ctnt_search.py -d`
+- compare_enzh.py 对搜索关键字的原文和译文进行比较。使用方法 `python3 compare_enzh.py -s "关键字""`，搜索结果放在 output/compare.txt 中，格式为
+```commandline
+原文文件路径
+原文
+译文
+```
+使用这个工具可以快速查找一个英文在所有文件中的翻译是怎样的，便于快速定位不同的翻译结果。
 
 
 # 翻译 API
