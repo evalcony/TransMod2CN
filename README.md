@@ -35,6 +35,8 @@ python3 main.py
 python3 simple_main.py
 ```
 
+# 一些辅助程序
+
 - debug.py 用来做一些简单的功能和测试。
 - sep_and_combine.py 对大文件进行切分和聚合，减少每次执行的时间成本。
 - correctness_check.py 文件正确性校验。由于句子内会有' @xxx = ~ 111 222~ 333~ ' 这种形式的句子，所以存在误报情况。
@@ -44,7 +46,7 @@ python3 simple_main.py
 filename | pattern | line_num | content
 文件名 | 匹配字符串 | 行号 | 该行内容
 ```
-ctnt_search 支持批量替换功能。在搜索结果的 search.txt 文件中，删除不想替换的行，保留想替换的行，执行命令 `python3 ctnt_search.py -r "要替换的内容""` 即可完成对这部分结果的替换。
+ctnt_search 支持批量替换功能。在搜索结果的 output/search.txt 文件中，删除不想替换的行，保留想替换的行，执行命令 `python3 ctnt_search.py -r "要替换的内容""` 即可完成对这部分结果的替换。
 如果要替换为 `''`，则需要命令 `python3 ctnt_search.py -d`
 - compare_enzh.py 对搜索关键字的原文和译文进行比较。使用方法 `python3 compare_enzh.py -s "关键字""`，搜索结果放在 output/compare.txt 中，格式为
 ```commandline
@@ -52,7 +54,7 @@ ctnt_search 支持批量替换功能。在搜索结果的 search.txt 文件中�
 原文
 译文
 ```
-使用这个工具可以快速查找一个英文在所有文件中的翻译是怎样的，便于快速定位不同的翻译结果。
+使用这个工具可以快速查找一个关键字在所有文件中的翻译是怎样的，进行比对，便于快速定位不同的翻译结果。
 
 
 # 翻译 API
