@@ -82,7 +82,6 @@ Elfsong#精灵之歌
 Spiritual Lock#精神枷锁
 lost class#失去资格
 doom spell#灾难术
-Cornugon's revenge#寇根的复仇
 It's me#是我
 protected from evil#防护邪恶
 Robe of Netheril#耐瑟瑞尔长袍

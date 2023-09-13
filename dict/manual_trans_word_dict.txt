@@ -9,6 +9,7 @@ lore bonus#乡野传奇
 Lore:#乡野传奇：
 Equipped abilities:#装备能力：
 Combat abilities:#充能能力：
+Charge abilities:#充能能力：
 Special abilities:#特殊能力：
 Sphere:#领域：
 Damage:#伤害：

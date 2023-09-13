@@ -58,7 +58,7 @@ def seperate_to_files(lines):
             last = res[-1]
             last = de_brackets(last)
             last = last.strip()
-            analyse.append('[是否由~结尾:]' + str(last.endswith('~')) + '|' + last)
+            analyse.append('[是否由~结尾:]' + str(last.endswith('~')))
 
             if l.count('~') > 2:
                 analyse.append('[异常的~数量] [原文]'+l)
