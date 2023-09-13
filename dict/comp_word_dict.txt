@@ -80,7 +80,7 @@ Good <DAYNIGHTALL>#Good <DAYNIGHTALL>
 Elfsong Tavern#精灵之歌酒馆
 Elfsong#精灵之歌
 Spiritual Lock#精神枷锁
-lost class#堕落职业
+lost class#失去资格
 doom spell#灾难术
 Cornugon's revenge#寇根的复仇
 It's me#是我

@@ -80,9 +80,13 @@ def manage(args):
     if args.s != '':
         param = args.s.lower()
         print('[搜索目标字符]' + param)
+
+        path_prefix = 'output/done'
+        if args.p != '':
+            path_prefix = args.p
         file_list = []
-        for i in range(937):
-            file_list.append('output/done/dia_' + str(i) + '.tra')
+        for i in range(1, 446):
+            file_list.append(path_prefix + '/dia_' + str(i) + '.tra')
         # 不区分大小写
         result = searcher(file_list, param)
         write_result('search.txt', result)
@@ -101,6 +105,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', type=str, default='', help='匹配字串')
     parser.add_argument('-r', type=str, default='', help='替换结果')
+    parser.add_argument('-p', type=str, default='', help='搜索的路径')
     parser.add_argument('-d', action='store_true', help='删除字符串')
     args = parser.parse_args()
 

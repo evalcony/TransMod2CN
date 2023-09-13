@@ -14,7 +14,6 @@ def print_token():
     solver = main.Solver()
     tup = solver.get_token()
 
-
 def test_file(mode):
     file = 't1.tra'
     res = main.convert('tra/' + file, main.Solver(mode))
@@ -41,12 +40,39 @@ def de_blank(filename):
             res.append(line.replace(' ', '#'))
     utils.write_file('', 'de_blank.txt', res)
 
+def de_brackets(line):
+    line = line.strip()
+    p1 = line.find('[')
+    p2 = line.find(']', p1 + 1)
+
+    print(p1)
+    print(p2)
+    print(len(line))
+
+    while (p2 != -1 and p2+1 != len(line)):
+        line = line[:p1]+line[p2+1:]
+        print(line)
+        print('*'*10)
+
+        p1 = line.find('[')
+        p2 = line.find(']', p1 + 1)
+        print(p1)
+        print(p2)
+        print(len(line))
+
+    if p2 != -1:
+        line = line[:p1] + line[p2 + 1:]
+    return line
+
 if __name__ == '__main__':
     # test_line(mode='')
     # test_file(mode='debug')
 
     # to_upper()
 
-    de_blank('temp_dir/temp.txt')
+    # de_blank('temp_dir/temp.txt')
 
     # print_token()
+
+    line = de_brackets('克拉兹战败后十天，你回到公爵府的房间，[aaa]思绪混乱。你想知道圣战军会对博德之门产生什么影响，却不知答案就在眼前......~ [bd65221]')
+    print(line)
