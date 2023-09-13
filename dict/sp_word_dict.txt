@@ -58,6 +58,7 @@ evil creatures#邪恶生物
 whichever is better#取更好的
 electrical#电力
 halberd#戟
+two-handed sword#双手剑
 two-handed#双手武器
 war hammer#战锤
 Cursed#*诅咒物品*
@@ -71,3 +72,9 @@ damage resistance#抗性
 stun#震慑
 sling#投石索
 magic#魔法
+short sword#短剑
+dart#飞镖
+trolls#巨魔
+casting speed#施法速度
+quarterstaff#法杖
+shortbow#短弓
