@@ -16,7 +16,8 @@ def merge_multi_file(master, file_list, output):
         file_lines = utils.read_file(file, file_encoding)
         file_dict[file] = file_lines
     master_line = replace_lines(master_line, file_dict)
-    utils.write_file('', output, master_line, file_encoding)
+    # todo
+    # utils.write_file('', output, master_line, file_encoding)
 
 def replace_lines(master_lines, file_dict):
     for file in file_dict:
@@ -32,6 +33,9 @@ def replace_lines(master_lines, file_dict):
         j = 0
 
         print(str(m_start) + ' ' + str(m_end))
+
+        print(master_lines[m_start])
+        print(master_lines[m_end])
         print('-'*10)
 
         # for i in range(m_start, m_end + 1):
@@ -58,6 +62,8 @@ def range_file_lines(lines):
 
 def pick_order_number(line):
     p1 = line.find('@')
+    if p1 == -1:
+        return -1
     p2 = line.find(' ', p1+1)
     return line[p1+1:p2]
 
@@ -66,6 +72,8 @@ def binsearch(master_lines, order_num):
     while l <= r:
         mid = (l + r) // 2
         m_order = pick_order_number(master_lines[mid])
+        while m_order == -1:
+            mid -= 1
         if int(m_order) == int(order_num):
             return mid
         elif int(m_order) < int(order_num):
@@ -76,6 +84,7 @@ def binsearch(master_lines, order_num):
 
 if __name__ == '__main__':
     files_list = []
-    files_list.append('output/dia_87.tra')
-    files_list.append('output/dia_81.tra')
-    merge_multi_file('tra/total_t1.tra', files_list, 'total_out.tra')
+    files_list.append('output/s' + str(1) + '.tra')
+    # for i in range(1, 9):
+    #     files_list.append('output/s_'+str(i)+'.tra')
+    merge_multi_file('output/dialog_out.tra', files_list, 'dialog_merge.tra')

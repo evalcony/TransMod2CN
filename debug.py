@@ -64,6 +64,52 @@ def de_brackets(line):
         line = line[:p1] + line[p2 + 1:]
     return line
 
+def parse_sod_tag_file():
+    lines = utils.read_file('output/sod_tag.txt')
+    res = []
+    info = ''
+    for l in lines:
+        if l == '':
+            continue
+        if l.find('文件名') != -1:
+            p = l.find(']')
+            info = l[p+1:]
+        if l.find("待校对行数") != -1:
+            p = l.find(']')
+            score = l[p+1:]
+            p2 = score.find('/')
+            n = int(score[:p2])
+            if n < 20:
+                continue
+            info += ' ' + score
+            res.append(info)
+
+    utils.write_file('', 'sod_tag_整理.txt', res)
+
+def test():
+    lines = utils.read_file('output/sod_80_orig.tra')
+    res = []
+    for l in lines:
+        if l.strip() == '':
+            res.append('')
+        else:
+            res.append(str(l.count('~')) + '| ' + l)
+            if l.count('~') != 2:
+                print(l)
+    utils.write_file('', 'test.txt', res)
+
+
+# 行尾是否对齐的校验
+def check():
+    for i in range(1, 90):
+        lines1 = utils.read_file('output/sod_'+str(i)+'.tra')
+        lines2 = utils.read_file('output/sod_'+str(i)+'_orig.tra')
+
+        print('sod_'+str(i)+'.tra')
+        print(lines1[-1])
+        print(lines2[-1])
+        print('')
+
 if __name__ == '__main__':
     # test_line(mode='')
     # test_file(mode='debug')
@@ -74,5 +120,6 @@ if __name__ == '__main__':
 
     # print_token()
 
-    line = de_brackets('克拉兹战败后十天，你回到公爵府的房间，[aaa]思绪混乱。你想知道圣战军会对博德之门产生什么影响，却不知答案就在眼前......~ [bd65221]')
-    print(line)
+    parse_sod_tag_file()
+
+    # test()

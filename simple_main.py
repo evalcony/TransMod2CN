@@ -3,6 +3,7 @@ import utils
 import time
 import readlogs
 
+# 为合并SoD 定制
 
 # 翻译单文件，但是是立即写入模式，翻译一行写入一行
 # 避免因为API调用失败导致整个文件翻译无效的问题
@@ -68,6 +69,6 @@ if __name__ == '__main__':
     # trans(file)
     #
     file_list = []
-    for i in range(1, 3):
-        file_list.append('dia_'+str(i)+'.tra')
+    for i in range(1, 9):
+        file_list.append('s'+str(i)+'.tra')
     range_trans(file_list)
