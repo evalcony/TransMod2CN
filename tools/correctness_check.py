@@ -38,7 +38,7 @@ def single_file_correctness_check(file):
 def dispatcher(args):
     if args.a:
 
-        path_prefix = 'tra/'
+        path_prefix = '../tra/'
         if args.p !='':
             path_prefix = args.p+'/'
         up_limit = 500

@@ -21,7 +21,7 @@ def test_file(mode):
         print(r)
 
 def to_upper():
-    lines = utils.read_file('dict/word_dict.txt')
+    lines = utils.read_file('../dict/word_dict.txt')
     utils.to_upper(lines)
 
 def word_clear(word):
@@ -65,7 +65,7 @@ def de_brackets(line):
     return line
 
 def parse_sod_tag_file():
-    lines = utils.read_file('output/sod_tag.txt')
+    lines = utils.read_file('../output/sod_tag.txt')
     res = []
     info = ''
     for l in lines:
@@ -86,8 +86,8 @@ def parse_sod_tag_file():
 
     utils.write_file('', 'sod_tag_整理.txt', res)
 
-def test():
-    lines = utils.read_file('output/sod_80_orig.tra')
+def single_sig_scan():
+    lines = utils.read_file('../output/sod_50_orig.tra')
     res = []
     for l in lines:
         if l.strip() == '':
@@ -98,10 +98,26 @@ def test():
                 print(l)
     utils.write_file('', 'test.txt', res)
 
+def scan_reverse(start_point):
+    lines = utils.read_file('../output/sod_50_orig.tra')
+    res = []
+    r_lines = list(reversed(lines))
+    for i in range(len(r_lines)):
+        if i < start_point:
+            continue
+        l = r_lines[i]
+        if l.strip() == '':
+            res.append('')
+        else:
+            res.append(str(l.count('~')) + '| ' + l)
+            if l.count('~') != 2:
+                print(l)
+    utils.write_file('', 'scan_reverse.txt', res)
+
 
 # 行尾是否对齐的校验
 def check():
-    for i in range(1, 90):
+    for i in range(1, 96):
         lines1 = utils.read_file('output/sod_'+str(i)+'.tra')
         lines2 = utils.read_file('output/sod_'+str(i)+'_orig.tra')
 
@@ -120,6 +136,10 @@ if __name__ == '__main__':
 
     # print_token()
 
-    parse_sod_tag_file()
+    # parse_sod_tag_file()
 
-    # test()
+    # single_sig_scan()
+
+    # scan_reverse(1)
+
+    check()

@@ -16,8 +16,7 @@ def merge_multi_file(master, file_list, output):
         file_lines = utils.read_file(file, file_encoding)
         file_dict[file] = file_lines
     master_line = replace_lines(master_line, file_dict)
-    # todo
-    # utils.write_file('', output, master_line, file_encoding)
+    utils.write_file('', output, master_line, file_encoding)
 
 def replace_lines(master_lines, file_dict):
     for file in file_dict:

@@ -1,5 +1,6 @@
 import utils
 
+# 单文件逐行比对
 
 def comp(f1, f2, start_line):
     lines1 = utils.read_file(f1)

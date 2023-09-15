@@ -36,7 +36,7 @@ def takeout_text(filename, start_line=0):
 
 def seperate_to_files(sod_lines, zh_lines, output):
     line_cnt = 0
-    res = []
+    res1 = []
     res2 = []
     idx = 1
     zh = [0] * (len(zh_lines)+1)
@@ -55,18 +55,15 @@ def seperate_to_files(sod_lines, zh_lines, output):
         l = sod_lines[i]
         if has_zh(l):
             zh[i] = 1
-        elif l.strip() == '':
+        if l.strip() == '':
             zh[i] = 1
         if l.find('placeholder') != -1:
             zh[i] = 1
 
-    print('zh_lines=' + str(len(zh_lines)))
-    print('sod_lines=' + str(len(sod_lines)))
-
     for i in range(len(zh_lines)):
         write_flag = False
         l = zh_lines[i]
-        res.append(l)
+        res1.append(l)
         res2.append(sod_lines[i])
         line_cnt += 1
 
@@ -75,14 +72,14 @@ def seperate_to_files(sod_lines, zh_lines, output):
         r += l.count('~')
         if line_cnt > 500 and r % 2 == 0 and l.count('~') > 0:
             analyse.append('[文件名:]' + 'sod_' + str(idx)+'.tra')
-            analyse.append('[待校对行数:]' + str(nsod_num) + '/' + str(len(res)))
+            analyse.append('[待校对行数:]' + str(nsod_num) + '/' + str(len(res1)))
             analyse.append('')
 
-            utils.write_file('', 'sod_' + str(idx) + '.tra', res)
+            utils.write_file('', 'sod_' + str(idx) + '.tra', res1)
             utils.write_file('', 'sod_' + str(idx) + '_orig.tra', res2)
 
             idx += 1
-            res = []
+            res1 = []
             res2 = []
             line_cnt = 1
             r = 0
@@ -90,9 +87,9 @@ def seperate_to_files(sod_lines, zh_lines, output):
             write_flag = True
     if not write_flag:
         analyse.append('[文件名:]' + 'sod_' + str(idx) + '.tra')
-        analyse.append('[待校对行数:]' + str(nsod_num) + '/' + str(len(res)))
+        analyse.append('[待校对行数:]' + str(nsod_num) + '/' + str(len(res1)))
 
-        utils.write_file('', 'sod_' + str(idx) + '.tra', res)
+        utils.write_file('', 'sod_' + str(idx) + '.tra', res1)
         utils.write_file('', 'sod_' + str(idx) + '_orig.tra', res2)
 
     utils.write_file('', output, analyse)
@@ -131,8 +128,8 @@ if __name__ == '__main__':
     start_line = 48138
     seperate_to_files(
         # sod 2.6.6 基准文件（从0开始）
-        takeout_text('tra/dialog_sod_2.6.tra', start_line),
+        takeout_text('../tra/dialog_sod_2.6.tra', start_line),
         # 汉化后的文件（从@33... 开始）
-        takeout_text('tra/dialog.tra', 0),
+        takeout_text('../tra/dialog.tra', 0),
         'sod_tag.txt'
     )
