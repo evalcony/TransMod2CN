@@ -67,28 +67,6 @@ def de_brackets(line):
         line = line[:p1] + line[p2 + 1:]
     return line
 
-def parse_sod_tag_file():
-    lines = utils.read_file('output/sod_tag.txt')
-    res = []
-    info = ''
-    for l in lines:
-        if l == '':
-            continue
-        if l.find('文件名') != -1:
-            p = l.find(']')
-            info = l[p+1:]
-        if l.find("待校对行数") != -1:
-            p = l.find(']')
-            score = l[p+1:]
-            p2 = score.find('/')
-            n = int(score[:p2])
-            if n < 20:
-                continue
-            info += ' ' + score
-            res.append(info)
-
-    utils.write_file('', 'sod_tag_整理.txt', res)
-
 def single_sig_scan():
     lines = utils.read_file('output/sod_50_orig.tra')
     res = []
