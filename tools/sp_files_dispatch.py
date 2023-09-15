@@ -1,4 +1,4 @@
-
+import argparse
 import sys
 
 sys.path.append("..")
@@ -25,7 +25,7 @@ def parse_sod_tag_file():
 
     utils.write_file('', 'sod_tag_整理.txt', res)
 
-def dispatch(people_num):
+def dispatch(people_num, POWER):
     sod_tag_info = utils.read_file('output/sod_tag_整理.txt')
     file_name = []
     sod_num = []
@@ -44,8 +44,6 @@ def dispatch(people_num):
         sod_num.append(num)
         zh_num.append(t-num)
         total_zh += t-num
-
-    POWER = 0.8
 
     # 平均
     np_average = (total_sod + total_zh) // people_num
@@ -111,6 +109,14 @@ def dispatch(people_num):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-n', type=int, default=1, help='分配人数')
+    parser.add_argument('-p', type=float, default=1.0, help='加权系数')
+    args = parser.parse_args()
+
     parse_sod_tag_file()
 
-    dispatch(8)
+    people_num = args.n
+    POWER = args.p
+
+    dispatch(people_num, POWER)
