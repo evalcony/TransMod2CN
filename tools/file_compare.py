@@ -1,3 +1,6 @@
+import sys
+
+sys.path.append("..")
 import utils
 
 # 单文件逐行比对

@@ -1,4 +1,7 @@
 import main
+import sys
+
+sys.path.append("..")
 import utils
 
 
@@ -21,7 +24,7 @@ def test_file(mode):
         print(r)
 
 def to_upper():
-    lines = utils.read_file('../dict/word_dict.txt')
+    lines = utils.read_file('dict/word_dict.txt')
     utils.to_upper(lines)
 
 def word_clear(word):
@@ -65,7 +68,7 @@ def de_brackets(line):
     return line
 
 def parse_sod_tag_file():
-    lines = utils.read_file('../output/sod_tag.txt')
+    lines = utils.read_file('output/sod_tag.txt')
     res = []
     info = ''
     for l in lines:
@@ -87,7 +90,7 @@ def parse_sod_tag_file():
     utils.write_file('', 'sod_tag_整理.txt', res)
 
 def single_sig_scan():
-    lines = utils.read_file('../output/sod_50_orig.tra')
+    lines = utils.read_file('output/sod_50_orig.tra')
     res = []
     for l in lines:
         if l.strip() == '':
@@ -99,7 +102,7 @@ def single_sig_scan():
     utils.write_file('', 'test.txt', res)
 
 def scan_reverse(start_point):
-    lines = utils.read_file('../output/sod_50_orig.tra')
+    lines = utils.read_file('output/sod_50_orig.tra')
     res = []
     r_lines = list(reversed(lines))
     for i in range(len(r_lines)):

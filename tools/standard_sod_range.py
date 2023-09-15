@@ -1,5 +1,7 @@
 # 切分文件，并打印2.6.6.0版本SOD的中文范围，于是无需校对
+import sys
 
+sys.path.append("..")
 import utils
 
 # 分离文件，和聚合文件

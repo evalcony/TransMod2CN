@@ -1,5 +1,8 @@
 # 将多个文件合并
 
+import sys
+
+sys.path.append("..")
 import utils
 
 

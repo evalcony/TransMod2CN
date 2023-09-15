@@ -1,6 +1,8 @@
 # 根据搜索词，比较同一个词在en/zh 的表达，并输出到文件
 import argparse
+import sys
 
+sys.path.append("..")
 import utils
 
 
@@ -8,12 +10,12 @@ def list_comp(en_target):
     en_file_list = []
     zh_file_list = []
     result = []
-    for i in range(1, 937):
-        name = 'dia_'+str(i)+'.tra'
-        en_file_list.append('tra/'+name)
-        zh_file_list.append('output/done/'+name)
+    for i in range(1, 96):
+        en_file_list.append('output/'+'sod_'+str(i)+'_orig.tra')
+        zh_file_list.append('output/'+'sod_'+str(i)+'.tra')
 
     for i in range(len(en_file_list)):
+        print(i)
         compare(en_file_list[i], zh_file_list[i], en_target, result)
 
     utils.write_file('', 'compare.txt', result)

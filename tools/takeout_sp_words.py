@@ -1,3 +1,6 @@
+import sys
+
+sys.path.append("..")
 import utils
 
 # 提前文件中的特殊单词 <word>
