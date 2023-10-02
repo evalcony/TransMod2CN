@@ -47,7 +47,7 @@ beholder#眼魔
 company#团队
 Thayan#塞尔人
 Council#议会
-planetar#星界使者
+planetar#异界神侍
 Argent#白银
 bhaalspawn#巴尔后裔
 Changeling#变形怪

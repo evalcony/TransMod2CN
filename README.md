@@ -13,8 +13,8 @@
 - 对 mod 的 .tra 文件进行翻译。支持单文件翻译、批量文件翻译。
 - 支持有道、google 的翻译API
 - 支持对文件自动转码。gb18030, utf-8 等。
-- 支持断点恢复。失败之后重新执行时，从失败文件开始执行。
-- 支持多语言翻译。
+- 支持断点恢复。失败之后重新执行时，从失败文件的失败位置开始执行。
+- 支持多语言翻译（默认英译汉）。
 - 限流保护。限制请求API的频率，保证翻译的稳定性（代价是牺牲性能）。
 
 # 使用方法
@@ -30,7 +30,7 @@ python3 main.py
 ```
 
 - simple_main.py 可翻译单个文件、或者一个 file_list。并且，还支持断点重续功能，从失败位置继续翻译，而不是从头开始。
-建议使用此方法，比 main.py 更灵魂，功能更丰富。
+建议使用此方法，比 main.py 更灵活，功能更丰富。
 ```
 python3 simple_main.py
 ```
@@ -39,7 +39,7 @@ python3 simple_main.py
 
 - debug.py 用来做一些简单的功能和测试。
 - sep_and_combine.py 对大文件进行切分和聚合，减少每次执行的时间成本。
-- correctness_check.py 文件正确性校验。由于句子内会有' @xxx = ~ 111 222~ 333~ ' 这种形式的句子，所以存在误报情况。
+- correctness_check.py 文件正确性校验。由于某些不规范文本内会有' @xxx = ~ 111 222~ 333~ ' 这种形式的句子，所以存在误报情况。
 - merge_file.py 对将多个文件合并入 master 文件，并输出为新文件。
 - ctnt_search.py 提供对目标内容的搜索功能，并将搜索结果导出文件。格式为:
 ```commandline
@@ -48,7 +48,7 @@ filename | pattern | line_num | content
 ```
 ctnt_search 支持批量替换功能。在搜索结果的 output/search.txt 文件中，删除不想替换的行，保留想替换的行，执行命令 `python3 ctnt_search.py -r "要替换的内容""` 即可完成对这部分结果的替换。
 如果要替换为 `''`，则需要命令 `python3 ctnt_search.py -d`
-- compare_enzh.py 对搜索关键字的原文和译文进行比较。使用方法 `python3 compare_enzh.py -s "关键字""`，搜索结果放在 output/compare.txt 中，格式为
+- compare_enzh.py 对搜索关键字的原文和译文进行比较。使用方法 `python3 compare_enzh.py -s "关键字"`，搜索结果放在 output/compare.txt 中，格式为
 ```commandline
 原文文件路径
 原文
