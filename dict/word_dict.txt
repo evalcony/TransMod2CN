@@ -48,8 +48,11 @@ Council#议会
 planetar#异界神侍
 Argent#白银
 bhaalspawn#巴尔后裔
+Bhaalchild#巴尔之子
 Changeling#变形怪
 sling#投石索
 crusade#十字军
 Eclipse#日蚀
 surfacer#地表人
+godchild#神之子
+contract#协议

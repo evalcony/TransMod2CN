@@ -79,11 +79,6 @@ def range_trans(file_list, output_encoding):
 # 临时2
 if __name__ == '__main__':
     file_list = []
-    file_list.append('solae1.tra')
-    file_list.append('solafoe.tra')
-    file_list.append('solaint.tra')
-    file_list.append('solasoa.tra')
-    file_list.append('solatob.tra')
-    file_list.append('solavamp.tra')
+    file_list.append('items-ee.tra')
 
-    range_trans(file_list, 'gb18030')
+    range_trans(file_list, output_encoding='utf-8')

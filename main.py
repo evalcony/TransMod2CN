@@ -207,12 +207,10 @@ class Solver:
                 no_api_req = True
                 # 将key替换为value
                 line = line.replace(k, v)
-                print('打印结果：'+line)
                 # 在这个上下文，找相关的sp_word
                 for sp in self.sp_word_dict:
                     if sp in line:
                         line = line.replace(sp, self.sp_word_dict[sp])
-        print('打印结果：' + line)
         if len(line) == 0:
             return (line, no_api_req)
 
