@@ -7,6 +7,7 @@ Proficiency Type:#熟练项类型：
 Protection from backstab#免疫背刺
 lore bonus#乡野传奇
 Lore:#乡野传奇：
+Additional Equipped Abilities:#额外装备能力：
 Equipped abilities:#装备能力：
 Combat abilities:#充能能力：
 Charge abilities:#充能能力：
@@ -26,3 +27,4 @@ attack damage:#攻击伤害：
 base THAC0:#基础护甲等级：
 CLASS FEATURES:#职业特色：
 missile#远程
+THACO:#零级命中值：

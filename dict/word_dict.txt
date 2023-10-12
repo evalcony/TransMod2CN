@@ -11,8 +11,6 @@ snufflesnort#snufflesnort
 Growl#Growl
 Roar#Roar
 snorty-snork#snorty-snork
-THAC0#零级命中值
-AC#护甲等级
 Shadowstep#暗影步
 Dagger#匕首
 One-handed#单手武器
@@ -45,7 +43,7 @@ mace#锤
 placeholder#placeholder
 beholder#眼魔
 company#团队
-Thayan#塞尔人
+Thayan#塞恩人
 Council#议会
 planetar#异界神侍
 Argent#白银
@@ -53,3 +51,5 @@ bhaalspawn#巴尔后裔
 Changeling#变形怪
 sling#投石索
 crusade#十字军
+Eclipse#日蚀
+surfacer#地表人

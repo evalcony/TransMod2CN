@@ -208,6 +208,7 @@ Dushai#度珊
 Dynaheir#戴娜黑
 Edie#爱迪
 Edwin Odesseiron#艾德温·奥狄塞伦
+Edwina#艾德温娜
 Edwin#艾德温
 Odesseiron#奥狄塞伦
 Einer#艾纳
@@ -377,6 +378,8 @@ Jinga#金卡
 Joia#乔亚
 Jolstead#朱尔斯蒂德
 Jon Irenicus#琼·艾瑞尼卡斯
+Jon#琼
+Irenicus#艾瑞尼卡斯
 Joseph#乔瑟夫
 Jospil#乔斯比
 Julann#朱兰
@@ -400,6 +403,7 @@ Khalid#卡立德
 Kelddath Ormlyr#肯达斯·欧姆力
 Kelddath#肯达斯
 Keldorn Firecam#凯东·费尔康
+Firecam#费尔康
 Keldorn#凯东
 Kelemvor#克兰沃
 Kelner#科纳尔
@@ -831,3 +835,11 @@ Zorl Miyar#佐尔·麦亚
 Zorl#佐尔
 Zulann Fass#祖蓝·法斯
 Zulann#祖蓝
+Solaufein#索劳芬
+Ust Natha#乌斯特纳萨
+Phaere#菲里
+Tsuki no Ken#月之剑
+Bodhi#芭荻
+veldrin#维尔德林
+Haer'Dalis#海尔达利
+Korgan#寇根

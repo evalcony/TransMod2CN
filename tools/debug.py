@@ -1,12 +1,12 @@
-import main
 import sys
 
 sys.path.append("..")
 import utils
+import main
 
 
 def test_line(mode):
-    line = "I heard about your talk with Voghiln, <CHARNAME>. Getting him to think about something other than wine and ale is a good idea. I've lost too many people to drink in my time. Anyway, I thought he might like to have these. What do you think?"
+    line = "When asked about his past, SOLAUFEIN adds little beyond what you already know. As one of a small number of good Drow he will always be an outcast. Solaufein prefers not to speak of his old life in Ust Natha. The memory of the time he shared with Phaere before she was turned against him is too poignant and the memory of her eventual hatred and death is too cruel. Still, Solaufein will admit to being the leader of the Male Fighters' Guild in Ust Natha. He is also a magician of no small talent. When Phaere was taken from him he became a fervent (but secret) follower of Eilistraee Silverhair. He can be given to brooding melancholy."
     print('len='+str(len(line)))
     # 如果设置mode='debug'，则不会调用API，而且也会打印更详细的信息，而且不会有time.wait()
     solver = main.Solver(mode)
@@ -108,7 +108,7 @@ def check():
         print('')
 
 if __name__ == '__main__':
-    # test_line(mode='')
+    test_line(mode='')
     # test_file(mode='debug')
 
     # to_upper()
@@ -123,4 +123,4 @@ if __name__ == '__main__':
 
     # scan_reverse(1)
 
-    check()
+    # check()

@@ -77,6 +77,7 @@ Good <DAYNIGHTALL>#Good <DAYNIGHTALL>
 <CHARNAMME>#<CHARNAMME>
 <SIRMAAM>#<SIRMAAM>
 <GIRLBOY>#<GIRLBOY>
+<LADYLORD>#<LADYLORD>
 Elfsong Tavern#精灵之歌酒馆
 Elfsong#精灵之歌
 Spiritual Lock#精神枷锁
@@ -302,3 +303,5 @@ Winding Water#蜿蜒河
 Zakhara#札哈拉
 Zazesspur#扎泽斯伯
 Zhentil Keep#散提尔堡
+Total Eclipse#日全食
+Rhynn Lanthorn#莱恩神灯

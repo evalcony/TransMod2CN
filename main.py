@@ -207,12 +207,12 @@ class Solver:
                 no_api_req = True
                 # 将key替换为value
                 line = line.replace(k, v)
-
+                print('打印结果：'+line)
                 # 在这个上下文，找相关的sp_word
                 for sp in self.sp_word_dict:
                     if sp in line:
                         line = line.replace(sp, self.sp_word_dict[sp])
-
+        print('打印结果：' + line)
         if len(line) == 0:
             return (line, no_api_req)
 
@@ -341,9 +341,9 @@ class Solver:
             print('[还原后] ' + line)
         return line
 
-def convert(filename, solver):
+def convert(filename, solver, encoding):
     
-    lines = utils.read_file(filename)
+    lines = utils.read_file(filename, encoding)
     res = []
     j = -1
     for i in range(len(lines)):
@@ -449,7 +449,7 @@ def main():
             # 先写log记录
             log.writelogs(file)
 
-            res = convert('tra/' + file, solver)
+            res = convert('tra/' + file, solver, 'utf-8')
             for r in res:
                 print(r)
             utils.write_file('', file, res, 'gb18030')
