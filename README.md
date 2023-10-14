@@ -1,6 +1,6 @@
 # TransMod2CN
 
-## 介绍
+## 项目简介
 
 针对博德之门(BG1, BG2, EE, EET, etc.) 的英文 mod，将其自动翻译为中文，并调整好文件编码。
 
@@ -38,7 +38,7 @@ python3 simple_main.py
 
 ## 一些辅助程序
 
-见[辅助程序介绍.md](docs/辅助程序介绍.md)
+见[辅助程序介绍](docs/辅助程序介绍.md)
 
 
 ## 翻译 API 设置
@@ -56,14 +56,14 @@ python3 simple_main.py
 - proxy: 代理地址
 
 
-## 执行所依赖的文件介绍
+## 依赖文件介绍
 
-见[执行所依赖的文件介绍.md](docs/执行所依赖的文件介绍.md)
+见[依赖文件介绍](docs/执行所依赖的文件介绍.md)
 
 
 ## 其他介绍
 
-见[其他介绍.md](docs/其他介绍.md)
+见[其他介绍](docs/其他介绍.md)
 
 ## todo
 
@@ -72,9 +72,9 @@ python3 simple_main.py
 
 ## 已汉化案例
 
-1. BG1EE:SoD 龙矛围攻 v2.6.6
-2. Solaufein v2.04
-3. Unfinished Business v29
-4. Wilson Chronicles
-5. The Longer Road v2.06
-6. Ascension v2.023
+1. 龙矛围攻 BG1EE:SoD Siege of Dragonspear v2.6.6
+2. 索劳芬罗曼史 Solaufein v2.04
+3. 未竟的事业 Unfinished Business v29
+4. 威尔逊编年史 Wilson Chronicles
+5. 漫长的旅途 The Longer Road v2.06
+6. 巅峰之战 Ascension v2.023
