@@ -91,3 +91,5 @@ bonus#奖励
 THAC0#零级命中值
 AC#护甲等级
 Kensai#剑圣
+Plate Mail#全身板甲
+Plate#板甲

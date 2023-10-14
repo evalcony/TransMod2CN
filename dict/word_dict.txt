@@ -56,3 +56,5 @@ Eclipse#日蚀
 surfacer#地表人
 godchild#神之子
 contract#协议
+portal#传送门
+planes#位面

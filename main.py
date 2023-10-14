@@ -70,10 +70,14 @@ class Solver:
         self.counter = Counter(mode)
 
     def solve(self, line):
-        print('[原文] '+line)
+        # print('[原文] '+line)
 
+        # 忽略空行
         if line.strip() == '':
-            print('')
+            return line
+
+        # 如果没有需要翻译的部分，则忽略
+        if has_zh(line):
             return line
 
         # 存档标志
@@ -382,21 +386,25 @@ def convert_and_write(input_file, solver, line_num, output_encoding='utf-8'):
             continue
         line = lines[i]
 
+        # 忽略注释
+        if line.startswith('//'):
+            continue
+
         l = line.find('~')
         if l == -1:
             continue
 
-        r = line.find('~', l + 1)
+        r = line.find('~', l+1)
         if r != -1:
             # 在同一行
             result = []
-            res = line[:l + 1] + solver.solve(line[l + 1:r]) + line[r:]
+            res = line[:l+1] + solver.solve(line[l+1:r]) + line[r:]
             result.append(res)
-            do_write_append(log, '', filename, result, output_encoding, i + 1)
+            do_write_append(log, '', filename, result, output_encoding, i+1)
         else:
             # 在不同行
             result = []
-            res = line[:l + 1] + solver.solve(line[l + 1:])
+            res = line[:l+1] + solver.solve(line[l+1:])
             result.append(res)
             j = i + 1
             while (lines[j].find('~') == -1):
@@ -408,6 +416,17 @@ def convert_and_write(input_file, solver, line_num, output_encoding='utf-8'):
             result.append(res)
 
             do_write_append(log, '', filename, result, output_encoding, j+1)
+
+def has_zh(string):
+    if string == '':
+        return False
+    for ch in string:
+        if zh_signal(ch):
+            return True
+    return False
+
+def zh_signal(ch):
+    return '\u4e00' <= ch <= '\u9fff'
 
 def do_write_append(log, prefix, filename, lines, encoding, next_line_num):
     for line in lines:
