@@ -4,7 +4,7 @@
 
 针对 baldur's gate2 的英文 mod，将其自动翻译为中文，并调整好文件编码。
 
-输出文件编码为 `gb18030`。
+一般而言，汉化中文 mod 需要将输出文件编码设置为`utf-8`或者`gb18030`。取决于具体的mod实现（不同的mod在编码上有所不同，需要自己测试）。
 
 代码的基本思路是，将文件中的 `~xxx~` 内容解析出来，先对其专有名词进行识别，或直接翻译，或替换为 token 然后走 API 接口调用。对于替换为 token 的，在翻译后还要进行还原操作。
 
@@ -37,24 +37,8 @@ python3 simple_main.py
 
 # 一些辅助程序
 
-- debug.py 用来做一些简单的功能和测试。
-- sep_and_combine.py 对大文件进行切分和聚合，减少每次执行的时间成本。
-- correctness_check.py 文件正确性校验。由于某些不规范文本内会有' @xxx = ~ 111 222~ 333~ ' 这种形式的句子，所以存在误报情况。
-- merge_file.py 对将多个文件合并入 master 文件，并输出为新文件。
-- ctnt_search.py 提供对目标内容的搜索功能，并将搜索结果导出文件。格式为:
-```commandline
-filename | pattern | line_num | content
-文件名 | 匹配字符串 | 行号 | 该行内容
-```
-ctnt_search 支持批量替换功能。在搜索结果的 output/search.txt 文件中，删除不想替换的行，保留想替换的行，执行命令 `python3 ctnt_search.py -r "要替换的内容""` 即可完成对这部分结果的替换。
-如果要替换为 `''`，则需要命令 `python3 ctnt_search.py -d`
-- compare_enzh.py 对搜索关键字的原文和译文进行比较。使用方法 `python3 compare_enzh.py -s "关键字"`，搜索结果放在 output/compare.txt 中，格式为
-```commandline
-原文文件路径
-原文
-译文
-```
-使用这个工具可以快速查找一个关键字在所有文件中的翻译是怎样的，进行比对，便于快速定位不同的翻译结果。
+见[辅助程序介绍.md](辅助程序介绍.md)
+
 
 
 # 翻译 API
@@ -141,3 +125,8 @@ Solver 的入参设置 `mode='debug'` 模式，则不进行 API 调用，而且�
 # 成功案例
 
 1. BG1EE:SoD 龙矛围攻 汉化
+2. Solaufein mod
+3. Unfinished Business mod
+4. Wilson Chronicles mod
+5. The Longer Road mod
+6. Ascension mod

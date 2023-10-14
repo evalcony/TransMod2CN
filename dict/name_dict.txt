@@ -855,3 +855,6 @@ Lunitari#露尼塔里
 Ansalon#安萨隆
 Isra#伊斯拉
 Yoshimo#攸旭摩
+Ribald#利博德
+Qualinesti#夸林斯提
+Silvanesti#西尔瓦内斯提

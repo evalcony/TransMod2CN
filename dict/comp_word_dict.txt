@@ -74,10 +74,16 @@ Good <DAYNIGHTALL>#Good <DAYNIGHTALL>
 <PRO_CLASS>#<PRO_CLASS>
 < PRO_MANWOMAN>#< PRO_MANWOMAN>
 <AMOUNT>#<AMOUNT>
-<CHARNAMME>#<CHARNAMME>
+<CHARNAMME>#<CHARNAME>
 <SIRMAAM>#<SIRMAAM>
 <GIRLBOY>#<GIRLBOY>
 <LADYLORD>#<LADYLORD>
+<MALEFEMALE>#<MALEFEMALE>
+<PLAYER2>#<PLAYER2>
+<PLAYER3>#<PLAYER3>
+<PLAYER4>#<PLAYER4>
+<PLAYER5>#<PLAYER5>
+<PLAYER6>#<PLAYER6>
 Elfsong Tavern#精灵之歌酒馆
 Elfsong#精灵之歌
 Spiritual Lock#精神枷锁
@@ -231,6 +237,7 @@ Pavilion of Righteous Wrath#义愤厅
 planar sphere#位面球
 Purskul#普斯克罗
 Priador#普来亚铎
+the Order of the Radiant Heart#至热之心骑士团
 Radiant Heart's temple#至热之心神殿
 Radiant Heart#至热之心
 Rashemen#拉西曼人

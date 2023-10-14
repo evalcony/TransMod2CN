@@ -79,12 +79,6 @@ def range_trans(file_list, output_encoding):
 # 临时2
 if __name__ == '__main__':
     file_list = []
-    file_list.append('intro.tra')
-    file_list.append('parting.tra')
-    file_list.append('quest.tra')
-    file_list.append('scripts.tra')
-    file_list.append('talks.tra')
-    file_list.append('talkstob.tra')
-    file_list.append('banters.tra')
+    file_list.append('setup.tra')
 
     range_trans(file_list, output_encoding='utf-8')
