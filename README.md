@@ -22,15 +22,15 @@
 
 1. 初次执行前，需要执行项目初始化脚本 init_shell.sh，自动创建程序执行需要的目录和文件。
 2. 修改配置文件 appconf.ini
-3. 执行需要的程序（如 main.py, simple_main.py, debug.py 等）
+3. 将待汉化 .tra 文件放入 tra/ 目录下。
+4. 执行需要的程序（如 main.py, simple_main.py, debug.py 等）
 
-- 翻译 tra/ 目录下的文件。将需要翻译的 .TRA 文件放入 tra/ 目录下，然后执行：
-
+main.py 对 tra/ 目录下的文件进行翻译。
 ```
 python3 main.py
 ```
 
-- simple_main.py 可翻译单个文件、或者一个 file_list。并且，还支持断点重续功能，从失败位置继续翻译，而不是从头开始。
+simple_main.py 可翻译单个文件、或者一个 file_list。并且，还支持断点重续功能，从失败位置继续翻译，而不是从头开始。
 建议使用此方法，比 main.py 更灵活，功能更丰富。
 ```
 python3 simple_main.py
@@ -41,15 +41,20 @@ python3 simple_main.py
 见[辅助程序介绍.md](docs/辅助程序介绍.md)
 
 
-## 翻译 API
+## 翻译 API 设置
 
-目前支持 `有道`、`google`的翻译。可在 `appconf.ini` 中配置选择哪个API。默认是有道翻译。
+目前支持 `有道`、`google`的翻译。
 
+可在 `appconf.ini` 中配置选择哪个API。默认是有道翻译。（建议使用google）
 有道需要自己申请appkey。
 
-google 在国内的话需要设置代理。
+参数介绍
 
-在 appconf.ini 中，`use=youdao` `use=google` 表示使用有道或google翻译。
+- use: 表示使用哪个API进行翻译。可选项 youdao, google
+- appKey: appKey
+- appSecret: appSecret
+- proxy: 代理地址
+
 
 ## 执行所依赖的文件介绍
 
@@ -65,11 +70,11 @@ google 在国内的话需要设置代理。
 - 失败重试
 - 不同版本 mod 文件比对
 
-## 成功案例
+## 已汉化案例
 
-1. BG1EE:SoD 龙矛围攻 汉化
-2. Solaufein mod
-3. Unfinished Business mod
-4. Wilson Chronicles mod
-5. The Longer Road mod
-6. Ascension mod
+1. BG1EE:SoD 龙矛围攻 v2.6.6
+2. Solaufein v2.04
+3. Unfinished Business v29
+4. Wilson Chronicles
+5. The Longer Road v2.06
+6. Ascension v2.023
