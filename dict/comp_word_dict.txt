@@ -319,4 +319,4 @@ Towers of High Sorcery#高等术法之塔
 High Sorcery#高等术法
 Cowled Wizard#蒙面法师
 Shadow Thieves#影贼
-planeswalker#位面行者
+planeswalker#位面旅者
