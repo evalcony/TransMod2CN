@@ -81,3 +81,10 @@ def write_logs(lines, encoding='utf-8'):
 def to_upper(lines):
     for line in lines:
         print(line.upper())
+
+# 构造文件名列表，就不需要每次都手动填了
+def all_files(path_prefix):
+    file_list = []
+    for i in range(1, 96):
+        file_list.append(path_prefix + '/sod_' + str(i) + '.tra')
+    return file_list
