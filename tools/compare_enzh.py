@@ -11,11 +11,13 @@ def list_comp(en_target):
     zh_file_list = []
     result = []
     for i in range(1, 96):
-        en_file_list.append('output/'+'sod_'+str(i)+'_orig.tra')
+        # 英文源文件
+        en_file_list.append('output/orig/'+'sod_'+str(i)+'_orig.tra')
+        # 汉化文件
         zh_file_list.append('output/'+'sod_'+str(i)+'.tra')
 
     for i in range(len(en_file_list)):
-        print(i)
+        # print(i)
         compare(en_file_list[i], zh_file_list[i], en_target, result)
 
     utils.write_file('', 'compare.txt', result)

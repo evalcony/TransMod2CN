@@ -83,12 +83,12 @@ def manage(args):
         param = args.s.lower()
         print('[搜索目标字符]' + param)
 
-        path_prefix = 'output/done'
+        path_prefix = 'output/'
         if args.p != '':
             path_prefix = args.p
-        file_list = []
-        for i in range(1, 446):
-            file_list.append(path_prefix + '/dia_' + str(i) + '.tra')
+        # 文件列表
+        file_list = utils.all_files(path_prefix)
+
         # 不区分大小写
         result = searcher(file_list, param)
         write_result('search.txt', result)
@@ -102,7 +102,10 @@ def manage(args):
         replace_by_search_result('output/search.txt', '')
         print('替换完成')
 
-
+# 用法
+# python3 ctnt_search.py -s '目标字符串'   # 这会将结果输出到 search.txt中
+# python3 ctnt_search.py -r '要替换的成的字符串' # 读取 search.txt文件内容，替换相应字符串
+# python3 ctnt_serach.py -d # 将search.txt 中的搜索结果替换成''
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', type=str, default='', help='匹配字串')
