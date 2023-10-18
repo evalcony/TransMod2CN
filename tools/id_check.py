@@ -22,6 +22,22 @@ def work():
         zh_lines = utils.read_file(zh_file)
         en_lines = utils.read_file(en_file)
 
+        if zh_lines[0].startswith('@'):
+            z_r = zh_lines[0].split(' ')
+            e_r = en_lines[0].split(' ')
+            if z_r[0] != e_r[0]:
+                print(zh_file)
+                print(z_r[0])
+                print(e_r[0])
+                print('')
+        if zh_lines[-1].startswith('@'):
+            z_r = zh_lines[-1].split(' ')
+            e_r = en_lines[-1].split(' ')
+            if z_r[0] != e_r[0]:
+                print(zh_file)
+                print(z_r[0])
+                print(e_r[0])
+
         res.append(zh_file)
         res.append(zh_lines[0])
         res.append(en_lines[0])
