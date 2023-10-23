@@ -16,6 +16,7 @@ pick pockets#偷窃
 open locks#开锁
 find traps#侦测陷阱
 move silently#无声移动
+hide in shadows#阴影躲藏
 Regenerates#再生
 regenerate#再生
 constitution#体质

@@ -58,3 +58,7 @@ godchild#神之子
 contract#协议
 portal#传送门
 planes#位面
+Adamantine#精金
+Scimitar#弯刀
+Wakizashi#胁差
+Ninjatō#忍者刀
