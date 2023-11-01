@@ -13,6 +13,14 @@ def test_line(mode):
     res = solver.solve(line)
     print(res)
 
+def comp():
+    line = '@54137 = ~Ever pragmatic, ja? You look at your situation with such clear eyes. But Voghiln the Mighty is saddened at the sight of you.~ [BD54137]'
+    en_target = 'Voghiln the Mighty'
+    if line.lower().find(en_target.lower()) != -1:
+        print(line)
+    else:
+        print('not find')
+
 def print_token():
     solver = main.Solver()
     tup = solver.get_token()
@@ -108,7 +116,7 @@ def check():
         print('')
 
 if __name__ == '__main__':
-    test_line(mode='')
+    # test_line(mode='')
     # test_file(mode='debug')
 
     # to_upper()
@@ -124,3 +132,5 @@ if __name__ == '__main__':
     # scan_reverse(1)
 
     # check()
+
+    comp()

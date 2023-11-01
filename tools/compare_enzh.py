@@ -7,10 +7,11 @@ import utils
 
 
 def list_comp(en_target):
+    print(en_target)
     result = []
     enzh = utils.get_enzh_files('output')
-    zh_file_list = enzh[0]
-    en_file_list = enzh[1]
+    en_file_list = enzh[0]
+    zh_file_list = enzh[1]
 
     for i in range(len(en_file_list)):
         # print(i)
