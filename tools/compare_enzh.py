@@ -7,14 +7,10 @@ import utils
 
 
 def list_comp(en_target):
-    en_file_list = []
-    zh_file_list = []
     result = []
-    for i in range(1, 96):
-        # 英文源文件
-        en_file_list.append('output/orig/'+'sod_'+str(i)+'_orig.tra')
-        # 汉化文件
-        zh_file_list.append('output/'+'sod_'+str(i)+'.tra')
+    enzh = utils.get_enzh_files('output')
+    zh_file_list = enzh[0]
+    en_file_list = enzh[1]
 
     for i in range(len(en_file_list)):
         # print(i)
@@ -24,7 +20,6 @@ def list_comp(en_target):
     print('执行结束')
 
 def compare(en_file, zh_file, en_target, result):
-
     elines = utils.read_file(en_file)
     res = []
     for i in range(len(elines)):

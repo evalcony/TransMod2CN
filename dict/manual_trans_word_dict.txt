@@ -3,7 +3,7 @@ Area of Effect:#作用范围：
 Saving Throw:#豁免鉴定：
 Armor Class:#护甲等级：
 Speed Factor:#使用速度：
-Proficiency Type:#熟练项类型：
+Proficiency Type:#专精类型：
 Protection from backstab#免疫背刺
 lore bonus#乡野传奇
 Lore:#乡野传奇：

@@ -88,3 +88,13 @@ def all_files(path_prefix):
     for i in range(1, 96):
         file_list.append(path_prefix + '/sod_' + str(i) + '.tra')
     return file_list
+
+def get_enzh_files(path_prefix):
+    en_file_list = []
+    zh_file_list = []
+    for i in range(1, 96):
+        # 英文源文件
+        en_file_list.append(path_prefix + '/orig/sod_'+str(i)+'_orig.tra')
+        # 汉化文件
+        zh_file_list.append(path_prefix + '/sod_'+str(i)+'.tra')
+    return (en_file_list, zh_file_list)
