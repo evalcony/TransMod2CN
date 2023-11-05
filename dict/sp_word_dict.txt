@@ -76,7 +76,6 @@ none#无
 acid#酸
 code#寒冷
 fire#火焰
-damage resistance#抗性
 stun#震慑
 sling#投石索
 club#棍棒
@@ -87,6 +86,7 @@ trolls#巨魔
 casting speed#施法速度
 quarterstaff#法杖
 shortbow#短弓
+longbow#长弓
 Free Action#自由行动
 bonus#奖励
 THAC0#零级命中值
@@ -94,6 +94,13 @@ AC#护甲等级
 Kensai#剑圣
 Plate Mail#全身板甲
 Plate#板甲
-critical hits#重击
+critical hits#致命一击
 Physical Damage Resistance#物理伤害抗性
 Protects against#防护
+damage resistance#抗性
+Quest#神授
+maximum#最大
+Cure Critical Wounds#治疗严重伤害
+Save vs. Breath negates#通过对喷吐豁免鉴定则无效
+Save vs. Spell negates#通过对法术豁免鉴定则无效
+Save vs. Death negates#通过对死亡豁免鉴定则无效

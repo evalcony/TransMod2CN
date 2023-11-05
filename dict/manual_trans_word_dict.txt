@@ -16,7 +16,6 @@ Sphere:#领域：
 Damage:#伤害：
 Weight:#重量：
 STATISTICS:#数据资料：
-THAC0:#零级命中值：
 Damage type:#伤害类型：
 Type:#武器类型：
 Range:#距离：

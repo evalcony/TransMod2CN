@@ -313,6 +313,7 @@ Zhentil Keep#散提尔堡
 Total Eclipse#日全食
 Rhynn Lanthorn#莱恩神灯
 Suldanessellar#索丹尼斯拉
+Suldanesselar#索丹尼斯拉
 Silvanesti#西尔瓦内斯提
 Wizards of High Sorcery#高等术法巫师会
 Towers of High Sorcery#高等术法之塔
@@ -320,3 +321,7 @@ High Sorcery#高等术法
 Cowled Wizard#蒙面法师
 Shadow Thieves#影贼
 planeswalker#位面旅者
+spellhold#禁魔监狱
+Saradush#萨拉都许
+Prime Material#主物质位面
+Full Plate Mail#全身锁甲

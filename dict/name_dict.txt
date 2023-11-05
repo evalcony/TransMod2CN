@@ -116,6 +116,7 @@ Cabrina#卡宾娜
 Cadderly#凯德立
 Caelar Argent The Shining Lady#光辉女士凯拉·白银
 Caelar Argent#凯拉·白银
+Caelar#凯拉
 Caldo#卡多
 Calahan#卡拉汉
 Carbos#卡伯斯
@@ -281,6 +282,7 @@ Ghell Rando#吉尔·兰多
 Ghufran#古弗兰
 Glint Gardnersonson “Three-Eyes”#格林特·加德纳森森·三只眼
 Glint Gardnersonson#格林特·加德纳森森
+Glint#格林特
 Gnarg Big-Bug#格纳葛·巨虫
 Gnarl#格那尔
 Grael#葛雷尔
@@ -483,6 +485,7 @@ Mask#马斯克
 Maxwell#马克斯维尔
 Mazzy Fentan#玛兹·芬顿
 Mazzy#玛兹
+Fentan#芬顿
 Mechezarin#麦可查林
 Meems Dugdeep#米姆斯·深掘
 Meiala#梅艾拉
@@ -496,6 +499,7 @@ Merome#梅洛穆
 Meryll#梅瑞尔
 Meym#梅恩
 Michael#麦可
+Mielikki#梅莉凯
 Minsc#明斯克
 Mirianne#蜜莉安
 Mironda#米伦达
@@ -674,7 +678,7 @@ Simonetta Twoedged#西蒙内塔·双刃
 Simonetta#西蒙内塔
 Skie Silvershield#史姬·银盾
 Skie#史姬
-Slug#蛞蝓
+Slug#斯勒格
 Slythe#史立斯
 Solgen#索金
 Sonner#桑那
@@ -856,3 +860,4 @@ Yoshimo#攸旭摩
 Ribald#利博德
 Qualinesti#夸林斯提
 Silvanesti#西尔瓦内斯提
+Cernd#瑟恩
