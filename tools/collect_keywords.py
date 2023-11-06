@@ -47,10 +47,47 @@ def process(file_list):
                   "beyond", "since", "luck", "troubles", "life", "absolutely", "childhood", "compared", "growing", "illuminating",
                   "bored", "tired", "increasingly", "reality", "chidish", "worthy", "magically", "honor", "run", "suffice", "everyone",
                   "every", "followed", "personality", "difficult", "orders", "three", "two", "his", "her", "can", "things", "both",
-                  "unfortunately", "monks", "paladins", "druids", "mages", "soon", "Intriguing", "worked", "far", "power",
-                  "myself", "new", "destiny", "mortality", "isolated", "domination"]
+                  "unfortunately", "monks", "paladins", "druids", "mages", "soon", "intriguing", "worked", "far", "power",
+                  "myself", "new", "destiny", "mortality", "isolated", "domination", "mere", "disturbed", "shortly", 'finding',
+                  "key", "equipped", "documents", "items", "girl", "creatures", "friendship", "workaround", "english", "thief",
+                  "cleric", "components", "male", "private", "socially", "miserable", "overwhelming", "terrified", "extorting",
+                  "traitors", "songs", "loyalty", "taste", "walk", "slavery", "commit", "sure", "tried", "scheme", "nope", "hide",
+                  "aha", "rip", "grow", "insert", "acknowledging", "health", "useful", "flight", "teach", "perfect", "sudden",
+                  "eh", "haha", "yup", "throw", "offering", "keeping", "imagine", "not", "shame", "while", "reading", "pointy",
+                  "verily", "forest", "king", "hope", "lighten", "child", "facing", "sort", "ignore", "matters", "city", "spending",
+                  "witches", "witch", "heading", "conquest", "hunt", "proposals", "legends", "entirely", "odd", "certain", "future",
+                  "wrong", "put", "bad", "eternal", "control", "fixing", "absurd", "success", "intellectually", "failure",
+                  "focus", "harder", "closure", "tearing", "from", "speak", "knocked", "collective", "roll", "precisely", "fitting",
+                  "meanwhile", "each", "leaving", "off", "dead", "fancy", "pick", "act", "magnificent", "examine", "bits", "looks",
+                  "human", "tend", "lasting", "lovelier", "utility", "non", "ouch", "fewer", "justly", "up", "amongst", "somehow",
+                  "sharing", "long", "anyhow", "shh", "deep", "hell", "safe", "sake", "gone", "forced", "holla", "answer", "rise",
+                  "happen", "bold", "shaking", "sighing", "literally", "having", "hand", "slowly", "flushing", "lost", "kiss", "hug",
+                  "caress", "touch", "message", "post", "smile", "dance", "cult", "remind", "overly", "talking", "often", "stronger",
+                  "during", "slightly", "surprisingly", "next", "razing", "ruined", "crazy", "check", "spells", "turn", "die",
+                  "thin", "ours", "hunting", "peace", "larger", "eek", "village", "killing", "evil", "words", "lucky", "majesty",
+                  "silence", "courting", "advice", "skill", "heroes", "sell", "direct", "smiling", "seeing", "blushing", "rifling",
+                  "humming", "foolish", "loosen", "eww", "ambition", "hatred", "madness", "through", "utterly", "completely", "humbling",
+                  "knowledge", "straight", "unlike", "white", "spoken", "strength", "enormous", "heartless", "analyze", "stars", "pity",
+                  "traveling", "wouldn", "drop", "war", "pull", "displays", "best", "besides", "drop", "mercy", "point", "skillful",
+                  "coming", "unhappy", "point", "pray", "watching", "shameless", "daughter", "shamelessly", "selfish", "leader",
+                  "possibly", "weakness", "shocking", "indulge", "fear", "trading", "false", "old", "born", "wealth", "before",
+                  "done", "laws", "oddly", "planning", "love", "sack", "scared", "kissed", "horrible", "started", "ridiculous",
+                  "suddenly", "towards", "out", "afraid", "last", "agreed", "unbalanced", "enjoy", "miss", "biting", "staring",
+                  "sincerity", "seldom", "forever", "horribly", "humility", "clever", "away", "help", "calm", "ow", "lovely",
+                  "many", "kinder", "made", "typical", "ask", "insane", "funny", "wandering", "loyal", "tolerable", "had", "sneering",
+                  "professionally", "damn", "getting", "happily", "safer", "also", "unpleasant", "conquer", "negotiate",
+                  "righteous", "endless", "call", "save", "doubly", "glorious", "darling", "fresh", "whenever", "mocking",
+                  "plenty", "easier", "spying", "ten", "holy", "closer", "fair", "finally", "wow", "dare", "unbearable", "painful",
+                  "slaving", "soft", "memorable", "scum", "buy", "honestly", "hopelessly", "try", "within", "stopping", "twenty",
+                  "familiar", "despite", "hero", "silly", "using", "guilt", "adventuring", "mmm", "step", "properly", "losing",
+                  "speaking", "en", "cowardly", "sorry", "look", "five", "beautiful", "sincerely", "anyone", "shut", "up",
+                  "thumb", "nay", "laugh", "explain", "accidentally", "dammit", "fine", "over", "traitor", "watch", "remember",
+                  "rest", "lie", "blast", "unstable", "mad", "gods", "frankly", "has", "running", "goals", "survival", "oookay",
+                  "mine", "its", "politics", "hmph", "realms", "find", "restraint", "join", "continue", "significantly", "pardon",
+                  "wonderful", "others", "accopanied", "concerned", "install", "clearly", "hard", "somewhat", "midless", "sooner",
+                  "aim"]
 
-    filled_words = ["if", "by", "about", "as", "eventually", "with"]
+    filled_words = ["if", "by", "about", "as", "eventually", "with", "not", "after", "from", "always"]
 
     for file in file_list:
         lines = utils.read_file(file)
@@ -125,7 +162,7 @@ def pick(sentence):
 if __name__ == '__main__':
 
     file_list = []
-    direct_path = 'Evandra/tra/'
+    direct_path = 'adrian/tra/'
     files = os.listdir('../'+direct_path)
     for file in files:
         if file.lower().find('.tra') != -1:
