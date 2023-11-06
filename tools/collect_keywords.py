@@ -126,9 +126,8 @@ if __name__ == '__main__':
 
     file_list = []
     direct_path = 'Evandra/tra/'
-    files = os.listdir('../Evandra/tra/')
+    files = os.listdir('../'+direct_path)
     for file in files:
         if file.lower().find('.tra') != -1:
             file_list.append(direct_path+file)
     process(file_list=file_list)
-    # print(pick('The quick brown fox jumps Aaa aa Throne of Bhaal Laa over the lazy dog. Aaa Bbb Ccc'))
