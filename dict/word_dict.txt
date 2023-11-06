@@ -67,3 +67,6 @@ Ankheg#掘地虫
 Sigil#印记城
 Enough!#够了！
 Hold!#站住！
+xvarts#蓝侏怪
+Amnian#安姆
+agents#情报人员

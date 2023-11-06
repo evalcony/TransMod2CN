@@ -325,3 +325,6 @@ spellhold#禁魔监狱
 Saradush#萨拉都许
 Prime Material#主物质位面
 Full Plate Mail#全身锁甲
+how dare you#你怎么敢
+Watcher's Keep#观察者堡垒
+Copper Coronet#铜冠旅店

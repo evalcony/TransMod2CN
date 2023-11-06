@@ -1,4 +1,5 @@
 import main
+import os
 import utils
 import time
 import readlogs
@@ -76,9 +77,18 @@ def range_trans(file_list, output_encoding):
 #     single_trans(file, log, 'gb18030')
 #     log.done()
 
-# 临时2
+# # 临时2
+# if __name__ == '__main__':
+#     file_list = []
+#     file_list.append('setup.tra')
+#
+#     range_trans(file_list, output_encoding='utf-8')
+
+# 临时3 翻译指定目录下文件
 if __name__ == '__main__':
     file_list = []
-    file_list.append('setup.tra')
-
+    files = os.listdir('tra/')
+    for file in files:
+        if file.lower().find('.tra') != -1:
+            file_list.append(file)
     range_trans(file_list, output_encoding='utf-8')
