@@ -1,3 +1,4 @@
+import pydoc
 import sys, os
 import re
 
@@ -107,8 +108,11 @@ def process(file_list):
                     if flg:
                         kw_map[k] = 1
 
+
+    k_list = []
     for k in kw_map:
-        print(k)
+        k_list.append(k)
+    utils.write_file('', 'keyword.txt', k_list)
 
 def pre_procedure(sentence):
     # 去除两端空格
