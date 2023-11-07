@@ -1,6 +1,7 @@
 import configparser
 import os
 
+
 def read_config(name):
     # 创建 ConfigParser 对象
     config = configparser.RawConfigParser()
@@ -24,12 +25,11 @@ def file_path(name):
 def read_file(filename, encoding='utf-8'):
     lines = []
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    # print('root_dir:' + root_dir)
-    # print('filename:' + filename)
-    if not os.path.exists(root_dir+'/'+filename):
+    path = root_dir + NAMESPACE
+    if not os.path.exists(path+'/'+filename):
         print(filename+' file not exist')
         return []
-    with open(root_dir+'/'+filename, 'r', encoding=encoding) as file:
+    with open(path+'/'+filename, 'r', encoding=encoding) as file:
         for line in file:
             lines.append(line.replace("\n",""))
     return lines
@@ -37,7 +37,7 @@ def read_file(filename, encoding='utf-8'):
 def write_file(prefix, filename, lines, encoding='utf-8'):
     print('写入文件:', filename)
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    path = root_dir+'/output/'
+    path = root_dir + NAMESPACE +'/output/'
     # 防止路径不存在
     if not os.path.exists(path):
         os.makedirs(path)
@@ -51,11 +51,11 @@ def write_file(prefix, filename, lines, encoding='utf-8'):
 def write_line_in_append(prefix, filename, lines, encoding='utf-8'):
     print('写入文件:', filename)
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    path = root_dir+'/output/'
+    path = root_dir+NAMESPACE+'/output/'
     # 防止路径不存在
     if not os.path.exists(path):
         os.makedirs(path)
-    dir_file_path = path + '/' + prefix+filename
+    dir_file_path = path + NAMESPACE + '/' + prefix+filename
     if not os.path.exists(dir_file_path):
         open(dir_file_path, 'a').close()
     with open(dir_file_path, 'a', encoding=encoding) as f:
@@ -71,7 +71,7 @@ def write_logs(lines, encoding='utf-8'):
     # 防止路径不存在
     if not os.path.exists(path):
         os.makedirs(path)
-    dir_file_path = path + '/readlog.txt'
+    dir_file_path = path + NAMESPACE + '/readlog.txt'
     if not os.path.exists(dir_file_path):
         open(dir_file_path, 'a').close()
     with open(dir_file_path, 'a', encoding=encoding) as f:
@@ -98,3 +98,6 @@ def get_enzh_files(path_prefix):
         # 汉化文件
         zh_file_list.append(path_prefix + '/sod_'+str(i)+'.tra')
     return (en_file_list, zh_file_list)
+
+NAMESPACE = read_config('appconf.ini')['mod']['namespace']
+print('namespace='+NAMESPACE)

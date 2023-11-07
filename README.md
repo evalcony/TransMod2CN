@@ -20,7 +20,7 @@
 
 ## 使用方法
 
-1. 初次执行前，需要执行项目初始化脚本 init_shell.sh，自动创建程序执行需要的目录和文件。
+1. 初次执行前，需要执行项目初始化脚本 init_shell.sh，输入`namespace`，自动创建程序执行需要的目录和文件。
 2. 修改配置文件 appconf.ini
 3. 将待汉化 .tra 文件放入 tra/ 目录下。
 4. 执行需要的程序（如 main.py, simple_main.py, debug.py 等）
@@ -54,6 +54,7 @@ python3 simple_main.py
 - appKey: appKey
 - appSecret: appSecret
 - proxy: 代理地址
+- namespace: 命名空间，根据mod进行区分
 
 
 ## 依赖文件介绍
