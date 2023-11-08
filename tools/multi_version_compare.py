@@ -76,6 +76,8 @@ def ignore(line):
     global block_signal
     if l.startswith('/*'):
         block_signal = True
+        if l.endswith('*/'):
+            block_signal = False
         return True
     if l.endswith('*/'):
         block_signal = False
