@@ -14,7 +14,6 @@ def list_comp(en_target):
     zh_file_list = enzh[1]
 
     for i in range(len(en_file_list)):
-        # print(i)
         compare(en_file_list[i], zh_file_list[i], en_target, result)
 
     utils.write_file('', 'compare.txt', result)

@@ -72,12 +72,6 @@ def rep_lines(source_lines, args, target_str):
     source_lines[line_num] = source_lines[line_num].lower().replace(args[1].lower(), target_str)
     print(source_lines[line_num])
 
-# def rep_by_line(file, line_num, target_str):
-#     lines = utils.read_file(file)
-#     lines[line_num] = target_str
-#     file = file.repace('output/', '')
-#     utils.write_file('', file, lines)
-
 def manage(args):
     if args.s != '':
         param = args.s.lower()

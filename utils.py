@@ -21,10 +21,31 @@ def file_path(name):
     file_path = os.path.join(root_dir, name)
     return file_path
 
+
+def intercept(func):
+    def wrapper(*args, **kwargs):
+        # print('拦截方法:', func.__name__)
+        res = func(*args, **kwargs)
+        result = []
+        for r in res:
+            if r == '.DS_Store':
+                continue
+            result.append(r)
+        return result
+
+    return wrapper
+
+@intercept
 def read_tras():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     path = root_dir + '/resource/' + NAMESPACE
     return os.listdir(path+'/tra')
+
+@intercept
+def read_dir(dir):
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    path = root_dir + '/resource/' + NAMESPACE
+    return os.listdir(path + '/' + dir)
 
 def read_dict(filename, encoding='utf-8'):
     lines = []
@@ -50,6 +71,7 @@ def read_file(filename, encoding='utf-8'):
             lines.append(line.replace("\n",""))
     return lines
 
+# 以覆盖的方式写入
 def write_file(prefix, filename, lines, encoding='utf-8'):
     print('写入文件:', filename)
     root_dir = os.path.dirname(os.path.abspath(__file__))
@@ -64,6 +86,7 @@ def write_file(prefix, filename, lines, encoding='utf-8'):
         for m in lines:
             f.write(m+'\n')
 
+# 以追加的方式写入
 def write_line_in_append(prefix, filename, lines, encoding='utf-8'):
     print('写入文件:', filename)
     root_dir = os.path.dirname(os.path.abspath(__file__))
