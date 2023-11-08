@@ -163,8 +163,7 @@ def pick(sentence):
 if __name__ == '__main__':
 
     file_list = []
-    prefix = '../'
-    files = utils.read_tras(prefix)
+    files = utils.read_tras()
     for file in files:
         print(file)
         if file.lower().find('.tra') != -1:

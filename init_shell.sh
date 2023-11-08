@@ -16,6 +16,13 @@ if [ -n "$NAMESPACE" ]; then
   cd "$NAMESPACE"
 fi
 
+# resource 目录
+if [ ! -d resource ]; then
+    mkdir resource
+fi
+
+cd resource
+
 echo '创建 tra/'
 mkdir tra
 

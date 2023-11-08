@@ -135,5 +135,5 @@ if __name__ == '__main__':
 
     # comp()
     # print('test')
-    files = utils.read_tras('../')
+    files = utils.read_tras()
     print(files)
