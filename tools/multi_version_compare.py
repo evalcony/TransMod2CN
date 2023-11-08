@@ -37,7 +37,8 @@ def compare(dir_a, dir_b):
         res.append(file)
         for k in r:
             res.append(k)
-        res.append('')
+        res.append('-' * 20)
+
 
     for file in sb:
         if file not in sa:
@@ -53,7 +54,7 @@ def compare(dir_a, dir_b):
 
     for r in res:
         print(r)
-    # utils.write_file('', 'version_comp.txt', res)
+    utils.write_file('', 'version_comp.txt', res)
 
 
 block_signal = False
@@ -83,27 +84,65 @@ def ignore(line):
     return False
 
 def comp(lines_a, lines_b):
+    res = []
+
     len_a = len(lines_a)
     len_b = len(lines_b)
-    # if len_a < len_b:
-    #     min = len_a
-    # else:
-    #     min = len_b
-    # for i in range(min):
-    #     num_a = pick_num(lines_a[i])
-    #     num_b = pick_num(lines_b[i])
-    #     if num_a == num_b:
-    #         continue
-    #     if num_a == -1 and num_b == -1:
-    #         # todo
-    #         print('')
-    #     if num_a == -1 and num_b != -1:
-    #         # todo
-    #         print('')
+    if len_a == 0 or len_b == 0:
+        res.append(str(len_a) + ' ' + str(len_b))
+        res.append('')
+        return res
 
-    res = []
     res.append(str(len_a) + ' ' + str(len_b))
+    res.append('')
+    i = 0
+    j = 0
+    while (i < len_a and j < len_b):
+        num_a = pick_num(lines_a[i])
+        num_b = pick_num(lines_b[j])
+
+        if num_a == -1 and num_b == -1:
+            i = i + 1
+            j = j + 1
+            continue
+        if num_a == -1 and num_b != -1:
+            res.append('[]')
+            res.append(lines_b[j])
+            res.append('')
+            j = j+1
+        if num_a != -1 and num_b == -1:
+            res.append(lines_a[i])
+            res.append('[]')
+            res.append('')
+            i = i+1
+        if num_a != -1 and num_b != -1:
+            if num_a == num_b:
+                i = i+1
+                j = j+1
+            elif num_a < num_b:
+                res.append(lines_a[i])
+                res.append('[]')
+                res.append('')
+                i = i+1
+            elif num_a > num_b:
+                res.append('[]')
+                res.append(lines_b[j])
+                res.append('')
+                j = j+1
+
+    while i >= len_a and j < len_b:
+        res.append('[]')
+        res.append(lines_b[j])
+        res.append('')
+        j = j + 1
+    while i < len_a and j >= len_b:
+        res.append(lines_a[i])
+        res.append('[]')
+        res.append('')
+        i = i + 1
+
     return res
+
 
 
 def pick_num(line):
@@ -115,17 +154,4 @@ def pick_num(line):
 
 
 if __name__ == '__main__':
-    # file_list_a = []
-    # file_list_b = []
-    # file_list_a.append('output/game_ee.tra')
-    # file_list_a.append('output/game.tra')
-    # file_list_a.append('output/weidu.tra')
-    #
-    # file_list_b.append('output_test/game_ee.tra')
-    # file_list_b.append('output_test/game.tra')
-    # file_list_b.append('output_test/weidu.tra')
-
-    # root_dir = os.path.dirname(os.path.abspath(__file__))
-    # path = root_dir + '/resource/' + utils.NAMESPACE
-    # compare(path+'/output', path+'/output_test')
     compare('output_test1', 'output_test2')
