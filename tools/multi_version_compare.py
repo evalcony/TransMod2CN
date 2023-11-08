@@ -1,5 +1,5 @@
-import os
 import sys
+import argparse
 
 sys.path.append("..")
 import utils
@@ -162,4 +162,10 @@ def pick_num(line):
 # simple: 只展示总行数差异
 # detail: 精细到行差异
 if __name__ == '__main__':
-    compare('tra-en-utf', 'output-v32-utf', mode='simple')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d1', type=str, default='', help='路径1')
+    parser.add_argument('-d2', type=str, default='', help='路径2')
+    parser.add_argument('-mode', type=str, default='', help='simple:简单模式 detail:详细模式')
+    args = parser.parse_args()
+
+    compare(args.d1, args.d2, args.mode)

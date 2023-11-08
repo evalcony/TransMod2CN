@@ -9,6 +9,12 @@ def read_config(name):
     config.read(file_path(name))
     return config
 
+def write_config(config, name):
+    # 将修改后的配置写回文件
+    config_path = file_path(name)
+    with open(config_path, 'w') as configfile:
+        config.write(configfile)
+
 # 读取系统环境变量
 def read_env(keyname):
     if keyname in os.environ:
