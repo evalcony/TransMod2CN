@@ -138,4 +138,3 @@ def get_enzh_files(path_prefix):
     return (en_file_list, zh_file_list)
 
 NAMESPACE = read_config('appconf.ini')['mod']['namespace']
-print('namespace='+NAMESPACE)
