@@ -130,8 +130,8 @@ if __name__ == '__main__':
     start_line = 48138
     seperate_to_files(
         # sod 2.6.6 基准文件（从0开始）
-        takeout_text('../tra/dialog_sod_2.6.tra', start_line),
+        takeout_text('/tra/dialog_sod_2.6.tra', start_line),
         # 汉化后的文件（从@33... 开始）
-        takeout_text('../tra/dialog.tra', 0),
+        takeout_text('/tra/dialog.tra', 0),
         'sod_tag.txt'
     )

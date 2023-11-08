@@ -1,13 +1,10 @@
-import pydoc
-import sys, os
+import sys
 import re
 
 sys.path.append("..")
 import utils
 
 def process(file_list):
-    print()
-
     kw_map = dict()
 
     # 过滤掉常用的大写单词
@@ -166,9 +163,11 @@ def pick(sentence):
 if __name__ == '__main__':
 
     file_list = []
-    direct_path = 'adrian/tra/'
-    files = os.listdir('../'+direct_path)
+    prefix = '../'
+    files = utils.read_tras(prefix)
     for file in files:
+        print(file)
         if file.lower().find('.tra') != -1:
-            file_list.append(direct_path+file)
+            file_list.append('/tra/'+file)
+    print('*'*10)
     process(file_list=file_list)

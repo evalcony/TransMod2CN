@@ -1,5 +1,4 @@
 import main
-import os
 import utils
 import time
 import readlogs
@@ -87,7 +86,7 @@ def range_trans(file_list, output_encoding):
 # 临时3 翻译指定目录下文件
 if __name__ == '__main__':
     file_list = []
-    files = os.listdir('tra/')
+    files = utils.read_tras()
     for file in files:
         if file.lower().find('.tra') != -1:
             file_list.append(file)

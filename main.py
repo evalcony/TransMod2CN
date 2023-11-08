@@ -167,11 +167,11 @@ class Solver:
     # 因为共用 token, token_r
     def _init_word_dict(self):
         idx = 1
-        idx = self._init_token(utils.read_file('dict/word_dict.txt'), self.word_dict, idx)
-        idx = self._init_token(utils.read_file('dict/comp_word_dict.txt'), self.comp_word_dict, idx)
-        idx = self._init_token(utils.read_file('dict/manual_trans_word_dict.txt'), self.manual_trans_word_dict, idx)
-        idx = self._init_token(utils.read_file('dict/name_dict.txt'), self.name_dict, idx)
-        idx = self._init_token(utils.read_file('dict/sp_word_dict.txt'), self.sp_word_dict, idx)
+        idx = self._init_token(utils.read_dict('dict/word_dict.txt'), self.word_dict, idx)
+        idx = self._init_token(utils.read_dict('dict/comp_word_dict.txt'), self.comp_word_dict, idx)
+        idx = self._init_token(utils.read_dict('dict/manual_trans_word_dict.txt'), self.manual_trans_word_dict, idx)
+        idx = self._init_token(utils.read_dict('dict/name_dict.txt'), self.name_dict, idx)
+        idx = self._init_token(utils.read_dict('dict/sp_word_dict.txt'), self.sp_word_dict, idx)
 
         # 初始化ignore_dict
         self.ignore_dict['lbs.'] = ''

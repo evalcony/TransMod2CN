@@ -4,10 +4,10 @@ sys.path.append("..")
 import utils
 
 
-def single_seperate_to_file_test():
+def single_seperate_to_file_test(zh_file, en_file):
 
-    zh_lines = utils.read_file('../output/sod_89.tra')
-    sod_lines = utils.read_file('../output/sod_89_orig.tra')
+    zh_lines = utils.read_file(zh_file)
+    sod_lines = utils.read_file(en_file)
 
     line_cnt = 0
     res1 = []
@@ -71,4 +71,6 @@ def zh_signal(ch):
     return '\u4e00' <= ch <= '\u9fff'
 
 if __name__ == '__main__':
-    single_seperate_to_file_test()
+    zh_file = '/output/sod_89.tra'
+    en_file = '/output/sod_89_orig.tra'
+    single_seperate_to_file_test(zh_file, en_file)

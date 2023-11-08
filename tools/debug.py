@@ -32,7 +32,7 @@ def test_file(mode):
         print(r)
 
 def to_upper():
-    lines = utils.read_file('dict/word_dict.txt')
+    lines = utils.read_dict('dict/word_dict.txt')
     utils.to_upper(lines)
 
 def word_clear(word):
@@ -134,4 +134,6 @@ if __name__ == '__main__':
     # check()
 
     # comp()
-    print('test')
+    # print('test')
+    files = utils.read_tras('../')
+    print(files)
