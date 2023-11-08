@@ -83,11 +83,11 @@ def manage(args):
         param = args.s.lower()
         print('[搜索目标字符]' + param)
 
-        path_prefix = 'output/'
+        path_prefix = 'output'
         if args.p != '':
             path_prefix = args.p
         # 文件列表
-        file_list = utils.all_files(path_prefix)
+        file_list = all_files(path_prefix)
 
         # 不区分大小写
         result = searcher(file_list, param)
@@ -102,6 +102,14 @@ def manage(args):
         replace_by_search_result('output/search.txt', '')
         print('替换完成')
 
+# 构造文件名列表，就不需要每次都手动填了
+def all_files(path_prefix):
+    file_list = []
+    for i in range(1, 96):
+        file = path_prefix + '/sod_' + str(i) + '.tra'
+        file_list.append(file)
+    return file_list
+
 # 用法
 # python3 ctnt_search.py -s '目标字符串'   # 这会将结果输出到 search.txt中
 # python3 ctnt_search.py -r '要替换的成的字符串' # 读取 search.txt文件内容，替换相应字符串
@@ -112,8 +120,6 @@ if __name__ == '__main__':
     parser.add_argument('-r', type=str, default='', help='替换结果')
     parser.add_argument('-p', type=str, default='', help='搜索的路径')
     parser.add_argument('-d', action='store_true', help='删除字符串')
-    args = parser.parse_args()
-
     args = parser.parse_args()
 
     manage(args)

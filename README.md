@@ -80,3 +80,5 @@ python3 simple_main.py
 4. 威尔逊编年史 Wilson Chronicles
 5. 漫长的旅途 The Longer Road v2.06
 6. 巅峰之战 Ascension v2.023
+7. 艾德温罗曼史 Edwin Romance v3.1
+8. Evandra
