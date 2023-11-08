@@ -3,12 +3,10 @@
 
 .idea/
 
-tra/
-
-output/
-
 __pycache__/
 
 appconf.ini
 
 readlog.txt
+
+sod
