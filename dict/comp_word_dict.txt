@@ -72,7 +72,7 @@ Good <DAYNIGHTALL>#Good <DAYNIGHTALL>
 <PRO_RACE>#<PRO_RACE>
 <HESHE>#<HESHE>
 <PRO_CLASS>#<PRO_CLASS>
-< PRO_MANWOMAN>#< PRO_MANWOMAN>
+< PRO_MANWOMAN>#<PRO_MANWOMAN>
 <AMOUNT>#<AMOUNT>
 <CHARNAMME>#<CHARNAME>
 <SIRMAAM>#<SIRMAAM>
@@ -86,7 +86,7 @@ Good <DAYNIGHTALL>#Good <DAYNIGHTALL>
 <PLAYER6>#<PLAYER6>
 Elfsong Tavern#精灵之歌酒馆
 Elfsong#精灵之歌
-Spiritual Lock#精神枷锁
+Spiritual Lock#灵魂封锁
 lost class#失去资格
 doom spell#灾难术
 It's me#是我
