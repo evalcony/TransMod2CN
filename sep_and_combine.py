@@ -88,14 +88,14 @@ def de_brackets(line):
         line = line[:p1] + line[p2 + 1:]
     return line
 
-def combine_to_file(file_list, output):
+def combine_to_file(file_list, output_file):
     res = []
     for file in file_list:
         lines = utils.read_file(file)
         for l in lines:
             res.append(l)
 
-    utils.write_file('', output, res)
+    utils.write_file('', output_file, res)
 
 def manage(args):
     if args.s:
@@ -108,7 +108,7 @@ def manage(args):
         file_list = []
         file_list.append('output/0.tra')
         for i in range(1, args.up):
-            file_list.append('output/done/dia_' + str(i) + '.tra')
+            file_list.append('output/sod_' + str(i) + '.tra')
         combine_to_file(file_list, 'dialog.tra')
 
 if __name__ == '__main__':
