@@ -36,7 +36,7 @@ blindness#目盲术
 Vocalize#发声术
 Luck#幸运
 slashing#挥砍
-crushing#粉碎
+crushing#钝击
 piercing#穿刺
 blunt#钝击
 strikes as +1 weapon#攻击视为+1武器

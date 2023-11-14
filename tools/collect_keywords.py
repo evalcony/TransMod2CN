@@ -118,6 +118,7 @@ def pre_procedure(sentence):
     if sentence == '':
         return ''
 
+    print(sentence)
     # 提取~~中间部分
     if sentence.find('@') != -1:
         st = sentence.find('~')
@@ -131,6 +132,8 @@ def pre_procedure(sentence):
     while (sentence.find('[') != -1 and sentence.find(']') != -1):
         st = sentence.find('[')
         ed = sentence.find(']')
+        if st > ed:
+            break
         if st != 0:
             sentence = sentence[:st] + sentence[ed+1:]
         else:
@@ -163,10 +166,11 @@ def pick(sentence):
 if __name__ == '__main__':
 
     file_list = []
-    files = utils.read_tras()
-    for file in files:
-        print(file)
-        if file.lower().find('.tra') != -1:
-            file_list.append('/tra/'+file)
-    print('*'*10)
+    # files = utils.read_tras()
+    # for file in files:
+    #     print(file)
+    #     if file.lower().find('.tra') != -1:
+    #         file_list.append('/tra/'+file)
+    # print('*'*10)
+    file_list.append('total/dialog_en.tra')
     process(file_list=file_list)

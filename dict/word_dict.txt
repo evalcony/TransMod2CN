@@ -31,7 +31,7 @@ Wards#守卫
 Conjuration#咒法
 Shaman#萨满
 slashing#挥砍
-crushing#粉碎
+crushing#钝击
 piercing#穿刺
 placeholder#placeholder
 heya#heya
@@ -70,3 +70,4 @@ Hold!#站住！
 xvarts#蓝侏怪
 Amnian#安姆
 agents#情报人员
+Nereid#海仙女
