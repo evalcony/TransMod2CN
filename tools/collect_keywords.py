@@ -166,11 +166,10 @@ def pick(sentence):
 if __name__ == '__main__':
 
     file_list = []
-    # files = utils.read_tras()
-    # for file in files:
-    #     print(file)
-    #     if file.lower().find('.tra') != -1:
-    #         file_list.append('/tra/'+file)
-    # print('*'*10)
-    file_list.append('total/dialog_en.tra')
+    files = utils.read_tras()
+    for file in files:
+        print(file)
+        if file.lower().find('.tra') != -1:
+            file_list.append('/tra/'+file)
+    print('*'*10)
     process(file_list=file_list)
