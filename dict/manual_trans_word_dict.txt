@@ -23,7 +23,7 @@ Requires:#需求：
 Duration:#持续时间：
 attack per round#次攻击每轮
 attack damage:#攻击伤害：
-base THAC0:#基础护甲等级：
+base THAC0:#基础零级命中值：
 CLASS FEATURES:#职业特色：
 missile#远程
 THACO:#零级命中值：
