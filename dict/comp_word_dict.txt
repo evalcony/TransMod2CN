@@ -328,3 +328,4 @@ Full Plate Mail#全身锁甲
 how dare you#你怎么敢
 Watcher's Keep#观察者堡垒
 Copper Coronet#铜冠旅店
+Help me!#救我！

@@ -106,8 +106,9 @@ def manage(args):
         # 文件整合
 
         file_list = []
-        file_list.append('output/0.tra')
+        # 遍历分割后的文件
         for i in range(1, args.up):
+            # 拼装文件名
             file_list.append('output/sod_' + str(i) + '.tra')
         combine_to_file(file_list, 'dialog.tra')
 

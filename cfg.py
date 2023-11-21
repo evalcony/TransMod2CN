@@ -1,6 +1,12 @@
 import argparse
 import utils
 
+# 通过命令行对 appconf.ini 文件中的配置进行修改
+#
+# 使用方法 python3 cfg.py -u xxx.xxx=yyy
+# 例如 python3 cfg.py -u "config.use=google"
+# python3 cfg.py -u "mod.namespace=xxx"
+
 def update(update_param):
     # 解析参数
     key_end_pos = update_param.find('=')

@@ -44,7 +44,9 @@ python3 simple_main.py
 
 ## 翻译 API 设置
 
-目前支持 `有道`、`google`的翻译。
+目前支持的翻译工具
+- `有道`
+- `google`
 
 可在 `appconf.ini` 中配置选择哪个API。默认是有道翻译。（建议使用google）
 有道需要自己申请appkey。
@@ -55,7 +57,7 @@ python3 simple_main.py
 - appKey: appKey
 - appSecret: appSecret
 - proxy: 代理地址
-- namespace: 命名空间，根据mod进行区分
+- namespace: 命名空间，根据mod进行区分。一般来说，即mod名。
 
 
 ## 依赖文件介绍
@@ -82,4 +84,4 @@ python3 simple_main.py
 5. 漫长的旅途 The Longer Road v2.06
 6. 巅峰之战 Ascension v2.023
 7. 艾德温罗曼史 Edwin Romance v3.1
-8. Evandra
+8. 伊文德拉 Evandra NPC mod

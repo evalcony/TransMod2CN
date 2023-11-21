@@ -4,7 +4,9 @@ import sys
 sys.path.append("..")
 import utils
 
+# 工作量分配和统计
 
+# 统计各个文件的中文英文数量，输出位 sod_tag_整理.txt
 def parse_sod_tag_file():
     lines = utils.read_file('output/sod_tag.txt')
     res = []
