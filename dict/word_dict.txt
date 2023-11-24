@@ -72,3 +72,4 @@ Amnian#安姆
 agents#情报人员
 Nereid#海仙女
 Die!#受死吧！
+ranger#游侠
