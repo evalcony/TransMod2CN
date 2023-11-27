@@ -72,7 +72,6 @@ python3 simple_main.py
 ## todo
 
 - 失败重试
-- 不同版本 mod 文件比对
 - 支持多语言翻译配置
 
 ## 已汉化案例
