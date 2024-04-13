@@ -84,3 +84,4 @@ python3 simple_main.py
 6. 巅峰之战 Ascension v2.023
 7. 艾德温罗曼史 Edwin Romance v3.1
 8. 伊文德拉 Evandra NPC mod
+9. 爱蒙罗曼史 Imoen Romance v4.1
