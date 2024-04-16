@@ -33,7 +33,7 @@ echo '创建 temp_dir/'
 mkdir temp_dir
 
 echo '删除并创建 readlog.txt'
-del readlog.txt
+rm -rf readlog.txt
 touch readlog.txt
 
 if [ -n "$NAMESPACE" ]; then
