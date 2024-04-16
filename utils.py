@@ -128,13 +128,23 @@ def to_upper(lines):
         print(line.upper())
 
 def get_enzh_files(path_prefix):
-    en_file_list = []
-    zh_file_list = []
-    for i in range(1, 96):
-        # 英文源文件
-        en_file_list.append(path_prefix + '/orig/sod_'+str(i)+'_orig.tra')
-        # 汉化文件
-        zh_file_list.append(path_prefix + '/sod_'+str(i)+'.tra')
+    en_file_list = list_files('resource/'+NAMESPACE+'/'+path_prefix+'/orig/')
+    zh_file_list = list_files('resource/'+NAMESPACE+'/'+path_prefix)
     return (en_file_list, zh_file_list)
 
+def list_files(startpath):
+    res = []
+    print(startpath)
+    for root, _, filenames in os.walk(startpath):
+        for filename in filenames:
+            s = os.path.join(root, filename)
+            print(s)
+            res.append(s)
+        print('-' * 20)
+    return res
+
+
 NAMESPACE = read_config('appconf.ini')['mod']['namespace']
+
+
+# list_files('resource/Imoen-romance/output')
