@@ -384,147 +384,171 @@ class Solver:
             print('[还原后] ' + line)
         return line
 
-def fill(line, format_text, flag, fill_lines, trans_flag_lines):
-    trans_flag_lines.append(flag)
-    if flag:
-        fill_lines.append(format_text)
-    else:
-        fill_lines.append(line)
-
-def batch_convert(filename, solver, encoding):
-    lines = utils.read_file(filename, encoding)
-    # 待填补lines xxx{}yyy
-    fill_lines = []
-    # 是否要翻译的标志位数组 true/false
-    trans_flag_lines = []
-    # 需要翻译的lines
-    batch_trans_lines = []
-    j = -1
-    for i in range(len(lines)):
-        if i <= j:
-            continue
-        line = lines[i]
-        l = line.find('~')
-        if l != -1:
-            r = line.find('~', l + 1)
-            if r != -1:
-                # 在同一行
-                flag = solver.batch_solve(line[l + 1:r], batch_trans_lines, i)
-                fill(line,
-                     line[:l + 1] + '{}' + line[r:],
-                     flag, fill_lines, trans_flag_lines)
-            else:
-                # 在不同行
-                flag = solver.batch_solve(line[l + 1:], batch_trans_lines, i)
-                fill(line,
-                     line[:l+1] + '{}',
-                     flag, fill_lines, trans_flag_lines)
-                j = i+1
-                while (lines[j].find('~') == -1):
-                    flag = solver.batch_solve(lines[j], batch_trans_lines, j)
-                    fill(line,
-                         '{}',
-                         flag, fill_lines, trans_flag_lines)
-                    j = j+1
-                r = lines[j].find('~')
-                flag = solver.batch_solve(lines[j][:r], batch_trans_lines, i)
-                fill(line,
-                     '{}' + lines[j][r:],
-                     flag, fill_lines, trans_flag_lines)
-
-    # 批量翻译结果
-    batch_result = solver.translator.batch_translate(batch_trans_lines)
-    next = 0
-
-    res = []
-    for i in range(len(fill_lines)):
-        # 获取填充模板
-        l = fill_lines[i]
-        # 根据标志位，对True的行进行还原
-        if trans_flag_lines[i]:
-            # 特殊字符还原
-            text_rev = solver.text_after_solve(batch_result[next], pattern='batch', index=i)
-            res.append(l.format(text_rev))
-            next = next+1
+    def fill(self, line, format_text, flag, fill_lines, trans_flag_lines):
+        trans_flag_lines.append(flag)
+        if flag:
+            fill_lines.append(format_text)
         else:
-            res.append(fill_lines[i])
+            fill_lines.append(line)
 
-    return res
+    # 批量翻译
+    def batch_convert(self, lines, filename, output_encoding):
+        # 待填补lines xxx{}yyy
+        fill_lines = []
+        # 是否要翻译的标志位数组 true/false
+        trans_flag_lines = []
+        # 需要翻译的lines
+        batch_trans_lines = []
+        j = -1
+        for i in range(len(lines)):
+            if i <= j:
+                continue
+            line = lines[i]
+            l = line.find('~')
+            if l != -1:
+                r = line.find('~', l + 1)
+                if r != -1:
+                    # 在同一行
+                    flag = self.batch_solve(line[l + 1:r], batch_trans_lines, i)
+                    self.fill(line,
+                         line[:l + 1] + '{}' + line[r:],
+                         flag, fill_lines, trans_flag_lines)
+                else:
+                    # 在不同行
+                    flag = self.batch_solve(line[l + 1:], batch_trans_lines, i)
+                    self.fill(line,
+                         line[:l+1] + '{}',
+                         flag, fill_lines, trans_flag_lines)
+                    j = i+1
+                    while (lines[j].find('~') == -1):
+                        flag = self.batch_solve(lines[j], batch_trans_lines, j)
+                        self.fill(line,
+                             '{}',
+                             flag, fill_lines, trans_flag_lines)
+                        j = j+1
+                    r = lines[j].find('~')
+                    flag = self.batch_solve(lines[j][:r], batch_trans_lines, i)
+                    self.fill(line,
+                         '{}' + lines[j][r:],
+                         flag, fill_lines, trans_flag_lines)
 
+        # 批量翻译结果
+        batch_result = self.translator.batch_translate(batch_trans_lines)
+        next = 0
 
-def convert(filename, solver, encoding):
-    
-    lines = utils.read_file(filename, encoding)
-    res = []
-    j = -1
-    for i in range(len(lines)):
-        if i <= j:
-            continue
-        line = lines[i]
-
-        l = line.find('~')
-        if l != -1:
-            r = line.find('~',l+1)
-            if r != -1:
-                # 在同一行
-                res.append(line[:l+1] + solver.single_solve(line[l+1:r]) + line[r:])
+        res = []
+        for i in range(len(fill_lines)):
+            # 获取填充模板
+            l = fill_lines[i]
+            # 根据标志位，对True的行进行还原
+            if trans_flag_lines[i]:
+                # 特殊字符还原
+                text_rev = self.text_after_solve(batch_result[next], pattern='batch', index=i)
+                res.append(l.format(text_rev))
+                next = next+1
             else:
-                # 在不同行
-                res.append(line[:l+1] + solver.single_solve(line[l+1:]))
-                j = i+1
-                while (lines[j].find('~') == -1):
-                    res.append(solver.single_solve(lines[j]))
-                    j = j+1
-                r = lines[j].find('~')
-                res.append(solver.single_solve(lines[j][:r]) + lines[j][r:])
-    return res
+                res.append(fill_lines[i])
+
+        utils.write_file('', filename, res, output_encoding)
+
+    # 逐行翻译
+    def convert(self, lines, filename, start_line_num=0, output_encoding='utf-8'):
+        # 日志
+        log = readlogs.ReadLogs()
+
+        res = []
+        j = -1
+        for i in range(len(lines)):
+            if i < start_line_num:
+                continue
+            if i <= j:
+                continue
+            line = lines[i]
+
+            l = line.find('~')
+            if l != -1:
+                r = line.find('~',l+1)
+                if r != -1:
+                    # 在同一行
+                    result = []
+                    res.append(line[:l+1] + self.single_solve(line[l+1:r]) + line[r:])
+                    result.append(res[-1])
+                    # 记录日志
+                    self.do_write_append(log, '', filename, result, output_encoding, i + 1)
+                else:
+                    # 在不同行
+                    result = []
+                    res.append(line[:l+1] + self.single_solve(line[l+1:]))
+                    result.append(res[-1])
+                    j = i+1
+                    while (lines[j].find('~') == -1):
+                        res.append(self.single_solve(lines[j]))
+                        result.append(res[-1])
+                        j = j+1
+                    r = lines[j].find('~')
+                    res.append(self.single_solve(lines[j][:r]) + lines[j][r:])
+                    result.append(res[-1])
+                    # 记录日志
+                    self.do_write_append(log, '', filename, result, output_encoding, j + 1)
+        return res
+
+    def do_write_append(self, log, prefix, filename, lines, encoding, next_line_num):
+        for line in lines:
+            print('[翻译]' + line)
+        utils.write_line_in_append(prefix, filename, lines, encoding)
+        log.writelogs(filename, next_line_num)
 
 # 翻译后立刻追加
 def convert_and_write(input_file, solver, line_num, output_encoding='utf-8'):
     lines = utils.read_file(input_file)
-    file_args = input_file.split('/')
-    filename = file_args[-1]
-    log = readlogs.ReadLogs()
-    # output_encoding = 'gb18030'
+    solver.convert(lines, input_file.split('/')[-1], line_num, output_encoding='utf-8')
 
-    j = -1
-    for i in range(len(lines)):
-        if i < line_num:
-            continue
-        if i <= j:
-            continue
-        line = lines[i]
+# def convert_and_write(input_file, solver, line_num, output_encoding='utf-8'):
+#     lines = utils.read_file(input_file)
+#     file_args = input_file.split('/')
+#     filename = file_args[-1]
+#     log = readlogs.ReadLogs()
+#     # output_encoding = 'gb18030'
+#
+#     j = -1
+#     for i in range(len(lines)):
+#         if i < line_num:
+#             continue
+#         if i <= j:
+#             continue
+#         line = lines[i]
+#
+#         # 忽略注释
+#         if line.startswith('//'):
+#             continue
+#
+#         l = line.find('~')
+#         if l == -1:
+#             continue
+#
+#         r = line.find('~', l+1)
+#         if r != -1:
+#             # 在同一行
+#             result = []
+#             res = line[:l+1] + solver.single_solve(line[l+1:r]) + line[r:]
+#             result.append(res)
+#             do_write_append(log, '', filename, result, output_encoding, i+1)
+#         else:
+#             # 在不同行
+#             result = []
+#             res = line[:l+1] + solver.single_solve(line[l+1:])
+#             result.append(res)
+#             j = i + 1
+#             while (lines[j].find('~') == -1):
+#                 res = solver.single_solve(lines[j])
+#                 result.append(res)
+#                 j = j + 1
+#             r = lines[j].find('~')
+#             res = solver.single_solve(lines[j][:r]) + lines[j][r:]
+#             result.append(res)
+#
+#             do_write_append(log, '', filename, result, output_encoding, j+1)
 
-        # 忽略注释
-        if line.startswith('//'):
-            continue
-
-        l = line.find('~')
-        if l == -1:
-            continue
-
-        r = line.find('~', l+1)
-        if r != -1:
-            # 在同一行
-            result = []
-            res = line[:l+1] + solver.single_solve(line[l+1:r]) + line[r:]
-            result.append(res)
-            do_write_append(log, '', filename, result, output_encoding, i+1)
-        else:
-            # 在不同行
-            result = []
-            res = line[:l+1] + solver.single_solve(line[l+1:])
-            result.append(res)
-            j = i + 1
-            while (lines[j].find('~') == -1):
-                res = solver.single_solve(lines[j])
-                result.append(res)
-                j = j + 1
-            r = lines[j].find('~')
-            res = solver.single_solve(lines[j][:r]) + lines[j][r:]
-            result.append(res)
-
-            do_write_append(log, '', filename, result, output_encoding, j+1)
 
 def has_zh(string):
     if string == '':
@@ -537,11 +561,6 @@ def has_zh(string):
 def zh_signal(ch):
     return '\u4e00' <= ch <= '\u9fff'
 
-def do_write_append(log, prefix, filename, lines, encoding, next_line_num):
-    for line in lines:
-        print('[翻译]'+line)
-    utils.write_line_in_append(prefix, filename, lines, encoding)
-    log.writelogs(filename, next_line_num)
 
 def main():
 
@@ -553,35 +572,27 @@ def main():
     tup = log.readlogs()
     lastfile = tup[0]
     line_num = tup[1]
-
-
     flg = False
-
     files = os.listdir('tra/')
     for file in files:
-
         print(file)
         # 忽略setup.tra文件
         if file.lower() == 'setup.tra':
             continue
-
         if not flg and lastfile != '' and file != lastfile:
             print('pass ' + file)
             continue
         else:
             flg = True
-
         if file.lower().endswith('.tra'):
             # 先写log记录
             log.writelogs(file)
-
-            res = convert('tra/' + file, solver, 'utf-8')
-            for r in res:
-                print(r)
-            utils.write_file('', file, res, 'gb18030')
-            print('')
+            lines = utils.read_file('tra/'+file, 'utf-8')
+            # 批量翻译
+            solver.batch_convert(lines, file, 'utf-8')
+            # 逐行翻译
+            # solver.convert('tra/'+file, 'utf-8')
             print('-'*30)
-
     log.done()
 
 
