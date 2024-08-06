@@ -125,9 +125,8 @@ class Solver:
         # 预处理 得到一个包含若干占位符+原文的res
         res = self.text_pre_solve(line, pattern='batch', index=index)
 
+        # debug模式下不调用API
         if self.mode == 'debug':
-            # debug模式下不调用API
-            zh = res
             return False
         else:
             # 加入批量翻译
@@ -138,7 +137,6 @@ class Solver:
             return line
         # 预处理
         res = self.text_pre_solve(line)
-
         if self.mode == 'debug':
             # debug模式下不调用API
             zh = res
@@ -149,13 +147,10 @@ class Solver:
                 print('[API结果] ' + zh)
             # 计数器
             self.counter.incr()
-
         # 特殊字符还原
         rev_back = self.text_after_solve(zh)
-
         # 等待，防止频繁调用报错
         self.counter.wait()
-
         return rev_back
 
     # 还原声音占位符
@@ -170,7 +165,6 @@ class Solver:
             line = cache + line
             self.voice_multi_cache[index] = ''
             return line
-
     # 去除声音占位符
     def off_voice(self, line, pattern='single', index=0):
         if pattern == 'single':
@@ -229,6 +223,9 @@ class Solver:
             i = i+1
         return i
 
+    def _init_voice_cache(self, size):
+        for i in range(size):
+            self.voice_multi_cache.append('')
 
     def direct_translate(self, line):
         line = line.lower()
@@ -403,16 +400,14 @@ class Solver:
         if self.translator.name != 'google':
             print('必须使用google才能使用批量翻译')
             return []
-
-        # 待填补lines xxx{}yyy
+        # 初始化 self.voice_multi_cache
+        self._init_voice_cache(len(lines))
+        # 填充模板数组
         fill_lines = []
         # 是否要翻译的标志位数组 true/false
         trans_flag_lines = []
         # 需要翻译的lines
         batch_trans_lines = []
-        # 初始化 self.voice_multi_cache
-        for i in range(len(lines)):
-            self.voice_multi_cache.append('')
 
         j = -1
         for i in range(len(lines)):
