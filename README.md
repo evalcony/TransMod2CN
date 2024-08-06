@@ -10,6 +10,7 @@
 
 ## 项目功能
 
+- 批量翻译。提供批量翻译(`batch_convert`)和逐行翻译(`convert`)2种接口。建议用 `batch_convert`
 - 对 mod 的 .tra 文件进行翻译。支持单文件翻译、批量文件翻译。
 - 支持有道、google 的翻译API。
 - 支持对文件自动转码。gb18030, utf-8 等。
@@ -84,4 +85,5 @@ python3 simple_main.py
 6. 巅峰之战 Ascension v2.023
 7. 艾德温罗曼史 Edwin Romance v3.1
 8. 伊文德拉 Evandra NPC mod
-9. 爱蒙罗曼史 Imoen Romance v4.1
+9. 爱蒙罗曼史 Imoen Romance 
+10. v4.1
