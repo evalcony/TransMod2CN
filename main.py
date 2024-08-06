@@ -69,50 +69,78 @@ class Solver:
         # 等待计数器
         self.counter = Counter(mode)
 
-    def solve(self, line):
-        # print('[原文] '+line)
+        # 批量翻译的相关缓存
+        self.voice_multi_cache = []
 
+    def no_need_trans(self, line):
         # 忽略空行
         if line.strip() == '':
-            return line
-
+            return True
         # 如果没有需要翻译的部分，则忽略
         if has_zh(line):
-            return line
-
+            return True
         # 存档标志
         if line.find('000000') != -1:
-            return line
+            return True
         # 占位符标志
         if line == 'placeholder':
-            return line
-
-        # 去除text开头关于声音的标识
+            return True
+        # 如果仅包含声音标识
         line = self.off_voice(line)
-
         if line.strip() == '':
             print('')
             line = self.on_voice(line)
-            return line
-
+            return True
+        return False
+    def text_pre_solve(self, line, pattern='single', index=0):
         # 一些容易引起翻译错误的，在这里手动翻译，不调用API接口
         tup = self.direct_translate(line)
         res = tup[0]
         if tup[1]:
-            print('[直译] '+res)
+            print('[直译] ' + res)
             print('')
             # 回复声音的标识位
-            res = self.on_voice(res)
+            res = self.on_voice(res, pattern, index)
             return res
 
         if res.strip() == '':
             print('')
-            res = self.on_voice(res)
+            res = self.on_voice(res, pattern, index)
             return res
 
         # 替换token
         res = self.token_replace(res)
-        print('[替换token] '+res)
+        print('[替换token] ' + res)
+        return res
+    def text_after_solve(self, line, pattern='single', index=0):
+        # 占位符还原成字典值
+        rev_back = self.set_token_back(line)
+        # 声音标识位还原
+        rev_back = self.on_voice(rev_back, pattern, index)
+        return rev_back
+
+    def batch_solve(self, line, batch_trans_lines, index):
+        if not self.no_need_trans(line):
+            return line
+        # 预处理
+        res = self.text_pre_solve(line, pattern='batch', index=index)
+
+        if self.mode == 'debug':
+            # debug模式下不调用API
+            zh = res
+        else:
+            # 加入批量翻译
+            batch_trans_lines.append(res)
+            # 调用API进行翻译
+            # zh = self.translator.translate(res)
+            # if self.mode == 'debug':
+            #     print('[API结果] ' + zh)
+        return ''
+    def solve(self, line):
+        if not self.no_need_trans(line):
+            return line
+        # 预处理
+        res = self.text_pre_solve(line)
 
         if self.mode == 'debug':
             # debug模式下不调用API
@@ -125,34 +153,46 @@ class Solver:
             # 计数器
             self.counter.incr()
 
-        # 占位符还原成字典值
-        rev_back = self.set_token_back(zh)
-
-        # 声音标识位还原
-        rev_back = self.on_voice(rev_back)
-
-        print('')
+        # 特殊字符还原
+        rev_back = self.text_after_solve(zh)
 
         # 等待，防止频繁调用报错
         self.counter.wait()
 
         return rev_back
 
-    def on_voice(self, line):
-        cache = self.voice_cache
-        line = cache+line
-        self.voice_cache = ''
-        return line
+    # 还原声音占位符
+    def on_voice(self, line, pattern='single', index=0):
+        if pattern == 'single':
+            cache = self.voice_cache
+            line = cache+line
+            self.voice_cache = ''
+            return line
+        else:
+            cache = self.voice_multi_cache[index]
+            line = cache + line
+            self.voice_multi_cache[index] = ''
+            return line
 
-    def off_voice(self, line):
-        self.voice_cache = ''
-        if line[0] == '[' and line.find(']') != -1:
-            rp = line.find(']')
-            v = line[0:rp+1]
-            self.voice_cache = v
-            line = line[rp+1:]
-        return line
-
+    # 去除声音占位符
+    def off_voice(self, line, pattern='single', index=0):
+        if pattern == 'single':
+            self.voice_cache = ''
+            if line[0] == '[' and line.find(']') != -1:
+                rp = line.find(']')
+                v = line[0:rp+1]
+                self.voice_cache = v
+                line = line[rp+1:]
+            return line
+        else:
+            self.voice_multi_cache[index] = ''
+            if line[0] == '[' and line.find(']') != -1:
+                rp = line.find(']')
+                v = line[0:rp + 1]
+                self.voice_multi_cache[index] = v
+                line = line[rp + 1:]
+            return line
+    #todo self.voice_multi_cache 初始化
     def get_translator(self):
         use = utils.read_config('appconf.ini')['config']['use']
         if use == 'youdao':
@@ -342,6 +382,54 @@ class Solver:
         if self.mode == 'debug':
             print('[还原后] ' + line)
         return line
+
+def batch_convert(filename, solver, encoding):
+    lines = utils.read_file(filename, encoding)
+
+
+    # 待填补lines
+    fill_lines = []
+    # 需要翻译的lines
+    batch_trans_lines = []
+    j = -1
+    for i in range(len(lines)):
+        if i <= j:
+            continue
+        line = lines[i]
+        l = line.find('~')
+        if l != -1:
+            r = line.find('~', l + 1)
+            if r != -1:
+                # 在同一行
+                s = solver.batch_solve(line[l + 1:r])
+                fill_lines.append(line[:l + 1] + '{}' + line[r:])
+            else:
+                # 在不同行
+                s = solver.batch_solve(line[l + 1:])
+                fill_lines.append(line[:l+1] + '{}')
+                j = i+1
+                while (lines[j].find('~') == -1):
+                    s = solver.batch_solve(lines[j])
+                    fill_lines.append('{}')
+                    j = j+1
+                r = lines[j].find('~')
+                s = solver.batch_solve(lines[j][:r])
+                fill_lines.append('{}' + lines[j][r:])
+
+    # 批量翻译
+    # batch_result = ...(batch_trans_lines)
+    batch_result = []
+    next = 0
+
+    res = []
+    for i in range(len(fill_lines)):
+        l = fill_lines[i]
+        # 特殊字符还原
+        text_rev = solver.text_after_solve(batch_result[next], pattern='batch', index=i)
+        res.append(l.format(text_rev))
+
+    return res
+
 
 def convert(filename, solver, encoding):
     
