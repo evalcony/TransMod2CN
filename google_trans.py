@@ -28,6 +28,7 @@ SOFTWARE.
 import sys
 import re
 import utils
+from pygtrans import Translate
 
 if (sys.version_info[0] < 3):
     import urllib2
@@ -62,6 +63,13 @@ class GoogleTrans:
             parser = html
         return (parser.unescape(text))
 
+    def batch_translate(self, to_translate):
+        client = Translate(proxies={'https': self.PROXY_URL})
+        google_res = client.translate(to_translate, target=self.to_lang)
+        res = []
+        for g in google_res:
+            res.append(g.translatedText)
+        return res
 
     def translate(self, to_translate):
 
@@ -109,6 +117,8 @@ class GoogleTrans:
 
 if __name__ == '__main__':
     # text = "[76], I want to know why we're here. I never let anyone use some... [21] on me, taking the group away from [78] and her [27]!"
-    text = "hello world"
-    res = GoogleTrans("auto", "zh-CN").translate(text)
-    print(res)
+    # text = "hello world"
+    # res = GoogleTrans("auto", "zh-CN").translate(text)
+    # print(res)
+    texts = ['hello', 'world']
+    print(GoogleTrans("auto", "zh-CN").batch_translate(texts))
