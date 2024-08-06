@@ -77,7 +77,7 @@ class Solver:
         if line.strip() == '':
             return True
         # 如果没有需要翻译的部分，则忽略
-        if has_zh(line):
+        if self.has_zh(line):
             return True
         # 存档标志
         if line.find('000000') != -1:
@@ -120,7 +120,7 @@ class Solver:
         return rev_back
 
     def batch_solve(self, line, batch_trans_lines, index):
-        if not self.no_need_trans(line):
+        if self.no_need_trans(line):
             return False
         # 预处理 得到一个包含若干占位符+原文的res
         res = self.text_pre_solve(line, pattern='batch', index=index)
@@ -133,10 +133,6 @@ class Solver:
             # 加入批量翻译
             batch_trans_lines.append(res)
             return True
-            # 调用API进行翻译
-            # zh = self.translator.translate(res)
-            # if self.mode == 'debug':
-            #     print('[API结果] ' + zh)
     def single_solve(self, line):
         if not self.no_need_trans(line):
             return line
@@ -384,6 +380,17 @@ class Solver:
             print('[还原后] ' + line)
         return line
 
+    def has_zh(self, string):
+        if string == '':
+            return False
+        for ch in string:
+            if self.zh_signal(ch):
+                return True
+        return False
+
+    def zh_signal(self, ch):
+        return '\u4e00' <= ch <= '\u9fff'
+
     def fill(self, line, format_text, flag, fill_lines, trans_flag_lines):
         trans_flag_lines.append(flag)
         if flag:
@@ -391,7 +398,7 @@ class Solver:
         else:
             fill_lines.append(line)
 
-    # 批量翻译
+    # 批量翻译并写文件
     def batch_convert(self, lines, filename, output_encoding):
         # 待填补lines xxx{}yyy
         fill_lines = []
@@ -399,6 +406,10 @@ class Solver:
         trans_flag_lines = []
         # 需要翻译的lines
         batch_trans_lines = []
+        # 初始化 self.voice_multi_cache
+        for i in range(len(lines)):
+            self.voice_multi_cache.append('')
+
         j = -1
         for i in range(len(lines)):
             if i <= j:
@@ -448,10 +459,11 @@ class Solver:
                 next = next+1
             else:
                 res.append(fill_lines[i])
-
+        # 写文件
         utils.write_file('', filename, res, output_encoding)
+        return res
 
-    # 逐行翻译
+    # 逐行翻译并写文件
     def convert(self, lines, filename, start_line_num=0, output_encoding='utf-8'):
         # 日志
         log = readlogs.ReadLogs()
@@ -490,6 +502,8 @@ class Solver:
                     result.append(res[-1])
                     # 记录日志
                     self.do_write_append(log, '', filename, result, output_encoding, j + 1)
+        # 写文件
+        utils.write_file('', filename, res, output_encoding)
         return res
 
     def do_write_append(self, log, prefix, filename, lines, encoding, next_line_num):
@@ -497,70 +511,6 @@ class Solver:
             print('[翻译]' + line)
         utils.write_line_in_append(prefix, filename, lines, encoding)
         log.writelogs(filename, next_line_num)
-
-# 翻译后立刻追加
-def convert_and_write(input_file, solver, line_num, output_encoding='utf-8'):
-    lines = utils.read_file(input_file)
-    solver.convert(lines, input_file.split('/')[-1], line_num, output_encoding='utf-8')
-
-# def convert_and_write(input_file, solver, line_num, output_encoding='utf-8'):
-#     lines = utils.read_file(input_file)
-#     file_args = input_file.split('/')
-#     filename = file_args[-1]
-#     log = readlogs.ReadLogs()
-#     # output_encoding = 'gb18030'
-#
-#     j = -1
-#     for i in range(len(lines)):
-#         if i < line_num:
-#             continue
-#         if i <= j:
-#             continue
-#         line = lines[i]
-#
-#         # 忽略注释
-#         if line.startswith('//'):
-#             continue
-#
-#         l = line.find('~')
-#         if l == -1:
-#             continue
-#
-#         r = line.find('~', l+1)
-#         if r != -1:
-#             # 在同一行
-#             result = []
-#             res = line[:l+1] + solver.single_solve(line[l+1:r]) + line[r:]
-#             result.append(res)
-#             do_write_append(log, '', filename, result, output_encoding, i+1)
-#         else:
-#             # 在不同行
-#             result = []
-#             res = line[:l+1] + solver.single_solve(line[l+1:])
-#             result.append(res)
-#             j = i + 1
-#             while (lines[j].find('~') == -1):
-#                 res = solver.single_solve(lines[j])
-#                 result.append(res)
-#                 j = j + 1
-#             r = lines[j].find('~')
-#             res = solver.single_solve(lines[j][:r]) + lines[j][r:]
-#             result.append(res)
-#
-#             do_write_append(log, '', filename, result, output_encoding, j+1)
-
-
-def has_zh(string):
-    if string == '':
-        return False
-    for ch in string:
-        if zh_signal(ch):
-            return True
-    return False
-
-def zh_signal(ch):
-    return '\u4e00' <= ch <= '\u9fff'
-
 
 def main():
 

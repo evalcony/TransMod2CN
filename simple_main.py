@@ -10,7 +10,9 @@ import readlogs
 def trans_and_write_append(filename, output_encoding, line_num=0):
     print('*' * 20)
     start_time = time.time()
-    main.convert_and_write('tra/' + filename, main.Solver(''), line_num, output_encoding)
+    lines = utils.read_file('tra/' + filename)
+    solver = main.Solver('')
+    solver.convert(lines, filename, line_num, output_encoding)
     end_time = time.time()
     print("[执行时间]", end_time - start_time, "seconds")
 
@@ -20,13 +22,12 @@ def single_trans(filename, log, output_encoding):
     start_time = time.time()
     # 先写log记录
     log.writelogs(filename)
-
-    res = main.convert('tra/' + filename, main.Solver(''), 'utf-8')
+    solver = main.Solver('')
+    lines = utils.read_file('tra/'+filename)
+    res = solver.batch_convert(lines, filename, output_encoding)
 
     for r in res:
         print(r)
-    # 输出为 output_encoding 字符集
-    utils.write_file('', filename, res, output_encoding)
 
     end_time = time.time()
     print("[执行时间]", end_time - start_time, "seconds")
@@ -70,11 +71,11 @@ def range_trans(file_list, output_encoding):
 #     range_trans(file_list, 'utf-8')
 
 # 临时1
-# if __name__ == '__main__':
-#     file = 'sola.tra'
-#     log = readlogs.ReadLogs()
-#     single_trans(file, log, 'gb18030')
-#     log.done()
+if __name__ == '__main__':
+    file = 'le#inter.tra'
+    log = readlogs.ReadLogs()
+    single_trans(file, log, 'utf-8')
+    log.done()
 
 # # 临时2
 # if __name__ == '__main__':
@@ -84,10 +85,10 @@ def range_trans(file_list, output_encoding):
 #     range_trans(file_list, output_encoding='utf-8')
 
 # 临时3 翻译指定目录下文件
-if __name__ == '__main__':
-    file_list = []
-    files = utils.read_tras()
-    for file in files:
-        if file.lower().find('.tra') != -1:
-            file_list.append(file)
-    range_trans(file_list, output_encoding='utf-8')
+# if __name__ == '__main__':
+#     file_list = []
+#     files = utils.read_tras()
+#     for file in files:
+#         if file.lower().find('.tra') != -1:
+#             file_list.append(file)
+#     range_trans(file_list, output_encoding='utf-8')
