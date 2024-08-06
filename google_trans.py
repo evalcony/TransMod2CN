@@ -52,6 +52,7 @@ SV1;\
 
 class GoogleTrans:
     def __init__(self, from_lang, to_lang):
+        self.name = 'google'
         self.PROXY_URL = utils.read_config('appconf.ini')['google']['proxy']
         self.from_lang = from_lang
         self.to_lang = to_lang

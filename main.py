@@ -134,7 +134,7 @@ class Solver:
             batch_trans_lines.append(res)
             return True
     def single_solve(self, line):
-        if not self.no_need_trans(line):
+        if self.no_need_trans(line):
             return line
         # 预处理
         res = self.text_pre_solve(line)
@@ -189,7 +189,6 @@ class Solver:
                 self.voice_multi_cache[index] = v
                 line = line[rp + 1:]
             return line
-    #todo self.voice_multi_cache 初始化
     def get_translator(self):
         use = utils.read_config('appconf.ini')['config']['use']
         if use == 'youdao':
@@ -400,6 +399,11 @@ class Solver:
 
     # 批量翻译并写文件
     def batch_convert(self, lines, filename, output_encoding):
+
+        if self.translator.name != 'google':
+            print('必须使用google才能使用批量翻译')
+            return []
+
         # 待填补lines xxx{}yyy
         fill_lines = []
         # 是否要翻译的标志位数组 true/false

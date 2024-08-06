@@ -10,7 +10,7 @@
 
 ## 项目功能
 
-- 批量翻译。提供批量翻译(`batch_convert`)和逐行翻译(`convert`)2种接口。建议用 `batch_convert`
+- 批量翻译。提供批量翻译(`batch_convert`)和逐行翻译(`convert`)2种接口。建议用 `batch_convert`。使用`batch_convert`时，需要在配置文件中使用`google`。
 - 对 mod 的 .tra 文件进行翻译。支持单文件翻译、批量文件翻译。
 - 支持有道、google 的翻译API。
 - 支持对文件自动转码。gb18030, utf-8 等。

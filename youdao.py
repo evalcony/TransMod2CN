@@ -14,6 +14,7 @@ class YouDaoFanyi:
         appKey = appconf['youdao']['appKey']  # 应用id
         appSecret = appconf['youdao']['appSecret']  # 应用密钥
 
+        self.name = 'youdao'
         self.YOUDAO_URL = 'https://openapi.youdao.com/api/'
         self.APP_KEY = appKey  # 应用id
         self.APP_SECRET = appSecret  # 应用密钥
