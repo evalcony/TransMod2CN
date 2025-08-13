@@ -387,16 +387,19 @@ class Solver:
     def zh_signal(self, ch):
         return '\u4e00' <= ch <= '\u9fff'
 
-    def fill(self, line, format_text, flag, fill_lines, trans_flag_lines):
+    def fill(self, origin_text, format_text, flag, fill_lines, trans_flag_lines):
+        # trans_flag_lines 用来记录每行是否需要翻译
         trans_flag_lines.append(flag)
+        # fill_lines 用来记录每行的预处理结果
+        # 如果flag为true，说明需要翻译，则加入 format_text
         if flag:
             fill_lines.append(format_text)
+        # 如果flag为false，说明不需要翻译，则加入原文
         else:
-            fill_lines.append(line)
+            fill_lines.append(origin_text)
 
     # 批量翻译并写文件
     def batch_convert(self, lines, filename, output_encoding):
-
         if self.translator.name != 'google':
             print('必须使用google才能使用批量翻译')
             return []
@@ -408,12 +411,15 @@ class Solver:
         trans_flag_lines = []
         # 需要翻译的lines
         batch_trans_lines = []
-
+        print('开始批量翻译 len(lines):' + str(len(lines)))
         j = -1
         for i in range(len(lines)):
             if i <= j:
                 continue
             line = lines[i]
+            if not len(lines):
+                continue
+            # {} 作为占位符，用于填充待翻译文本，翻译好之后，替换到{}
             l = line.find('~')
             if l != -1:
                 r = line.find('~', l + 1)
@@ -430,7 +436,11 @@ class Solver:
                          line[:l+1] + '{}',
                          flag, fill_lines, trans_flag_lines)
                     j = i+1
+                    # 找到下一个结束符~，期间将这些行的数据，进行处理，放入 fill_lines 中
                     while (lines[j].find('~') == -1):
+                        if len(lines[j]) == 0:
+                            j = j+1
+                            continue
                         flag = self.batch_solve(lines[j], batch_trans_lines, j)
                         self.fill(line,
                              '{}',
@@ -441,7 +451,6 @@ class Solver:
                     self.fill(line,
                          '{}' + lines[j][r:],
                          flag, fill_lines, trans_flag_lines)
-
         # 批量翻译结果
         batch_result = self.translator.batch_translate(batch_trans_lines)
         next = 0
@@ -455,9 +464,11 @@ class Solver:
                 # 特殊字符还原
                 text_rev = self.text_after_solve(batch_result[next], pattern='batch', index=i)
                 res.append(l.format(text_rev))
+                # print(f'字符串还原：{text_rev}')
                 next = next+1
             else:
                 res.append(fill_lines[i])
+        print('=' * 20)
         # 写文件
         utils.write_file('', filename, res, output_encoding)
         return res
