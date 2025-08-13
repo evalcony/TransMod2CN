@@ -326,6 +326,7 @@ Herdrin#何德林
 Herod#赫罗德
 Hester#赫斯特
 Hexxat#赫克塞特
+Haiass#海斯
 Hoach Randymonk#霍奇·兰迪莫克
 Hokkney#郝克尼
 Horvat#霍瓦特
@@ -632,6 +633,7 @@ Safana#莎法娜
 Sallo#萨罗
 Sahana#萨哈娜
 Samuel#山谬
+Sandrah#珊德拉
 Sarevok Anchev#沙洛佛克·安基夫
 Sarevok#沙洛佛克
 Sashenstar#沙散塔

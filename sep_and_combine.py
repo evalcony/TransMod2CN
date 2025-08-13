@@ -34,7 +34,7 @@ def takeout_text(filename, start_line=0):
 
     return res
 
-def seperate_to_files(lines):
+def seperate_to_files(lines, page_size):
     line_cnt = 0
     res = []
     idx = 1
@@ -51,7 +51,7 @@ def seperate_to_files(lines):
         line_cnt += 1
 
         r += l.count('~')
-        if line_cnt > 50 and r % 2 == 0 and l.count('~') > 0:
+        if line_cnt > page_size and r % 2 == 0 and l.count('~') > 0:
             analyse.append('[文件名:]' + str(idx)+'.tra' + '  [~个数:]' + str(r) + ' [文件行数:]' + str(len(res)))
             analyse.append('[from:]' + res[0])
             analyse.append('[to:]' + res[-1])
@@ -101,7 +101,7 @@ def manage(args):
     if args.s:
         # 文件切分
         start_line = args.f
-        seperate_to_files(takeout_text('tra/dialog.tra', start_line))
+        seperate_to_files(takeout_text('tra/'+args.name, start_line), args.size)
     elif args.c:
         # 文件整合
 
@@ -109,15 +109,17 @@ def manage(args):
         # 遍历分割后的文件
         for i in range(1, args.up):
             # 拼装文件名
-            file_list.append('output/sod_' + str(i) + '.tra')
+            file_list.append('output/dia_' + str(i) + '.tra')
         combine_to_file(file_list, 'dialog.tra')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('-name', type=str, default='dialog.tra', help='文件名')
     parser.add_argument('-s', action='store_true', help='文件切分')
     parser.add_argument('-c', action='store_true', help='文件整合')
     parser.add_argument('-f', type=int, default=0, help='起始行数（从0开始）')
     parser.add_argument('-up', type=int, default=1, help='整合文件的文件id上界(必填)')
+    parser.add_argument('-size', type=int, default=100, help='每个文件的行数')
     args = parser.parse_args()
 
     manage(args)
