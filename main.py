@@ -442,7 +442,7 @@ class Solver:
                             j = j+1
                             continue
                         flag = self.batch_solve(lines[j], batch_trans_lines, j)
-                        self.fill(line,
+                        self.fill(lines[j],
                              '{}',
                              flag, fill_lines, trans_flag_lines)
                         j = j+1
@@ -452,7 +452,10 @@ class Solver:
                          '{}' + lines[j][r:],
                          flag, fill_lines, trans_flag_lines)
         # 批量翻译结果
-        batch_result = self.translator.batch_translate(batch_trans_lines)
+        if self.mode == 'debug':
+            batch_result = batch_trans_lines
+        else:
+            batch_result = self.translator.batch_translate(batch_trans_lines)
         next = 0
 
         res = []

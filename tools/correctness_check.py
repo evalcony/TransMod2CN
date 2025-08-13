@@ -10,6 +10,7 @@ def correctness_check(file_list):
     result_file = []
     result = []
     for file in file_list:
+        print(file)
         lines = utils.read_file(file)
         if len(lines) == 0:
             continue
@@ -43,7 +44,7 @@ def dispatcher(args):
         path_prefix = 'tra/'
         if args.p !='':
             path_prefix = args.p+'/'
-        up_limit = 500
+        up_limit = 1000
         if args.up != 0:
             up_limit = args.up
         # 文件正确性校验
