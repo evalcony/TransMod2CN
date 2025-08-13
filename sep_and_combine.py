@@ -107,16 +107,14 @@ def manage(args):
         file_list = []
         # 说明默认整合全部文件
         if args.down == 1 and args.up == -1:
-            NAMESPACE = utils.read_config('appconf.ini')['mod']['namespace']
-            file_list = utils.list_files('resource/'+NAMESPACE+'/output')
-            file_list = [f.split('/')[-1] for f in file_list if f.endswith('.tra')]
+            file_list = utils.read_tras()
             print(file_list)
         else:
             # 遍历分割后的文件
             for i in range(args.down, args.up):
                 # 拼装文件名
                 file_list.append('output/dia_' + str(i) + '.tra')
-        # combine_to_file(file_list, args.out)
+        combine_to_file(file_list, args.out)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
