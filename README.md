@@ -23,20 +23,42 @@
 ## 使用方法
 
 1. 初次执行前，需要执行项目初始化脚本 init_shell.sh，输入`namespace`，自动创建程序执行需要的目录和文件。
+`namespace` 的作用是为多个翻译任务做区分，进行环境隔离。一般而言，一个mod的翻译任务只需要一个`namespace`即可。
 2. 修改配置文件 appconf.ini
 3. 将待汉化 .tra 文件放入 tra/ 目录下。
 4. 执行需要的程序（如 main.py, simple_main.py, debug.py 等）
 
 main.py 对 tra/ 目录下的文件进行翻译。
 ```
-python3 main.py
+python3 main.py -p batch # 批量翻译模式。效率很高。翻译源必须配置为 google
+python3 main.py -p batch # 逐行翻译模式。效率较低。
 ```
 
 simple_main.py 可翻译单个文件、或者一个 file_list。并且，还支持断点重续功能，从失败位置继续翻译，而不是从头开始。
-建议使用此方法，比 main.py 更灵活，功能更丰富。
+
 ```
-python3 simple_main.py
+# 例子
+python3 simple_main.py -st 1 -ed 10 # 翻译 tra/ 目录下，文件序号从1到10的 tra 文件 
 ```
+
+### 文件的分片和整合
+对于一个庞大的 tra 文件（例如500行以上），建议对文件进行分片。程序会将指定文件分割成多个文件，然后进行管理、翻译，以及最后进行手动合并。
+```
+# 分片
+python3 sep_and_combine.py -s -name 文件名 -f 起始行数 -size 100 # 将文件切分成5个文件，每个文件100个 `@语块`。
+# 分片的文件会放在 tra/ 目录当中，文件名格式为 dia_1.tra, dia_2.tra, ...
+
+# 也可以简单写为
+python3 sep_and_combine.py -s -name 文件名 # 默认从0行开始，以100行为单位切分文件
+
+# 合并
+python3 sep_and_combine.py -c -down 分片文件的序号下界 -up 分片文件的序号上界 -out dialog.tra
+# 可以简单写为
+python3 sep_and_combine.py -c # 默认合并 output/ 目录下的所有文件，输出为 dialog.tra
+```
+
+### 如果中途失败了，怎么处理
+重新执行命令即可。代码做了断点记录，可从失败位置继续翻译，不会重复翻译。
 
 ## 一些辅助程序
 

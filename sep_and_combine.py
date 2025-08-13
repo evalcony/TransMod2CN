@@ -104,13 +104,19 @@ def manage(args):
         seperate_to_files(takeout_text('tra/'+args.name, start_line), args.size)
     elif args.c:
         # 文件整合
-
         file_list = []
-        # 遍历分割后的文件
-        for i in range(1, args.up):
-            # 拼装文件名
-            file_list.append('output/dia_' + str(i) + '.tra')
-        combine_to_file(file_list, 'dialog.tra')
+        # 说明默认整合全部文件
+        if args.down == 1 and args.up == -1:
+            NAMESPACE = utils.read_config('appconf.ini')['mod']['namespace']
+            file_list = utils.list_files('resource/'+NAMESPACE+'/output')
+            file_list = [f.split('/')[-1] for f in file_list if f.endswith('.tra')]
+            print(file_list)
+        else:
+            # 遍历分割后的文件
+            for i in range(args.down, args.up):
+                # 拼装文件名
+                file_list.append('output/dia_' + str(i) + '.tra')
+        # combine_to_file(file_list, args.out)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -118,7 +124,9 @@ if __name__ == '__main__':
     parser.add_argument('-s', action='store_true', help='文件切分')
     parser.add_argument('-c', action='store_true', help='文件整合')
     parser.add_argument('-f', type=int, default=0, help='起始行数（从0开始）')
-    parser.add_argument('-up', type=int, default=1, help='整合文件的文件id上界(必填)')
+    parser.add_argument('-down', type=int, default=1, help='整合文件的文件id下界(可选)')
+    parser.add_argument('-up', type=int, default=-1, help='整合文件的文件id上界(可选)')
+    parser.add_argument('-out', type=str, default='dialog.tra', help='文件整合后的文件名')
     parser.add_argument('-size', type=int, default=100, help='每个文件的行数')
     args = parser.parse_args()
 

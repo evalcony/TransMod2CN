@@ -92,6 +92,21 @@ def write_file(prefix, filename, lines, encoding='utf-8'):
         for m in lines:
             f.write(m+'\n')
 
+# 以覆盖的方式写入
+def split_write_file(prefix, filename, lines, encoding='utf-8'):
+    print('写入文件:', filename)
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    path = root_dir + '/resource/' + NAMESPACE +'/tra/'
+    # 防止路径不存在
+    if not os.path.exists(path):
+        os.makedirs(path)
+    dir_file_path = path + '/' + prefix+filename
+    if not os.path.exists(dir_file_path):
+        open(dir_file_path, 'w').close()
+    with open(dir_file_path, 'w', encoding=encoding) as f:
+        for m in lines:
+            f.write(m+'\n')
+
 # 以追加的方式写入
 def write_line_in_append(prefix, filename, lines, encoding='utf-8'):
     print('写入文件:', filename)

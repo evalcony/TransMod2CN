@@ -522,7 +522,7 @@ class Solver:
         utils.write_line_in_append(prefix, filename, lines, encoding)
         log.writelogs(filename, next_line_num)
 
-def main():
+def main(args):
 
     # solver
     solver = Solver()
@@ -548,13 +548,21 @@ def main():
             # 先写log记录
             log.writelogs(file)
             lines = utils.read_file('tra/'+file, 'utf-8')
-            # 批量翻译
-            solver.batch_convert(lines, file, 'utf-8')
-            # 逐行翻译
-            # solver.convert('tra/'+file, 'utf-8')
+            if args.p == 'batch':
+                solver.batch_convert(lines, file, 'utf-8')
+            elif args.p == 'line':
+                # 逐行翻译
+                solver.convert('tra/'+file, 'utf-8')
+            else:
+                print('参数错误')
+                break
             print('-'*30)
     log.done()
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', type=str, default='', help='翻译模式 batch/line')
+    args = parser.parse_args()
+
+    main(args)
